@@ -41,13 +41,12 @@ export const Route = createFileRoute("/")({
 /* ---------- shared bits ---------- */
 function Logo() {
   return (
-    <a href="#top" className="flex items-center gap-2.5" aria-label="Matrix Root home">
-      <svg viewBox="0 0 32 32" className="h-8 w-8" aria-hidden>
-        <rect x="1" y="1" width="30" height="30" rx="8" className="fill-void stroke-glass-border" />
-        <rect x="8" y="8" width="3.5" height="16" rx="1" className="fill-primary" />
-        <rect x="14.25" y="12" width="3.5" height="12" rx="1" className="fill-primary-deep" />
-        <rect x="20.5" y="8" width="3.5" height="16" rx="1" className="fill-primary" />
-      </svg>
+    <a href="#top" className="group flex items-center gap-3" aria-label="Matrix Root home">
+      <img
+        src="/logo.png"
+        alt="Matrix Root logo"
+        className="h-10 w-10 rounded-lg object-contain transition-transform group-hover:scale-105"
+      />
       <span className="text-lg font-semibold tracking-tight">
         <span className="text-primary">Matrix</span> Root
       </span>
