@@ -24,8 +24,8 @@ import {
 const TITLE = "Matrix Root (MatrixRoot) — Custom Software & Web Development Agency";
 const DESC =
   "Matrix Root (MatrixRoot) is a premier bespoke software agency engineering production-grade custom web applications, SaaS MVPs, enterprise dashboards, and scalable backend infrastructure with 100% IP ownership.";
-const CANONICAL = "https://matrixroot.com/";
-const LOGO_URL = "https://matrixroot.com/logo.png";
+const CANONICAL = "https://matrixroot.tech/";
+const LOGO_URL = "https://matrixroot.tech/logo.png";
 const KEYWORDS =
   "Matrix Root, MatrixRoot, matrixroot, matrix root technologies, matrixroot agency, custom software development, web application development, full-stack software agency, SaaS MVP development, React, TanStack, Node.js, enterprise dashboards";
 
@@ -34,7 +34,7 @@ const SCHEMA_DATA = {
   "@graph": [
     {
       "@type": "Organization",
-      "@id": "https://matrixroot.com/#organization",
+      "@id": "https://matrixroot.tech/#organization",
       name: "Matrix Root",
       alternateName: ["MatrixRoot", "Matrix Root Technologies", "MatrixRoot Tech", "MatrixRoot Agency"],
       url: CANONICAL,
@@ -68,20 +68,20 @@ const SCHEMA_DATA = {
     },
     {
       "@type": "WebSite",
-      "@id": "https://matrixroot.com/#website",
+      "@id": "https://matrixroot.tech/#website",
       url: CANONICAL,
       name: "Matrix Root",
       alternateName: ["MatrixRoot", "Matrix Root Technologies"],
       description:
         "Production-grade custom software, scalable web applications, and backend infrastructure engineered by Matrix Root (MatrixRoot).",
       publisher: {
-        "@id": "https://matrixroot.com/#organization",
+        "@id": "https://matrixroot.tech/#organization",
       },
       inLanguage: "en-US",
     },
     {
       "@type": "ProfessionalService",
-      "@id": "https://matrixroot.com/#service",
+      "@id": "https://matrixroot.tech/#service",
       name: "Matrix Root (MatrixRoot)",
       image: LOGO_URL,
       url: CANONICAL,
@@ -136,7 +136,7 @@ const SCHEMA_DATA = {
     },
     {
       "@type": "FAQPage",
-      "@id": "https://matrixroot.com/#faq",
+      "@id": "https://matrixroot.tech/#faq",
       mainEntity: [
         {
           "@type": "Question",
@@ -182,6 +182,7 @@ export const Route = createFileRoute("/")({
       { name: "description", content: DESC },
       { name: "keywords", content: KEYWORDS },
       { name: "author", content: "Matrix Root" },
+      { name: "msvalidate.01", content: "E3CA50907BCB82F8CB2CDEB628BEE984" },
       { property: "og:site_name", content: "Matrix Root" },
       { property: "og:title", content: TITLE },
       { property: "og:description", content: DESC },

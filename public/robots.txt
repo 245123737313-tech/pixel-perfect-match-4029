@@ -13,4 +13,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://matrixroot.com/sitemap.xml
+Sitemap: https://matrixroot.tech/sitemap.xml
