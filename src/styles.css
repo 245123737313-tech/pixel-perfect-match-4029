@@ -108,18 +108,29 @@
 }
 
 @layer base {
-  html { scroll-behavior: smooth; }
-  body { font-family: var(--font-sans); -webkit-font-smoothing: antialiased; }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
 }
 @utility glass {
   background: var(--card);
   border: 1px solid var(--glass-border);
   backdrop-filter: blur(12px);
 }
-@utility glow-bg { background: var(--gradient-glow); }
-@utility shadow-glow { box-shadow: var(--shadow-glow); }
+@utility glow-bg {
+  background: var(--gradient-glow);
+}
+@utility shadow-glow {
+  box-shadow: var(--shadow-glow);
+}
 @utility grid-lines {
-  background-image: linear-gradient(var(--glass-border) 1px, transparent 1px), linear-gradient(90deg, var(--glass-border) 1px, transparent 1px);
+  background-image:
+    linear-gradient(var(--glass-border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--glass-border) 1px, transparent 1px);
   background-size: 64px 64px;
   mask-image: radial-gradient(ellipse at top, black 20%, transparent 70%);
 }
