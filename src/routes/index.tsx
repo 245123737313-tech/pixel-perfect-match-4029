@@ -6,6 +6,7 @@ import {
   Boxes,
   Calendar,
   Check,
+  ChevronDown,
   Clock,
   Code2,
   Gauge,
@@ -20,19 +21,189 @@ import {
   Zap,
 } from "lucide-react";
 
-const TITLE = "Matrix Root — Custom Software & Web Development Agency";
+const TITLE = "Matrix Root (MatrixRoot) — Custom Software & Web Development Agency";
 const DESC =
-  "Production-grade web apps, dashboards and backend infrastructure with zero bloat and 100% code ownership.";
+  "Matrix Root (MatrixRoot) is a premier bespoke software agency engineering production-grade custom web applications, SaaS MVPs, enterprise dashboards, and scalable backend infrastructure with 100% IP ownership.";
+const CANONICAL = "https://matrixroot.com/";
+const LOGO_URL = "https://matrixroot.com/logo.png";
+const KEYWORDS =
+  "Matrix Root, MatrixRoot, matrixroot, matrix root technologies, matrixroot agency, custom software development, web application development, full-stack software agency, SaaS MVP development, React, TanStack, Node.js, enterprise dashboards";
+
+const SCHEMA_DATA = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://matrixroot.com/#organization",
+      name: "Matrix Root",
+      alternateName: ["MatrixRoot", "Matrix Root Technologies", "MatrixRoot Tech", "MatrixRoot Agency"],
+      url: CANONICAL,
+      logo: {
+        "@type": "ImageObject",
+        url: LOGO_URL,
+        width: 360,
+        height: 360,
+        caption: "Matrix Root (MatrixRoot) Logo",
+      },
+      image: LOGO_URL,
+      email: "matrixroottechnologies@gmail.com",
+      description:
+        "Matrix Root (MatrixRoot) is a bespoke software development studio engineering production-grade web applications, dashboards, APIs, and scalable infrastructure.",
+      contactPoint: {
+        "@type": "ContactPoint",
+        contactType: "customer service",
+        email: "matrixroottechnologies@gmail.com",
+      },
+      knowsAbout: [
+        "Custom Software Development",
+        "Web Application Development",
+        "SaaS MVPs",
+        "React",
+        "TanStack",
+        "TypeScript",
+        "Node.js",
+        "PostgreSQL",
+        "Cloud Infrastructure",
+      ],
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://matrixroot.com/#website",
+      url: CANONICAL,
+      name: "Matrix Root",
+      alternateName: ["MatrixRoot", "Matrix Root Technologies"],
+      description:
+        "Production-grade custom software, scalable web applications, and backend infrastructure engineered by Matrix Root (MatrixRoot).",
+      publisher: {
+        "@id": "https://matrixroot.com/#organization",
+      },
+      inLanguage: "en-US",
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://matrixroot.com/#service",
+      name: "Matrix Root (MatrixRoot)",
+      image: LOGO_URL,
+      url: CANONICAL,
+      priceRange: "$$$",
+      email: "matrixroottechnologies@gmail.com",
+      areaServed: {
+        "@type": "Country",
+        name: "Worldwide",
+      },
+      hasOfferCatalog: {
+        "@type": "OfferCatalog",
+        name: "Matrix Root Software Engineering Services",
+        itemListElement: [
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "Custom Web Applications & MVPs",
+              description:
+                "High-performance SPAs, SaaS platforms, fast-turnaround MVPs, and payment integration.",
+            },
+          },
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "Business Portals & Dashboards",
+              description:
+                "Internal admin tools, multi-tenant portals, RBAC permissions, and automated workflows.",
+            },
+          },
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "API & Backend Architecture",
+              description:
+                "Scalable REST/GraphQL APIs, database modeling, secure auth systems, and third-party webhooks.",
+            },
+          },
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "Performance & Code Refactoring",
+              description:
+                "Database indexing, page speed optimization, security audits, and legacy modernization.",
+            },
+          },
+        ],
+      },
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://matrixroot.com/#faq",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "What is Matrix Root (MatrixRoot)?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Matrix Root (MatrixRoot) is an engineering-first custom software agency specializing in production-grade web applications, dashboards, API architecture, and performance optimization.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Who owns the source code built by Matrix Root?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Clients retain 100% intellectual property (IP) and code ownership. Full repository access, deployment credentials, and comprehensive runbooks are transferred upon delivery.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "How fast can Matrix Root deliver a custom software project or MVP?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Rush MVP delivery timelines range between 2 to 4 weeks, while standard full-scale web applications take 6 to 8 weeks delivered across transparent two-week agile sprints.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "What tech stacks does Matrix Root specialize in?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Matrix Root specializes in modern production stacks including React, TanStack, TypeScript, Tailwind CSS, Node.js, PostgreSQL, Docker, and edge cloud networks.",
+          },
+        },
+      ],
+    },
+  ],
+};
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: TITLE },
       { name: "description", content: DESC },
+      { name: "keywords", content: KEYWORDS },
+      { name: "author", content: "Matrix Root" },
+      { property: "og:site_name", content: "Matrix Root" },
       { property: "og:title", content: TITLE },
       { property: "og:description", content: DESC },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: CANONICAL },
+      { property: "og:image", content: LOGO_URL },
+      { property: "og:image:width", content: "360" },
+      { property: "og:image:height", content: "360" },
+      { property: "og:image:alt", content: "Matrix Root (MatrixRoot) Official Logo" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:site", content: "@matrixroot" },
+      { name: "twitter:title", content: TITLE },
+      { name: "twitter:description", content: DESC },
+      { name: "twitter:image", content: LOGO_URL },
+      { name: "twitter:image:alt", content: "Matrix Root (MatrixRoot) Official Logo" },
+    ],
+    links: [{ rel: "canonical", href: CANONICAL }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify(SCHEMA_DATA),
+      },
     ],
   }),
   component: Index,
@@ -41,10 +212,12 @@ export const Route = createFileRoute("/")({
 /* ---------- shared bits ---------- */
 function Logo() {
   return (
-    <a href="#top" className="group flex items-center gap-3" aria-label="Matrix Root home">
+    <a href="#top" className="group flex items-center gap-3" aria-label="Matrix Root (MatrixRoot) home">
       <img
         src="/logo.png"
-        alt="Matrix Root logo"
+        alt="Matrix Root (MatrixRoot) Official Logo"
+        width={40}
+        height={40}
         className="h-10 w-10 rounded-lg object-contain transition-transform group-hover:scale-105"
       />
       <span className="text-lg font-semibold tracking-tight">
@@ -86,7 +259,7 @@ function Section({
 }
 
 /* ---------- data ---------- */
-const NAV = ["Services", "Process", "Case Studies", "About", "Contact"];
+const NAV = ["Services", "Process", "Estimator", "Case Studies", "About", "FAQ", "Contact"];
 const slug = (s: string) => s.toLowerCase().replace(/\s+/g, "-");
 
 const SERVICES = [
@@ -207,19 +380,22 @@ function Index() {
   return (
     <div id="top" className="min-h-screen overflow-x-hidden bg-background">
       <Navbar />
-      <Hero />
-      <Services />
-      <Process />
-      <Estimator
-        onRequest={(f) => {
-          setForm((s) => ({ ...s, ...f }));
-          document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
-          toast.success("Spec added to your project intake form.");
-        }}
-      />
-      <CaseStudies />
-      <About />
-      <Contact form={form} setForm={setForm} />
+      <main id="main-content">
+        <Hero />
+        <Services />
+        <Process />
+        <Estimator
+          onRequest={(f) => {
+            setForm((s) => ({ ...s, ...f }));
+            document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+            toast.success("Spec added to your project intake form.");
+          }}
+        />
+        <CaseStudies />
+        <About />
+        <Faq />
+        <Contact form={form} setForm={setForm} />
+      </main>
       <Footer />
     </div>
   );
@@ -272,7 +448,7 @@ function Navbar() {
 
 function Hero() {
   return (
-    <section className="relative px-5 pb-24 pt-40 md:pb-32 md:pt-48">
+    <section id="hero" className="relative px-5 pb-24 pt-40 md:pb-32 md:pt-48">
       <div className="grid-lines pointer-events-none absolute inset-0" />
       <div className="glow-bg pointer-events-none absolute left-1/2 top-10 h-[600px] w-[900px] -translate-x-1/2" />
       <div className="relative mx-auto max-w-4xl text-center">
@@ -281,7 +457,7 @@ function Hero() {
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75" />
             <span className="relative inline-flex h-2 w-2 rounded-full bg-primary" />
           </span>
-          Custom Web & Technical Solutions
+          Matrix Root · Custom Web & Technical Solutions
         </span>
         <h1 className="mt-8 text-4xl font-semibold leading-[1.08] tracking-tight md:text-6xl">
           Production-Grade Software & Scalable Web Solutions{" "}
@@ -290,8 +466,9 @@ function Hero() {
           </span>
         </h1>
         <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground">
-          We design, architect, and deliver custom web applications, high-performance dashboards,
-          and robust backend infrastructure with zero bloat and 100% code ownership.
+          At Matrix Root (MatrixRoot), we design, architect, and deliver custom web applications,
+          high-performance dashboards, and robust backend infrastructure with zero bloat and 100%
+          code ownership.
         </p>
         <div className="mt-10 flex flex-col justify-center gap-3 sm:flex-row">
           <a href="#contact" className={btnPrimary}>
@@ -586,9 +763,9 @@ function About() {
             An engineering-first studio.
           </h2>
           <p className="mt-5 text-muted-foreground">
-            Matrix Root is a bespoke software agency for businesses and startups that need things
-            built right the first time. You work directly with the engineers writing your code — no
-            account managers, no bloat.
+            Matrix Root (MatrixRoot Technologies) is a bespoke software agency for businesses and
+            startups that need things built right the first time. You work directly with senior
+            engineers writing your code — no account managers, no bloat.
           </p>
         </div>
         <div className="grid gap-4 sm:grid-cols-2">
@@ -600,6 +777,71 @@ function About() {
             </div>
           ))}
         </div>
+      </div>
+    </Section>
+  );
+}
+
+const FAQS = [
+  {
+    q: "What is Matrix Root (MatrixRoot), and what services do you provide?",
+    a: "Matrix Root (MatrixRoot) is an engineering-first custom software development agency. We design, architect, and ship high-performance web applications, SaaS MVPs, internal admin dashboards, and scalable backend/API infrastructure for growing businesses.",
+  },
+  {
+    q: "Who owns the source code and IP built by Matrix Root?",
+    a: "You retain 100% intellectual property (IP) and code ownership. We sign a non-disclosure agreement (NDA) before kickoff, and all source code, deployment pipelines, cloud configurations, and documentation are transferred to you with zero lock-in.",
+  },
+  {
+    q: "How fast can Matrix Root deliver a project or MVP?",
+    a: "For fast-track MVPs, we offer rush delivery within 2 to 4 weeks. For standard production applications, projects typically span 6 to 8 weeks across two-week agile sprints, featuring clickable weekly builds and continuous feedback loops.",
+  },
+  {
+    q: "What tech stack does Matrix Root use?",
+    a: "We specialize in battle-tested, modern production stacks: React, TanStack Start/Router, TypeScript, Tailwind CSS, Node.js, PostgreSQL, Docker, and edge cloud environments. Every architectural decision is made to maximize speed, scalability, and maintainability.",
+  },
+  {
+    q: "How do I get started with Matrix Root?",
+    a: "You can configure your project in our Scope Estimator above or submit your requirements through our Project Intake form below. A senior engineer will review your brief and reply within 24 hours to schedule a 30-minute discovery call.",
+  },
+];
+
+function Faq() {
+  const [openIdx, setOpenIdx] = useState<number | null>(0);
+
+  return (
+    <Section id="faq">
+      <SectionHead
+        eyebrow="FAQ"
+        title="Frequently asked questions about Matrix Root"
+        sub="Clear answers about our engineering process, code ownership, tech stack, and sprint delivery."
+      />
+      <div className="mx-auto max-w-3xl space-y-4">
+        {FAQS.map((faq, i) => {
+          const isOpen = openIdx === i;
+          return (
+            <div
+              key={faq.q}
+              className={`glass rounded-2xl transition-all duration-200 ${isOpen ? "border-primary/40 shadow-glow" : "hover:border-primary/20"}`}
+            >
+              <button
+                type="button"
+                onClick={() => setOpenIdx(isOpen ? null : i)}
+                aria-expanded={isOpen}
+                className="flex w-full items-center justify-between p-6 text-left"
+              >
+                <span className="pr-4 text-base font-semibold text-foreground">{faq.q}</span>
+                <ChevronDown
+                  className={`h-5 w-5 shrink-0 text-primary transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}
+                />
+              </button>
+              {isOpen && (
+                <div className="border-t border-glass-border/40 px-6 pb-6 pt-4 text-sm leading-relaxed text-muted-foreground">
+                  <p>{faq.a}</p>
+                </div>
+              )}
+            </div>
+          );
+        })}
       </div>
     </Section>
   );
@@ -804,7 +1046,7 @@ function Footer() {
         </div>
       </div>
       <p className="mx-auto mt-12 max-w-6xl text-xs text-muted-foreground">
-        © {new Date().getFullYear()} Matrix Root. All rights reserved.
+        © {new Date().getFullYear()} Matrix Root (MatrixRoot). All rights reserved.
       </p>
     </footer>
   );
