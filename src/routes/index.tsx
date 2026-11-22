@@ -215,23 +215,23 @@ function Logo() {
   return (
     <a href="#top" className="group flex items-center gap-3" aria-label="Matrix Root (MatrixRoot) home">
       <img
-        src="/logo.png"
+        src="/logo-transparent.png"
         alt="Matrix Root (MatrixRoot) Official Logo"
         width={40}
         height={40}
-        className="h-10 w-10 rounded-lg object-contain transition-transform group-hover:scale-105"
+        className="h-10 w-10 object-contain transition-transform group-hover:scale-105"
       />
-      <span className="text-lg font-semibold tracking-tight">
-        <span className="text-primary">Matrix</span> Root
+      <span className="text-lg font-semibold tracking-tight text-foreground">
+        <span className="text-primary font-bold">Matrix</span> Root
       </span>
     </a>
   );
 }
 
 const btnPrimary =
-  "inline-flex items-center justify-center gap-2 rounded-lg bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground transition-all hover:shadow-glow hover:-translate-y-0.5 active:translate-y-0";
+  "inline-flex items-center justify-center gap-2 rounded-lg bg-primary px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-all hover:bg-primary-deep hover:shadow-glow hover:-translate-y-0.5 active:translate-y-0";
 const btnGhost =
-  "inline-flex items-center justify-center gap-2 rounded-lg glass px-5 py-2.5 text-sm font-medium text-foreground transition-all hover:border-primary/40 hover:text-primary";
+  "inline-flex items-center justify-center gap-2 rounded-lg border border-border bg-white px-5 py-2.5 text-sm font-medium text-foreground shadow-xs transition-all hover:border-primary/50 hover:text-primary hover:bg-slate-50";
 
 function SectionHead({ eyebrow, title, sub }: { eyebrow: string; title: string; sub?: string }) {
   return (
@@ -405,7 +405,7 @@ function Index() {
 function Navbar() {
   const [open, setOpen] = useState(false);
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-glass-border bg-background/70 backdrop-blur-md">
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-border bg-white/85 backdrop-blur-md shadow-xs">
       <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5">
         <Logo />
         <div className="hidden items-center gap-8 md:flex">
@@ -413,7 +413,7 @@ function Navbar() {
             <a
               key={n}
               href={`#${slug(n)}`}
-              className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+              className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
             >
               {n}
             </a>
@@ -422,18 +422,18 @@ function Navbar() {
         <a href="#contact" className={`${btnPrimary} hidden md:inline-flex`}>
           Start a Project
         </a>
-        <button className="md:hidden" onClick={() => setOpen(!open)} aria-label="Toggle menu">
+        <button className="md:hidden text-foreground" onClick={() => setOpen(!open)} aria-label="Toggle menu">
           {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </button>
       </nav>
       {open && (
-        <div className="flex flex-col gap-4 border-t border-glass-border px-5 py-6 md:hidden">
+        <div className="flex flex-col gap-4 border-t border-border bg-white px-5 py-6 shadow-lg md:hidden">
           {NAV.map((n) => (
             <a
               key={n}
               href={`#${slug(n)}`}
               onClick={() => setOpen(false)}
-              className="text-muted-foreground"
+              className="font-medium text-muted-foreground hover:text-foreground"
             >
               {n}
             </a>
@@ -449,20 +449,20 @@ function Navbar() {
 
 function Hero() {
   return (
-    <section id="hero" className="relative px-5 pb-24 pt-40 md:pb-32 md:pt-48">
+    <section id="hero" className="relative px-5 pb-24 pt-40 md:pb-32 md:pt-48 bg-white overflow-hidden">
       <div className="grid-lines pointer-events-none absolute inset-0" />
       <div className="glow-bg pointer-events-none absolute left-1/2 top-10 h-[600px] w-[900px] -translate-x-1/2" />
       <div className="relative mx-auto max-w-4xl text-center">
-        <span className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-accent px-4 py-1.5 text-xs font-medium text-accent-foreground">
+        <span className="inline-flex items-center gap-2 rounded-full border border-primary/25 bg-primary/10 px-4 py-1.5 text-xs font-semibold text-primary">
           <span className="relative flex h-2 w-2">
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75" />
             <span className="relative inline-flex h-2 w-2 rounded-full bg-primary" />
           </span>
           Matrix Root · Custom Web & Technical Solutions
         </span>
-        <h1 className="mt-8 text-4xl font-semibold leading-[1.08] tracking-tight md:text-6xl">
+        <h1 className="mt-8 text-4xl font-semibold leading-[1.08] tracking-tight md:text-6xl text-foreground">
           Production-Grade Software & Scalable Web Solutions{" "}
-          <span className="bg-gradient-to-r from-primary to-primary-deep bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-amber-500 via-primary to-primary-deep bg-clip-text text-transparent">
             Engineered for Modern Business.
           </span>
         </h1>
@@ -487,7 +487,7 @@ function Hero() {
           ].map(([I, t]) => {
             const Icon = I as typeof ShieldCheck;
             return (
-              <span key={t as string} className="flex items-center gap-2">
+              <span key={t as string} className="flex items-center gap-2 font-medium">
                 <Icon className="h-4 w-4 text-primary" />
                 {t as string}
               </span>
@@ -501,7 +501,7 @@ function Hero() {
 
 function Services() {
   return (
-    <Section id="services">
+    <Section id="services" className="bg-white">
       <SectionHead
         eyebrow="Services"
         title="Core engineering capabilities"
@@ -511,13 +511,13 @@ function Services() {
         {SERVICES.map(({ icon: Icon, title, body }) => (
           <div
             key={title}
-            className="group glass relative overflow-hidden rounded-2xl p-8 transition-all duration-300 hover:-translate-y-1 hover:border-primary/30"
+            className="group glass relative overflow-hidden rounded-2xl p-8 transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-md bg-white border border-border"
           >
             <div className="glow-bg pointer-events-none absolute -right-20 -top-20 h-60 w-60 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-            <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-primary/20 bg-accent">
+            <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-primary/20 bg-primary/10 text-primary">
               <Icon className="h-6 w-6 text-primary" />
             </div>
-            <h3 className="mt-6 text-xl font-semibold">{title}</h3>
+            <h3 className="mt-6 text-xl font-semibold text-foreground">{title}</h3>
             <p className="mt-3 text-muted-foreground">{body}</p>
           </div>
         ))}
@@ -532,7 +532,7 @@ function Process() {
     <Section id="process" className="bg-void">
       <SectionHead eyebrow="How We Work" title="A predictable engineering process" />
       <div className="mb-10 flex justify-center">
-        <span className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-accent px-4 py-1.5 text-xs font-medium text-accent-foreground">
+        <span className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-4 py-1.5 text-xs font-semibold text-primary">
           <Sparkles className="h-3.5 w-3.5" /> Fixed-Scope Predictability or Monthly Retainers
         </span>
       </div>
@@ -542,20 +542,20 @@ function Process() {
             key={s.n}
             onMouseEnter={() => setActive(i)}
             onClick={() => setActive(i)}
-            className={`glass rounded-2xl p-6 text-left transition-all duration-300 ${active === i ? "border-primary/40 shadow-glow" : "opacity-70 hover:opacity-100"}`}
+            className={`glass rounded-2xl p-6 text-left transition-all duration-300 ${active === i ? "border-primary bg-white shadow-md ring-1 ring-primary/20" : "border-border/80 bg-white/70 hover:bg-white hover:border-primary/30"}`}
           >
             <span
-              className={`font-mono text-sm ${active === i ? "text-primary" : "text-muted-foreground"}`}
+              className={`font-mono text-sm font-bold ${active === i ? "text-primary" : "text-muted-foreground"}`}
             >
               {s.n}
             </span>
-            <h3 className="mt-3 font-semibold">{s.title}</h3>
+            <h3 className="mt-3 font-semibold text-foreground">{s.title}</h3>
             <p className="mt-2 text-sm text-muted-foreground">{s.body}</p>
             <div className="mt-4 flex flex-wrap gap-2">
               {s.tags.map((t) => (
                 <span
                   key={t}
-                  className="rounded-md bg-secondary px-2 py-0.5 font-mono text-[11px] text-muted-foreground"
+                  className="rounded-md bg-slate-100 px-2 py-0.5 font-mono text-[11px] font-medium text-slate-700"
                 >
                   {t}
                 </span>
@@ -582,7 +582,7 @@ function Chip({
       type="button"
       onClick={onClick}
       aria-pressed={on}
-      className={`rounded-lg border px-4 py-2.5 text-left text-sm transition-all ${on ? "border-primary bg-accent text-accent-foreground" : "border-glass-border text-muted-foreground hover:border-primary/40 hover:text-foreground"}`}
+      className={`rounded-lg border px-4 py-2.5 text-left text-sm transition-all ${on ? "border-primary bg-primary/10 text-primary font-semibold shadow-xs" : "border-border bg-white text-muted-foreground hover:border-primary/40 hover:text-foreground"}`}
     >
       {children}
     </button>
@@ -613,7 +613,7 @@ function Estimator({ onRequest }: { onRequest: (f: Partial<FormState>) => void }
         title="Estimate your project in seconds"
         sub="Pick your spec and get an instant sprint timeline."
       />
-      <div className="glass grid overflow-hidden rounded-3xl md:grid-cols-[1.4fr_1fr]">
+      <div className="grid overflow-hidden rounded-3xl border border-border bg-white shadow-sm md:grid-cols-[1.4fr_1fr]">
         <div className="space-y-8 p-8">
           <div>
             <p className="mb-3 text-sm font-medium">Project Type</p>
@@ -643,10 +643,10 @@ function Estimator({ onRequest }: { onRequest: (f: Partial<FormState>) => void }
                 <Chip key={f.id} on={feats.includes(f.id)} onClick={() => toggle(f.id)}>
                   <span className="flex items-center gap-2">
                     <span
-                      className={`flex h-4 w-4 items-center justify-center rounded border ${feats.includes(f.id) ? "border-primary bg-primary" : "border-muted-foreground"}`}
+                      className={`flex h-4 w-4 items-center justify-center rounded border ${feats.includes(f.id) ? "border-primary bg-primary" : "border-slate-300 bg-white"}`}
                     >
                       {feats.includes(f.id) && (
-                        <Check className="h-3 w-3 text-primary-foreground" />
+                        <Check className="h-3 w-3 text-white" />
                       )}
                     </span>
                     {f.label}
@@ -656,18 +656,18 @@ function Estimator({ onRequest }: { onRequest: (f: Partial<FormState>) => void }
             </div>
           </div>
         </div>
-        <div className="relative flex flex-col justify-between border-t border-glass-border bg-void p-8 md:border-l md:border-t-0">
-          <div className="glow-bg pointer-events-none absolute inset-0" />
+        <div className="relative flex flex-col justify-between border-t border-border bg-slate-50/80 p-8 md:border-l md:border-t-0">
+          <div className="glow-bg pointer-events-none absolute inset-0 opacity-40" />
           <div className="relative">
-            <p className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
+            <p className="font-mono text-xs uppercase tracking-widest font-semibold text-slate-500">
               Estimated timeline
             </p>
             <p className="mt-4 text-6xl font-semibold tracking-tight text-primary">
               ~{est.weeks}
-              <span className="ml-2 text-2xl text-foreground">weeks</span>
+              <span className="ml-2 text-2xl font-medium text-foreground">weeks</span>
             </p>
-            <p className="mt-2 text-muted-foreground">{est.sprints} two-week sprints</p>
-            <ul className="mt-8 space-y-2 font-mono text-sm text-muted-foreground">
+            <p className="mt-2 text-sm text-slate-600">{est.sprints} two-week sprints</p>
+            <ul className="mt-8 space-y-2 font-mono text-sm text-slate-700">
               <li>› {est.t.label}</li>
               <li>› {est.tl.label} delivery</li>
               <li>
@@ -710,27 +710,27 @@ function CaseStudies() {
         {CASES.map((c) => (
           <article
             key={c.client}
-            className="glass flex flex-col rounded-2xl p-7 transition-all duration-300 hover:-translate-y-1 hover:border-primary/30"
+            className="flex flex-col rounded-2xl border border-border bg-white p-7 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-md"
           >
-            <p className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
+            <p className="font-mono text-xs uppercase tracking-widest font-semibold text-slate-500">
               {c.client}
             </p>
             <p className="mt-5 text-2xl font-semibold leading-tight text-primary">{c.impact}</p>
             <dl className="mt-6 space-y-4 text-sm">
               <div>
-                <dt className="font-medium">Challenge</dt>
-                <dd className="mt-1 text-muted-foreground">{c.challenge}</dd>
+                <dt className="font-semibold text-foreground">Challenge</dt>
+                <dd className="mt-1 text-slate-600">{c.challenge}</dd>
               </div>
               <div>
-                <dt className="font-medium">Solution</dt>
-                <dd className="mt-1 text-muted-foreground">{c.solution}</dd>
+                <dt className="font-semibold text-foreground">Solution</dt>
+                <dd className="mt-1 text-slate-600">{c.solution}</dd>
               </div>
             </dl>
             <div className="mt-auto flex flex-wrap gap-2 pt-6">
               {c.tags.map((t) => (
                 <span
                   key={t}
-                  className="rounded-md border border-glass-border px-2 py-0.5 font-mono text-[11px] text-muted-foreground"
+                  className="rounded-md border border-slate-200 bg-slate-100 px-2.5 py-0.5 font-mono text-[11px] font-medium text-slate-700"
                 >
                   {t}
                 </span>
@@ -754,16 +754,16 @@ function About() {
     ["Full client autonomy", "You own the repos, infra, and IP. No lock-in, ever."],
   ];
   return (
-    <Section id="about">
+    <Section id="about" className="bg-white">
       <div className="grid items-center gap-12 md:grid-cols-2">
         <div>
           <p className="font-mono text-xs uppercase tracking-[0.2em] text-primary">
             About Matrix Root
           </p>
-          <h2 className="mt-3 text-3xl font-semibold tracking-tight md:text-4xl">
+          <h2 className="mt-3 text-3xl font-semibold tracking-tight md:text-4xl text-foreground">
             An engineering-first studio.
           </h2>
-          <p className="mt-5 text-muted-foreground">
+          <p className="mt-5 text-slate-600 leading-relaxed">
             Matrix Root (MatrixRoot Technologies) is a bespoke software agency for businesses and
             startups that need things built right the first time. You work directly with senior
             engineers writing your code — no account managers, no bloat.
@@ -771,10 +771,12 @@ function About() {
         </div>
         <div className="grid gap-4 sm:grid-cols-2">
           {pillars.map(([t, b]) => (
-            <div key={t} className="glass rounded-2xl p-5">
-              <Zap className="h-5 w-5 text-primary" />
-              <h3 className="mt-3 font-semibold">{t}</h3>
-              <p className="mt-1.5 text-sm text-muted-foreground">{b}</p>
+            <div key={t} className="rounded-2xl border border-border bg-white p-6 shadow-xs transition-all hover:border-primary/30 hover:shadow-sm">
+              <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-primary/20 bg-primary/10">
+                <Zap className="h-5 w-5 text-primary" />
+              </div>
+              <h3 className="mt-4 font-semibold text-foreground">{t}</h3>
+              <p className="mt-1.5 text-sm text-slate-600">{b}</p>
             </div>
           ))}
         </div>
@@ -810,7 +812,7 @@ function Faq() {
   const [openIdx, setOpenIdx] = useState<number | null>(0);
 
   return (
-    <Section id="faq">
+    <Section id="faq" className="bg-void">
       <SectionHead
         eyebrow="FAQ"
         title="Frequently asked questions about Matrix Root"
@@ -822,7 +824,7 @@ function Faq() {
           return (
             <div
               key={faq.q}
-              className={`glass rounded-2xl transition-all duration-200 ${isOpen ? "border-primary/40 shadow-glow" : "hover:border-primary/20"}`}
+              className={`rounded-2xl border bg-white transition-all duration-200 ${isOpen ? "border-primary shadow-sm ring-1 ring-primary/20" : "border-border shadow-xs hover:border-primary/40"}`}
             >
               <button
                 type="button"
@@ -836,7 +838,7 @@ function Faq() {
                 />
               </button>
               {isOpen && (
-                <div className="border-t border-glass-border/40 px-6 pb-6 pt-4 text-sm leading-relaxed text-muted-foreground">
+                <div className="border-t border-border/80 px-6 pb-6 pt-4 text-sm leading-relaxed text-slate-600">
                   <p>{faq.a}</p>
                 </div>
               )}
@@ -849,7 +851,7 @@ function Faq() {
 }
 
 const field =
-  "w-full rounded-lg border border-input bg-void px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground/60 outline-none transition-colors focus:border-primary focus:ring-1 focus:ring-ring";
+  "w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm text-foreground placeholder:text-slate-400 outline-none transition-colors focus:border-primary focus:ring-1 focus:ring-primary shadow-2xs";
 
 function Contact({
   form,
@@ -866,15 +868,15 @@ function Contact({
     setForm(EMPTY);
   };
   return (
-    <Section id="contact" className="bg-void">
+    <Section id="contact" className="bg-white">
       <SectionHead
         eyebrow="Project Intake"
         title="Let's scope your build"
         sub="Tell us what you're building. A senior engineer will reply personally."
       />
       <div className="grid gap-6 md:grid-cols-[1.6fr_1fr]">
-        <form onSubmit={submit} className="glass grid gap-4 rounded-3xl p-8 sm:grid-cols-2">
-          <label className="text-sm">
+        <form onSubmit={submit} className="grid gap-4 rounded-3xl border border-border bg-white p-8 shadow-sm sm:grid-cols-2">
+          <label className="text-sm font-medium text-slate-700">
             Full Name
             <input
               required
@@ -884,7 +886,7 @@ function Contact({
               placeholder="Jane Doe"
             />
           </label>
-          <label className="text-sm">
+          <label className="text-sm font-medium text-slate-700">
             Business Email
             <input
               required
@@ -895,7 +897,7 @@ function Contact({
               placeholder="jane@company.com"
             />
           </label>
-          <label className="text-sm sm:col-span-2">
+          <label className="text-sm font-medium text-slate-700 sm:col-span-2">
             Company Name
             <input
               value={form.company}
@@ -904,7 +906,7 @@ function Contact({
               placeholder="Acme Inc."
             />
           </label>
-          <label className="text-sm">
+          <label className="text-sm font-medium text-slate-700">
             Project Category
             <select
               required
@@ -918,7 +920,7 @@ function Contact({
               ))}
             </select>
           </label>
-          <label className="text-sm">
+          <label className="text-sm font-medium text-slate-700">
             Budget Range
             <select
               required
@@ -932,21 +934,21 @@ function Contact({
               ))}
             </select>
           </label>
-          <fieldset className="text-sm sm:col-span-2">
-            <legend>Timeline</legend>
-            <div className="mt-1.5 grid grid-cols-3 gap-2">
+          <fieldset className="text-sm font-medium text-slate-700 sm:col-span-2">
+            <legend className="mb-1.5">Timeline</legend>
+            <div className="grid grid-cols-3 gap-2">
               {TIMELINES.map((t) => (
                 <Chip
                   key={t.id}
                   on={form.timeline === t.label}
                   onClick={() => setForm((s) => ({ ...s, timeline: t.label }))}
                 >
-                  {t.label} <span className="text-xs opacity-70">· {t.hint}</span>
+                  <span className="font-medium">{t.label}</span> <span className="text-xs opacity-75">· {t.hint}</span>
                 </Chip>
               ))}
             </div>
           </fieldset>
-          <label className="text-sm sm:col-span-2">
+          <label className="text-sm font-medium text-slate-700 sm:col-span-2">
             Project Summary
             <textarea
               required
@@ -957,7 +959,7 @@ function Contact({
               placeholder="What are you building, and what does success look like?"
             />
           </label>
-          <button type="submit" className={`${btnPrimary} sm:col-span-2`}>
+          <button type="submit" className={`${btnPrimary} sm:col-span-2 py-3`}>
             Submit Project Brief <ArrowRight className="h-4 w-4" />
           </button>
         </form>
@@ -979,21 +981,23 @@ function Contact({
           ].map(({ icon: Icon, t, b, href }) => {
             const inner = (
               <>
-                <Icon className="h-5 w-5 text-primary" />
-                <p className="mt-3 text-sm text-muted-foreground">{t}</p>
-                <p className="mt-1 font-medium">{b}</p>
+                <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-primary/20 bg-primary/10">
+                  <Icon className="h-5 w-5 text-primary" />
+                </div>
+                <p className="mt-3 text-xs font-semibold uppercase tracking-wider text-slate-500">{t}</p>
+                <p className="mt-1 font-semibold text-foreground">{b}</p>
               </>
             );
             return href ? (
               <a
                 key={t}
                 href={href}
-                className="glass rounded-2xl p-6 transition-colors hover:border-primary/40"
+                className="flex flex-col rounded-2xl border border-border bg-white p-6 shadow-xs transition-all hover:border-primary/40 hover:shadow-md"
               >
                 {inner}
               </a>
             ) : (
-              <div key={t} className="glass rounded-2xl p-6">
+              <div key={t} className="flex flex-col rounded-2xl border border-border bg-white p-6 shadow-xs">
                 {inner}
               </div>
             );
@@ -1006,24 +1010,24 @@ function Contact({
 
 function Footer() {
   return (
-    <footer className="border-t border-glass-border px-5 py-16">
+    <footer className="border-t border-border bg-slate-50/80 px-5 py-16">
       <div className="mx-auto grid max-w-6xl gap-10 md:grid-cols-[2fr_1fr_1fr]">
         <div>
           <Logo />
-          <p className="mt-4 max-w-sm text-sm text-muted-foreground">
+          <p className="mt-4 max-w-sm text-sm text-slate-600 leading-relaxed">
             We build software the way it should be built: lean, documented, and fully yours.
           </p>
-          <p className="mt-4 flex items-center gap-2 text-xs text-muted-foreground">
+          <p className="mt-4 flex items-center gap-2 text-xs font-medium text-slate-500">
             <ShieldCheck className="h-4 w-4 text-primary" /> NDA on request. 100% IP transferred on
             delivery.
           </p>
         </div>
         <div>
-          <p className="text-sm font-medium">Quick links</p>
-          <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
+          <p className="text-sm font-semibold text-foreground">Quick links</p>
+          <ul className="mt-4 space-y-2 text-sm text-slate-600">
             {NAV.map((n) => (
               <li key={n}>
-                <a href={`#${slug(n)}`} className="hover:text-foreground">
+                <a href={`#${slug(n)}`} className="transition-colors hover:text-primary">
                   {n}
                 </a>
               </li>
@@ -1031,22 +1035,22 @@ function Footer() {
           </ul>
         </div>
         <div>
-          <p className="text-sm font-medium">Legal</p>
-          <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
+          <p className="text-sm font-semibold text-foreground">Legal</p>
+          <ul className="mt-4 space-y-2 text-sm text-slate-600">
             <li>
-              <a href="#top" className="hover:text-foreground">
+              <a href="#top" className="transition-colors hover:text-primary">
                 Privacy Policy
               </a>
             </li>
             <li>
-              <a href="#top" className="hover:text-foreground">
+              <a href="#top" className="transition-colors hover:text-primary">
                 Terms of Service
               </a>
             </li>
           </ul>
         </div>
       </div>
-      <p className="mx-auto mt-12 max-w-6xl text-xs text-muted-foreground">
+      <p className="mx-auto mt-12 max-w-6xl text-xs text-slate-500">
         © {new Date().getFullYear()} Matrix Root (MatrixRoot). All rights reserved.
       </p>
     </footer>
