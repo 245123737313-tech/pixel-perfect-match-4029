@@ -8,3 +8,5 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+Use a shared site shell and focused file-based routes for Matrix Root’s public pages so navigation, brand framing, and metadata stay consistent.
