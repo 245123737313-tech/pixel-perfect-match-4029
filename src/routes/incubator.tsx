@@ -35,27 +35,55 @@ function IncubatorPage() {
         title="Helping student founders turn ambition into momentum."
         description="We believe promising founders grow by building. Matrix Root pairs encouragement and practical engineering experience to help students move forward with their ideas."
       />
-      <section className="px-5 py-16 lg:px-8">
+      <section className="px-5 py-20 lg:px-8">
         <div className="mx-auto max-w-7xl">
-          <SectionTitle eyebrow="A place to build" title="Real progress, made with people who care." >
+          <SectionTitle eyebrow="A place to build" title="Real progress, made with people who care.">
             The incubator brings student founders and emerging engineers into a shared learning environment—centered on product work, useful feedback, and the craft of shipping.
           </SectionTitle>
-          <div className="mt-10 grid gap-8 md:grid-cols-3">
+          <div className="mt-12 grid gap-7 md:grid-cols-3">
             {tracks.map(({ icon: Icon, title: name, text }, index) => (
-              <article key={name} className="border-t border-glass-border pt-6">
-                <p className="font-mono text-xs text-muted-foreground">0{index + 1}</p>
-                <Icon aria-hidden="true" className="mt-5 h-6 w-6 text-primary" />
-                <h2 className="mt-4 text-xl font-semibold">{name}</h2>
-                <p className="mt-3 leading-7 text-muted-foreground">{text}</p>
+              <article
+                key={name}
+                className="group relative flex flex-col justify-between rounded-2xl border border-border/80 bg-white p-7 shadow-xs transition-all duration-300 hover:-translate-y-1.5 hover:border-primary/50 hover:shadow-xl hover:shadow-primary/5"
+              >
+                <div>
+                  <div className="flex items-center justify-between">
+                    <span className="font-mono text-xs font-semibold text-muted-foreground transition-colors group-hover:text-primary">
+                      0{index + 1}
+                    </span>
+                    <span className="h-1.5 w-1.5 rounded-full bg-border transition-colors group-hover:bg-primary" />
+                  </div>
+                  <div className="mt-5 flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary transition-all duration-300 group-hover:scale-110 group-hover:bg-primary group-hover:text-white group-hover:shadow-md group-hover:shadow-primary/20">
+                    <Icon aria-hidden="true" className="h-6 w-6" />
+                  </div>
+                  <h2 className="mt-5 text-xl font-semibold tracking-tight text-foreground transition-colors duration-200 group-hover:text-primary">
+                    {name}
+                  </h2>
+                  <p className="mt-3 text-sm leading-6 text-muted-foreground">{text}</p>
+                </div>
               </article>
             ))}
           </div>
         </div>
       </section>
       <section className="bg-void px-5 py-16 lg:px-8">
-        <div className="mx-auto grid max-w-7xl gap-8 md:grid-cols-[1fr_auto] md:items-center">
-          <div><p className="font-mono text-xs uppercase text-primary">Start a conversation</p><h2 className="mt-3 text-3xl font-semibold">Building something as a student?</h2><p className="mt-3 max-w-xl leading-7 text-muted-foreground">Tell us what you’re exploring and where you’d like to go next.</p></div>
-          <Link to="/contact" className="inline-flex min-h-11 items-center justify-center gap-2 rounded-md bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground hover:bg-primary/90">Connect with Matrix Root <ArrowRight aria-hidden="true" className="h-4 w-4" /></Link>
+        <div className="mx-auto flex max-w-7xl flex-col justify-between gap-8 md:flex-row md:items-center">
+          <div>
+            <p className="font-mono text-xs uppercase tracking-wider text-primary">Start a conversation</p>
+            <h2 className="mt-2 text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
+              Building something as a student?
+            </h2>
+            <p className="mt-3 max-w-xl leading-7 text-muted-foreground">
+              Tell us what you’re exploring and where you’d like to go next.
+            </p>
+          </div>
+          <Link
+            to="/contact"
+            className="group inline-flex min-h-11 shrink-0 items-center justify-center gap-2 rounded-lg bg-primary px-5 py-3 text-sm font-semibold text-white shadow-sm transition-all duration-300 hover:bg-primary-deep hover:shadow-glow hover:-translate-y-0.5"
+          >
+            Connect with Matrix Root{" "}
+            <ArrowRight aria-hidden="true" className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
+          </Link>
         </div>
       </section>
     </SiteShell>
