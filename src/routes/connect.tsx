@@ -322,22 +322,14 @@ function ConnectPage() {
                     />
                   </div>
 
-                  <div className="pt-2 flex flex-col sm:flex-row items-center gap-4">
+                  <div className="pt-2">
                     <button
                       type="submit"
-                      className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full bg-[#F26522] hover:bg-[#e05a1a] text-white px-7 py-3 text-sm font-semibold shadow-md transition-all hover:-translate-y-0.5 cursor-pointer"
+                      className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full bg-[#F26522] hover:bg-[#e05a1a] text-white px-8 py-3.5 text-sm font-semibold shadow-md transition-all hover:-translate-y-0.5 cursor-pointer"
                     >
-                      <MessageSquare className="w-4 h-4" />
+                      <MessageSquare className="w-4 h-4 text-white" />
                       <span>Start a Project via WhatsApp</span>
                     </button>
-
-                    <a
-                      href={CALL_TEL}
-                      className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full bg-[#F26522] hover:bg-[#e05a1a] text-white px-6 py-3 text-sm font-semibold shadow-md transition-all hover:-translate-y-0.5"
-                    >
-                      <Phone className="w-4 h-4 text-white" />
-                      <span>Or Call Directly</span>
-                    </a>
                   </div>
                 </form>
               )}

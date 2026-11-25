@@ -7,13 +7,12 @@ import {
   Layers,
   MessageSquare,
   MoveUpRight,
-  Phone,
   Sparkles,
   Tag,
 } from "lucide-react";
 import { useState } from "react";
 import { SiteShell } from "@/components/matrix-site";
-import { WHATSAPP_URL, CALL_TEL } from "@/components/studio-landing";
+import { WHATSAPP_URL } from "@/components/studio-landing";
 
 const title = "Journal | Matrix Root — Engineering Insights & Architectural Patterns";
 const description =
@@ -155,19 +154,12 @@ function JournalPage() {
             </div>
 
             {/* Direct CTA */}
-            <div className="flex flex-wrap items-center gap-3">
-              <a
-                href={CALL_TEL}
-                className="inline-flex items-center gap-2 rounded-full bg-[#F26522] hover:bg-[#e05a1a] text-white px-5 py-3 text-sm font-semibold shadow-sm transition-all hover:-translate-y-0.5"
-              >
-                <Phone className="w-4 h-4 text-white" />
-                <span>Call Us</span>
-              </a>
+            <div>
               <a
                 href={WHATSAPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full bg-[#F26522] hover:bg-[#e05a1a] text-white px-5 py-3 text-sm font-semibold shadow-sm transition-all hover:-translate-y-0.5"
+                className="inline-flex items-center gap-2 rounded-full bg-[#F26522] hover:bg-[#e05a1a] text-white px-6 py-3 text-sm font-semibold shadow-sm transition-all hover:-translate-y-0.5"
               >
                 <MessageSquare className="w-4 h-4 text-white" />
                 <span>Start a project</span>
@@ -240,22 +232,16 @@ function JournalPage() {
                 </div>
               </div>
 
-              <div className="mt-8 pt-6 border-t border-border/60 flex items-center justify-between">
+              <div className="mt-8 pt-6 border-t border-border/60 flex items-center justify-between text-xs text-muted-foreground">
+                <span className="font-medium text-gray-500">Engineering Floor</span>
                 <a
                   href={WHATSAPP_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-gray-900 hover:text-gray-600 transition-colors"
+                  className="inline-flex items-center gap-1 font-semibold text-gray-900 hover:text-gray-600 transition-colors"
                 >
-                  <span>Discuss this topic on WhatsApp</span>
+                  <span>Discuss</span>
                   <MoveUpRight className="w-3.5 h-3.5" />
-                </a>
-
-                <a
-                  href={CALL_TEL}
-                  className="text-xs text-muted-foreground hover:text-foreground font-medium transition-colors"
-                >
-                  Call an Architect
                 </a>
               </div>
             </article>
@@ -273,22 +259,15 @@ function JournalPage() {
           <p className="mt-3 text-muted-foreground max-w-xl mx-auto text-sm sm:text-base">
             We operate in fast monthly cycles with guaranteed delivery milestones. Speak directly with our lead architects today.
           </p>
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+          <div className="mt-8 flex justify-center">
             <a
               href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full bg-[#F26522] hover:bg-[#e05a1a] text-white px-6 py-3.5 text-sm font-semibold shadow-sm transition-all hover:-translate-y-0.5"
+              className="inline-flex items-center gap-2 rounded-full bg-[#F26522] hover:bg-[#e05a1a] text-white px-7 py-3.5 text-sm font-semibold shadow-sm transition-all hover:-translate-y-0.5"
             >
               <MessageSquare className="w-4 h-4 text-white" />
-              <span>Start a project on WhatsApp</span>
-            </a>
-            <a
-              href={CALL_TEL}
-              className="inline-flex items-center gap-2 rounded-full bg-[#F26522] hover:bg-[#e05a1a] text-white px-6 py-3.5 text-sm font-semibold shadow-sm transition-all hover:-translate-y-0.5"
-            >
-              <Phone className="w-4 h-4 text-white" />
-              <span>Book a call</span>
+              <span>Start a project</span>
             </a>
           </div>
         </div>

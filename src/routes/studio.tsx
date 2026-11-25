@@ -8,14 +8,13 @@ import {
   Database,
   Layers,
   MessageSquare,
-  Phone,
   ShieldCheck,
   Sparkles,
   UsersRound,
   Zap,
 } from "lucide-react";
 import { SiteShell } from "@/components/matrix-site";
-import { WHATSAPP_URL, CALL_TEL } from "@/components/studio-landing";
+import { WHATSAPP_URL } from "@/components/studio-landing";
 
 const title = "Studio | Matrix Root — Product Engineering & Software Architecture";
 const description =
@@ -95,8 +94,8 @@ function StudioPage() {
             Matrix Root brings together product design, systems engineering, and a talent incubator. We partner with ambitious founders and established teams to turn complex ideas into software people trust every day.
           </p>
 
-          {/* Action CTAs */}
-          <div className="mt-10 flex flex-wrap items-center gap-4">
+          {/* Action CTA */}
+          <div className="mt-10">
             <a
               href={WHATSAPP_URL}
               target="_blank"
@@ -104,15 +103,7 @@ function StudioPage() {
               className="inline-flex items-center gap-2.5 rounded-full bg-[#F26522] hover:bg-[#e05a1a] text-white px-6 py-3.5 text-sm font-semibold shadow-sm transition-all hover:-translate-y-0.5"
             >
               <MessageSquare className="w-4 h-4 text-white" />
-              <span>Start a Project on WhatsApp</span>
-            </a>
-
-            <a
-              href={CALL_TEL}
-              className="inline-flex items-center gap-2.5 rounded-full bg-[#F26522] hover:bg-[#e05a1a] text-white px-6 py-3.5 text-sm font-semibold shadow-sm transition-all hover:-translate-y-0.5"
-            >
-              <Phone className="w-4 h-4 text-white" />
-              <span>Call Us</span>
+              <span>Start a Project</span>
             </a>
           </div>
         </div>
@@ -243,22 +234,15 @@ function StudioPage() {
               Chat directly with our lead engineer on WhatsApp or schedule a quick 15-minute discovery call.
             </p>
           </div>
-          <div className="flex flex-wrap items-center gap-3 shrink-0">
+          <div className="shrink-0">
             <a
               href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full bg-[#F26522] hover:bg-[#e05a1a] text-white px-5 py-3 text-sm font-semibold transition-colors shadow-sm"
+              className="inline-flex items-center gap-2 rounded-full bg-[#F26522] hover:bg-[#e05a1a] text-white px-6 py-3 text-sm font-semibold transition-colors shadow-sm"
             >
               <MessageSquare className="w-4 h-4 text-white" />
-              <span>WhatsApp Us</span>
-            </a>
-            <a
-              href={CALL_TEL}
-              className="inline-flex items-center gap-2 rounded-full bg-[#F26522] hover:bg-[#e05a1a] text-white px-5 py-3 text-sm font-semibold transition-colors shadow-sm"
-            >
-              <Phone className="w-4 h-4 text-white" />
-              <span>Call Us</span>
+              <span>Start a project</span>
             </a>
           </div>
         </div>

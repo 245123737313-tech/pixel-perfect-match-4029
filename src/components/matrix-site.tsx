@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
-import { ArrowRight, Boxes, Clock, Code2, Menu, MessageSquare, Network, Phone, X, Zap } from "lucide-react";
-import { useEffect, useState, type ReactNode } from "react";
+import { ArrowRight, Boxes, Code2, Network, Zap } from "lucide-react";
+import { type ReactNode } from "react";
 import teamImage from "@/assets/matrix-root-engineering.jpg";
 import {
   CALL_TEL,
@@ -8,8 +8,9 @@ import {
   WHATSAPP_NUMBER,
   WHATSAPP_URL,
 } from "./studio-landing";
+import { SiteHeader } from "./site-header";
 
-export { CALL_TEL, WHATSAPP_NUMBER, WHATSAPP_URL };
+export { CALL_TEL, WHATSAPP_NUMBER, WHATSAPP_URL, SiteHeader };
 
 export const pages = [
   { to: "/studio", label: "Studio" },
@@ -18,226 +19,62 @@ export const pages = [
   { to: "/connect", label: "Connect" },
 ] as const;
 
+export function SiteFooter() {
+  return (
+    <footer className="bg-white border-t border-gray-200/80 py-12 px-5 sm:px-8 lg:px-12 mt-20">
+      <div className="max-w-[1440px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div className="flex items-center gap-3">
+          <Link to="/" className="group flex items-center gap-2.5">
+            <img
+              src="/logo-transparent.png"
+              onError={(e) => {
+                e.currentTarget.src = "/logo.png";
+              }}
+              alt="Matrix Root"
+              width={28}
+              height={28}
+              className="h-7 w-7 object-contain"
+            />
+            <span className="text-sm font-semibold tracking-tight text-gray-900">
+              Matrix Root
+            </span>
+          </Link>
+          <span className="text-xs text-gray-400">·</span>
+          <span className="text-xs text-gray-500 hidden sm:inline-block">
+            Hyderabad Software Studio & Talent Incubator
+          </span>
+        </div>
+
+        <div className="flex flex-wrap items-center gap-5 sm:gap-6 text-sm text-gray-600">
+          {pages.map((page) => (
+            <Link
+              key={page.to}
+              to={page.to}
+              className="hover:text-gray-900 transition-colors"
+            >
+              {page.label}
+            </Link>
+          ))}
+          <a
+            href={WHATSAPP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-medium text-gray-700 hover:text-gray-900 hover:underline"
+          >
+            WhatsApp
+          </a>
+        </div>
+      </div>
+    </footer>
+  );
+}
+
 export function SiteShell({ children }: { children: ReactNode }) {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [londonTime, setLondonTime] = useState("");
-
-  // Live London clock
-  useEffect(() => {
-    const updateTime = () => {
-      try {
-        const formatter = new Intl.DateTimeFormat("en-GB", {
-          timeZone: "Europe/London",
-          hour: "2-digit",
-          minute: "2-digit",
-          hour12: false,
-        });
-        setLondonTime(formatter.format(new Date()));
-      } catch {
-        const now = new Date();
-        setLondonTime(
-          `${String(now.getUTCHours()).padStart(2, "0")}:${String(now.getUTCMinutes()).padStart(2, "0")}`
-        );
-      }
-    };
-    updateTime();
-    const interval = setInterval(updateTime, 1000);
-    return () => clearInterval(interval);
-  }, []);
-
   return (
     <div className="min-h-screen bg-[#EFEFEF] text-gray-900 selection:bg-gray-900/10 selection:text-gray-900 font-sans antialiased">
-      {/* Floating Pill Navbar (Axion Studio Design) */}
-      <header className="sticky top-0 z-50 w-full pt-2 sm:pt-3 px-2 sm:px-3 pointer-events-auto">
-        <div className="max-w-[1440px] mx-auto">
-          <nav
-            aria-label="Main"
-            className="bg-white rounded-full p-[5px] flex items-center justify-between shadow-[0_2px_12px_rgba(0,0,0,0.04)] border border-gray-100"
-          >
-            {/* Left: Matrix Root Logo & Nav Links */}
-            <div className="flex items-center gap-4 sm:gap-6 pl-2 sm:pl-3">
-              <Link
-                to="/"
-                aria-label="Matrix Root home"
-                className="group flex items-center gap-2.5 transition-transform duration-300 hover:scale-105"
-              >
-                <img
-                  src="/logo-transparent.png"
-                  onError={(e) => {
-                    e.currentTarget.src = "/logo.png";
-                  }}
-                  alt="Matrix Root"
-                  width={36}
-                  height={36}
-                  className="h-8 w-8 sm:h-9 sm:w-9 object-contain transition-transform duration-300 group-hover:scale-110"
-                />
-                <span className="text-[15px] font-semibold tracking-tight text-gray-900">
-                  Matrix <span className="font-bold text-gray-900">Root</span>
-                </span>
-              </Link>
-
-              <div className="hidden md:flex items-center gap-6 pl-2">
-                {pages.map((page) => (
-                  <Link
-                    key={page.to}
-                    to={page.to}
-                    className="text-[14px] text-gray-900 hover:text-gray-500 transition-colors duration-300 font-normal"
-                    activeProps={{ className: "text-gray-900 font-semibold" }}
-                  >
-                    {page.label}
-                  </Link>
-                ))}
-              </div>
-            </div>
-
-            {/* Right: Clock & Axion Hover Text-Roll Buttons */}
-            <div className="hidden md:flex items-center gap-3 lg:gap-4 pr-1">
-              <span className="text-[13px] text-gray-600 hidden lg:inline-block whitespace-nowrap">
-                Taking on projects for Q1 2026
-              </span>
-              <div className="flex items-center gap-1.5 text-[13px] text-gray-600 whitespace-nowrap">
-                <Clock className="w-3.5 h-3.5 text-gray-600" aria-hidden="true" />
-                <span>{londonTime || "12:00"} in London</span>
-              </div>
-              <TextRollButton text="Book a strategy call" href={CALL_TEL} variant="orange" />
-              <TextRollButton text="Start a project" href={WHATSAPP_URL} variant="orange" target="_blank" rel="noopener noreferrer" />
-            </div>
-
-            {/* Mobile Toggle Button */}
-            <button
-              type="button"
-              className="md:hidden w-9 h-9 sm:w-10 sm:h-10 bg-[#F26522] hover:bg-[#e05a1a] text-white rounded-full flex items-center justify-center transition-colors cursor-pointer"
-              aria-label={menuOpen ? "Close navigation" : "Open navigation"}
-              aria-expanded={menuOpen}
-              onClick={() => setMenuOpen((open) => !open)}
-            >
-              {menuOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
-            </button>
-          </nav>
-        </div>
-      </header>
-
-      {/* Mobile Slide-Up Bottom Sheet Overlay (Axion Specification) */}
-      {menuOpen && (
-        <div className="fixed inset-0 z-50 flex flex-col justify-end md:hidden">
-          <div
-            className="fixed inset-0 bg-black/60 backdrop-blur-xs transition-opacity duration-300"
-            onClick={() => setMenuOpen(false)}
-          />
-          <div className="relative bg-white rounded-2xl mx-3 mb-3 p-6 sm:p-8 z-10 shadow-2xl transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] animate-in slide-in-from-bottom-full">
-            <div className="flex items-center justify-between pb-4 border-b border-gray-100">
-              <div className="flex items-center gap-2">
-                <img
-                  src="/logo-transparent.png"
-                  onError={(e) => {
-                    e.currentTarget.src = "/logo.png";
-                  }}
-                  alt="Matrix Root"
-                  className="h-6 w-6 object-contain"
-                />
-                <span className="font-semibold text-sm text-gray-900">Matrix Root</span>
-              </div>
-              <button
-                type="button"
-                className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-700"
-                onClick={() => setMenuOpen(false)}
-                aria-label="Close menu"
-              >
-                <X className="w-4 h-4" />
-              </button>
-            </div>
-
-            <div className="flex flex-col gap-3 py-6">
-              {pages.map((page) => (
-                <Link
-                  key={page.to}
-                  to={page.to}
-                  className="text-[24px] font-medium text-gray-900 hover:text-gray-600 transition-colors"
-                  onClick={() => setMenuOpen(false)}
-                >
-                  {page.label}
-                </Link>
-              ))}
-            </div>
-
-            <div className="pt-2 flex flex-col gap-2.5">
-              <a
-                href={WHATSAPP_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full bg-[#F26522] hover:bg-[#e05a1a] text-white text-sm font-semibold rounded-full py-3 px-5 flex items-center justify-between transition-colors shadow-sm"
-              >
-                <span className="flex items-center gap-2">
-                  <MessageSquare className="w-4 h-4 text-white" /> Start a project (WhatsApp)
-                </span>
-                <ArrowRight className="w-4 h-4 text-white" />
-              </a>
-
-              <a
-                href={CALL_TEL}
-                className="w-full bg-[#F26522] hover:bg-[#e05a1a] text-white text-sm font-semibold rounded-full py-3 px-5 flex items-center justify-between transition-colors shadow-sm"
-              >
-                <span className="flex items-center gap-2">
-                  <Phone className="w-4 h-4 text-white" /> Call Us
-                </span>
-                <ArrowRight className="w-4 h-4 text-white" />
-              </a>
-            </div>
-          </div>
-        </div>
-      )}
-
+      <SiteHeader />
       <main>{children}</main>
-
-      {/* Unified Axion Design Footer */}
-      <footer className="bg-white border-t border-gray-200/80 py-12 px-5 sm:px-8 lg:px-12 mt-20">
-        <div className="max-w-[1440px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
-          <div className="flex items-center gap-3">
-            <Link to="/" className="group flex items-center gap-2.5">
-              <img
-                src="/logo-transparent.png"
-                onError={(e) => {
-                  e.currentTarget.src = "/logo.png";
-                }}
-                alt="Matrix Root"
-                width={28}
-                height={28}
-                className="h-7 w-7 object-contain"
-              />
-              <span className="text-sm font-semibold tracking-tight text-gray-900">
-                Matrix Root
-              </span>
-            </Link>
-            <span className="text-xs text-gray-400">·</span>
-            <span className="text-xs text-gray-500 hidden sm:inline-block">
-              Hyderabad Software Studio & Talent Incubator
-            </span>
-          </div>
-
-          <div className="flex flex-wrap items-center gap-5 sm:gap-6 text-sm text-gray-600">
-            {pages.map((page) => (
-              <Link
-                key={page.to}
-                to={page.to}
-                className="hover:text-gray-900 transition-colors"
-              >
-                {page.label}
-              </Link>
-            ))}
-            <a
-              href={WHATSAPP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-medium text-gray-700 hover:text-gray-900 hover:underline"
-            >
-              WhatsApp
-            </a>
-            <a href={CALL_TEL} className="font-medium text-gray-700 hover:text-gray-900 hover:underline">
-              Call Us
-            </a>
-          </div>
-        </div>
-      </footer>
+      <SiteFooter />
     </div>
   );
 }

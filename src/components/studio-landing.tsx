@@ -1,6 +1,8 @@
-import React, { Component, useEffect, useState, type ReactNode } from "react";
-import { ArrowRight, Clock, Menu, MessageSquare, Phone, X } from "lucide-react";
+import React, { Component, type ReactNode } from "react";
+import { ArrowRight } from "lucide-react";
 import { Shader, ChromaFlow, FilmGrain, FlutedGlass, Swirl } from "shaders/react";
+import { SiteHeader } from "./site-header";
+import { SiteFooter } from "./matrix-site";
 
 /* -------------------------------------------------------------------------- */
 /*                                CONSTANTS & LINKS                           */
@@ -191,46 +193,9 @@ export interface StudioLandingProps {
 }
 
 export function StudioLanding({
-  brandName = "Axion Studio",
-  logoText = "AX",
-  heroLabel = "Axion Studio",
-  aboutLabel = "Introducing Axion",
-  showPartnerBadge = true,
-  ctaButtonText,
+  heroLabel = "Matrix Root Studio",
+  aboutLabel = "Introducing Matrix Root",
 }: StudioLandingProps) {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [londonTime, setLondonTime] = useState("");
-
-  // Live London clock
-  useEffect(() => {
-    const updateTime = () => {
-      try {
-        const formatter = new Intl.DateTimeFormat("en-GB", {
-          timeZone: "Europe/London",
-          hour: "2-digit",
-          minute: "2-digit",
-          hour12: false,
-        });
-        setLondonTime(formatter.format(new Date()));
-      } catch {
-        const now = new Date();
-        setLondonTime(
-          `${String(now.getUTCHours()).padStart(2, "0")}:${String(now.getUTCMinutes()).padStart(2, "0")}`
-        );
-      }
-    };
-    updateTime();
-    const interval = setInterval(updateTime, 1000);
-    return () => clearInterval(interval);
-  }, []);
-
-  const navLinks = [
-    { label: "Projects", href: "/projects" },
-    { label: "Studio", href: "/studio" },
-    { label: "Journal", href: "/journal" },
-    { label: "Connect", href: "/connect" },
-  ];
-
   return (
     <div className="min-h-screen bg-[#EFEFEF] text-gray-900 selection:bg-gray-900/10 selection:text-gray-900">
       {/* ==================================================================== */}
@@ -240,169 +205,8 @@ export function StudioLanding({
         {/* Animated shader overlay (absolute, inset-0, z-10, pointer-events-none) */}
         <HeroShaderOverlay />
 
-        {/* Navigation (z-20, relative) */}
-        <header className="relative z-20 w-full pt-2 sm:pt-3 px-2 sm:px-3">
-          <div className="max-w-[1440px] mx-auto">
-            <nav
-              aria-label="Main"
-              className="bg-white rounded-full p-[5px] flex items-center justify-between shadow-[0_2px_12px_rgba(0,0,0,0.04)]"
-            >
-              {/* LEFT: Logo & Nav Links */}
-              <div className="flex items-center gap-4 sm:gap-6 pl-2 sm:pl-3">
-                {logoText === "AX" ? (
-                  <a href="/axion" aria-label="Axion Studio home" className="flex items-center gap-2">
-                    <div className="w-9 h-9 sm:w-10 sm:h-10 bg-gray-900 rounded-full flex items-center justify-center shrink-0 shadow-sm transition-transform hover:scale-105">
-                      <span className="text-[10px] sm:text-[11px] font-bold text-white tracking-tight">AX</span>
-                    </div>
-                  </a>
-                ) : (
-                  <a
-                    href="/"
-                    aria-label="Matrix Root home"
-                    className="group flex items-center gap-2.5 transition-transform duration-300 hover:scale-105"
-                  >
-                    <img
-                      src="/logo-transparent.png"
-                      onError={(e) => {
-                        e.currentTarget.src = "/logo.png";
-                      }}
-                      alt="Matrix Root Official Logo"
-                      width={36}
-                      height={36}
-                      className="h-8 w-8 sm:h-9 sm:w-9 object-contain transition-transform duration-300 group-hover:scale-110"
-                    />
-                    <span className="text-[15px] font-semibold tracking-tight text-gray-900">
-                      Matrix <span className="font-bold text-gray-900">Root</span>
-                    </span>
-                  </a>
-                )}
-                <div className="hidden md:flex items-center gap-6 pl-2">
-                  {(logoText === "AX"
-                    ? [
-                        { label: "Projects", href: "/projects" },
-                        { label: "Studio", href: "/studio" },
-                        { label: "Journal", href: "/journal" },
-                        { label: "Connect", href: "/connect" },
-                      ]
-                    : navLinks
-                  ).map((item) => (
-                    <a
-                      key={item.label}
-                      href={item.href}
-                      className="text-[14px] text-gray-900 hover:text-gray-500 transition-colors duration-300 font-normal"
-                    >
-                      {item.label}
-                    </a>
-                  ))}
-                </div>
-              </div>
-
-              {/* RIGHT (hidden on mobile, shown md+) */}
-              <div className="hidden md:flex items-center gap-3 lg:gap-4 pr-1">
-                <span className="text-[13px] text-gray-600 hidden lg:inline-block whitespace-nowrap">
-                  Taking on projects for Q1 2026
-                </span>
-                <div className="flex items-center gap-1.5 text-[13px] text-gray-600 whitespace-nowrap">
-                  <Clock className="w-3.5 h-3.5 text-gray-600" aria-hidden="true" />
-                  <span>{londonTime || "12:00"} in London</span>
-                </div>
-                {/* CTA Button with Hover Text Roll */}
-                <TextRollButton
-                  text={ctaButtonText || "Book a strategy call"}
-                  href={CALL_TEL}
-                  variant="orange"
-                />
-              </div>
-
-              {/* MOBILE TOGGLE (md:hidden) */}
-              <button
-                type="button"
-                className="md:hidden w-9 h-9 sm:w-10 sm:h-10 bg-[#F26522] hover:bg-[#e05a1a] text-white rounded-full flex items-center justify-center transition-colors cursor-pointer"
-                onClick={() => setMobileMenuOpen(true)}
-                aria-label="Open mobile menu"
-                aria-expanded={mobileMenuOpen}
-              >
-                <Menu className="w-4 h-4" />
-              </button>
-            </nav>
-          </div>
-        </header>
-
-        {/* MOBILE MENU OVERLAY (fixed inset-0, z-50) */}
-        {mobileMenuOpen && (
-          <div className="fixed inset-0 z-50 flex flex-col justify-end md:hidden">
-            {/* Backdrop */}
-            <div
-              className="fixed inset-0 bg-black/60 backdrop-blur-xs transition-opacity duration-300"
-              onClick={() => setMobileMenuOpen(false)}
-            />
-
-            {/* Sliding bottom sheet */}
-            <div className="relative bg-white rounded-2xl mx-3 mb-3 p-6 sm:p-8 z-10 shadow-2xl transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] animate-in slide-in-from-bottom-full">
-              <div className="flex items-center justify-between pb-4 border-b border-gray-100">
-                <div className="flex items-center gap-2">
-                  <img
-                    src="/logo-transparent.png"
-                    onError={(e) => {
-                      e.currentTarget.src = "/logo.png";
-                    }}
-                    alt="Matrix Root"
-                    className="h-6 w-6 object-contain"
-                  />
-                  <span className="font-semibold text-sm text-gray-900">Matrix Root</span>
-                </div>
-                <button
-                  type="button"
-                  className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-700"
-                  onClick={() => setMobileMenuOpen(false)}
-                  aria-label="Close menu"
-                >
-                  <X className="w-4 h-4" />
-                </button>
-              </div>
-
-              <div className="flex flex-col gap-3 py-6">
-                {navLinks.map((item) => (
-                  <a
-                    key={item.label}
-                    href={item.href}
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="text-[24px] font-medium text-gray-900 hover:text-gray-600 transition-colors"
-                  >
-                    {item.label}
-                  </a>
-                ))}
-              </div>
-
-              {/* Action Buttons in Mobile Sheet */}
-              <div className="pt-2 flex flex-col gap-2.5">
-                {/* Start a project redirects to WhatsApp */}
-                <a
-                  href={WHATSAPP_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full bg-[#F26522] hover:bg-[#e05a1a] text-white text-sm font-semibold rounded-full py-3 px-5 flex items-center justify-between transition-colors shadow-sm"
-                >
-                  <span className="flex items-center gap-2">
-                    <MessageSquare className="w-4 h-4 text-white" /> Start a project (WhatsApp)
-                  </span>
-                  <ArrowRight className="w-4 h-4 text-white" />
-                </a>
-
-                {/* Booking calls redirects to mobile call */}
-                <a
-                  href={CALL_TEL}
-                  className="w-full bg-[#F26522] hover:bg-[#e05a1a] text-white text-sm font-semibold rounded-full py-3 px-5 flex items-center justify-between transition-colors shadow-sm"
-                >
-                  <span className="flex items-center gap-2">
-                    <Phone className="w-4 h-4 text-white" /> Call Us
-                  </span>
-                  <ArrowRight className="w-4 h-4 text-white" />
-                </a>
-              </div>
-            </div>
-          </div>
-        )}
+        {/* Single Unified Site Header */}
+        <SiteHeader />
 
         {/* Flex spacer pushing hero content to bottom */}
         <div className="flex-1" />
@@ -424,20 +228,13 @@ export function StudioLanding({
           </h1>
 
           <div className="mt-8 sm:mt-12 flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-5">
-            {/* Start a project redirects to WhatsApp */}
+            {/* Single focused primary action button */}
             <TextRollButton
               text="Start a project"
               href={WHATSAPP_URL}
               variant="orange"
               target="_blank"
               rel="noopener noreferrer"
-            />
-
-            {/* Direct Call Button */}
-            <TextRollButton
-              text="Book a call"
-              href={CALL_TEL}
-              variant="orange"
             />
           </div>
         </div>
@@ -630,45 +427,7 @@ export function StudioLanding({
       </section>
 
       {/* FOOTER */}
-      <footer id="connect" className="bg-white border-t border-gray-200/80 py-12 px-5 sm:px-8 lg:px-12">
-        <div className="max-w-[1440px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
-          <div className="flex items-center gap-3">
-            <img
-              src="/logo-transparent.png"
-              onError={(e) => {
-                e.currentTarget.src = "/logo.png";
-              }}
-              alt="Matrix Root"
-              className="h-7 w-7 object-contain"
-            />
-            <span className="text-sm font-semibold tracking-tight text-gray-900">
-              {brandName}
-            </span>
-            <span className="text-xs text-gray-400">·</span>
-            <span className="text-xs text-gray-500">
-              Hyderabad Software Studio & Talent Incubator
-            </span>
-          </div>
-
-          <div className="flex flex-wrap items-center gap-6 text-sm text-gray-600">
-            <a href="/projects" className="hover:text-gray-900 transition-colors">Projects</a>
-            <a href="/studio" className="hover:text-gray-900 transition-colors">Studio</a>
-            <a href="/journal" className="hover:text-gray-900 transition-colors">Journal</a>
-            <a href="/connect" className="hover:text-gray-900 transition-colors">Connect</a>
-            <a
-              href={WHATSAPP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-medium text-gray-700 hover:text-gray-900 hover:underline"
-            >
-              WhatsApp
-            </a>
-            <a href={CALL_TEL} className="font-medium text-gray-700 hover:text-gray-900 hover:underline">
-              Call Us
-            </a>
-          </div>
-        </div>
-      </footer>
+      <SiteFooter />
     </div>
   );
 }
