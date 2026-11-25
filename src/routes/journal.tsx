@@ -13,7 +13,7 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 import { SiteShell } from "@/components/matrix-site";
-import { WHATSAPP_URL, CALL_TEL, WHATSAPP_NUMBER } from "@/components/studio-landing";
+import { WHATSAPP_URL, CALL_TEL } from "@/components/studio-landing";
 
 const title = "Journal | Matrix Root — Engineering Insights & Architectural Patterns";
 const description =
@@ -147,7 +147,7 @@ function JournalPage() {
               <h1 className="text-[clamp(1.75rem,7vw,4.2rem)] sm:text-[clamp(2.5rem,5vw,4.2rem)] font-medium leading-[1.08] tracking-[-0.03em] text-gray-900">
                 Technical thoughts.
                 <br />
-                <span className="text-[#F26522]">Tested in production.</span>
+                <span className="text-gray-900 font-semibold">Tested in production.</span>
               </h1>
               <p className="mt-6 text-[15px] sm:text-[17px] leading-[1.65] font-medium text-gray-600">
                 In-depth essays on web animation physics, cloud resilience, scalable architecture, and founder mentorship from the engineering floor at Matrix Root.
@@ -158,18 +158,18 @@ function JournalPage() {
             <div className="flex flex-wrap items-center gap-3">
               <a
                 href={CALL_TEL}
-                className="inline-flex items-center gap-2 rounded-full border border-border bg-white px-5 py-3 text-sm font-semibold text-foreground shadow-2xs hover:border-primary/40 hover:bg-slate-50 hover:text-primary transition-all hover:-translate-y-0.5"
+                className="inline-flex items-center gap-2 rounded-full bg-[#F26522] hover:bg-[#e05a1a] text-white px-5 py-3 text-sm font-semibold shadow-sm transition-all hover:-translate-y-0.5"
               >
-                <Phone className="w-4 h-4 text-primary" />
-                <span>Call: {WHATSAPP_NUMBER}</span>
+                <Phone className="w-4 h-4 text-white" />
+                <span>Call Us</span>
               </a>
               <a
                 href={WHATSAPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full bg-[#25D366] hover:bg-[#20ba59] text-white px-5 py-3 text-sm font-semibold shadow-md shadow-[#25D366]/20 transition-all hover:-translate-y-0.5"
+                className="inline-flex items-center gap-2 rounded-full bg-[#F26522] hover:bg-[#e05a1a] text-white px-5 py-3 text-sm font-semibold shadow-sm transition-all hover:-translate-y-0.5"
               >
-                <MessageSquare className="w-4 h-4" />
+                <MessageSquare className="w-4 h-4 text-white" />
                 <span>Start a project</span>
               </a>
             </div>
@@ -245,7 +245,7 @@ function JournalPage() {
                   href={WHATSAPP_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-primary hover:text-primary-deep transition-colors"
+                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-gray-900 hover:text-gray-600 transition-colors"
                 >
                   <span>Discuss this topic on WhatsApp</span>
                   <MoveUpRight className="w-3.5 h-3.5" />
@@ -255,7 +255,7 @@ function JournalPage() {
                   href={CALL_TEL}
                   className="text-xs text-muted-foreground hover:text-foreground font-medium transition-colors"
                 >
-                  Call an Architect: {WHATSAPP_NUMBER}
+                  Call an Architect
                 </a>
               </div>
             </article>
@@ -278,17 +278,17 @@ function JournalPage() {
               href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full bg-[#25D366] hover:bg-[#20ba59] text-white px-6 py-3.5 text-sm font-semibold shadow-md shadow-[#25D366]/20 transition-all hover:-translate-y-0.5"
+              className="inline-flex items-center gap-2 rounded-full bg-[#F26522] hover:bg-[#e05a1a] text-white px-6 py-3.5 text-sm font-semibold shadow-sm transition-all hover:-translate-y-0.5"
             >
-              <MessageSquare className="w-4 h-4" />
+              <MessageSquare className="w-4 h-4 text-white" />
               <span>Start a project on WhatsApp</span>
             </a>
             <a
               href={CALL_TEL}
-              className="inline-flex items-center gap-2 rounded-full border border-border bg-slate-900 text-white hover:bg-black px-6 py-3.5 text-sm font-semibold transition-all hover:-translate-y-0.5"
+              className="inline-flex items-center gap-2 rounded-full bg-[#F26522] hover:bg-[#e05a1a] text-white px-6 py-3.5 text-sm font-semibold shadow-sm transition-all hover:-translate-y-0.5"
             >
-              <Phone className="w-4 h-4 text-primary" />
-              <span>Book a call: {WHATSAPP_NUMBER}</span>
+              <Phone className="w-4 h-4 text-white" />
+              <span>Book a call</span>
             </a>
           </div>
         </div>

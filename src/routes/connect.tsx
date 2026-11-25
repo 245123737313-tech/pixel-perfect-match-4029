@@ -19,7 +19,7 @@ import { WHATSAPP_URL, CALL_TEL, WHATSAPP_NUMBER } from "@/components/studio-lan
 
 const title = "Connect | Matrix Root — Start a Project or Call Our Engineering Team";
 const description =
-  "Connect directly with Matrix Root. Instant WhatsApp chat at 8121358586, direct telephone booking, and project discovery for web apps, systems, and product engineering.";
+  "Connect directly with Matrix Root. Instant WhatsApp chat, direct telephone booking, and project discovery for web apps, systems, and product engineering.";
 
 export const Route = createFileRoute("/connect")({
   head: () => ({
@@ -74,7 +74,7 @@ function ConnectPage() {
           <div className="max-w-3xl">
             <h1 className="text-[clamp(1.75rem,7vw,4.2rem)] sm:text-[clamp(2.5rem,5vw,4.2rem)] font-medium leading-[1.08] tracking-[-0.03em] text-gray-900">
               Let&apos;s build something{" "}
-              <span className="text-[#F26522]">exceptional together.</span>
+              <span className="text-gray-900 font-semibold">exceptional together.</span>
             </h1>
             <p className="mt-6 text-[15px] sm:text-[17px] leading-[1.65] font-medium text-gray-600">
               Whether you need a dedicated product engineering team, a 3-week production MVP, or launch-grade motion graphics in code, we are ready.
@@ -88,13 +88,13 @@ function ConnectPage() {
               href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-6 rounded-2xl bg-gradient-to-br from-[#25D366]/10 via-[#25D366]/5 to-white border-2 border-[#25D366]/40 hover:border-[#25D366] shadow-sm hover:shadow-lg transition-all duration-300 group flex flex-col justify-between"
+              className="p-6 rounded-2xl bg-gradient-to-br from-slate-50 via-white to-white border border-gray-200 hover:border-gray-900 shadow-sm hover:shadow-lg transition-all duration-300 group flex flex-col justify-between"
             >
               <div>
-                <div className="w-10 h-10 rounded-full bg-[#25D366] text-white flex items-center justify-center mb-4 shadow-sm group-hover:scale-110 transition-transform">
+                <div className="w-10 h-10 rounded-full bg-gray-900 text-white flex items-center justify-center mb-4 shadow-sm group-hover:scale-110 transition-transform">
                   <MessageSquare className="w-5 h-5" />
                 </div>
-                <span className="text-xs font-mono font-semibold text-[#25D366] uppercase tracking-wider">
+                <span className="text-xs font-mono font-semibold text-gray-500 uppercase tracking-wider">
                   Instant Response
                 </span>
                 <h3 className="text-lg font-semibold text-foreground mt-1">Chat on WhatsApp</h3>
@@ -102,8 +102,8 @@ function ConnectPage() {
                   Connect instantly with our founding engineer. Average response under 15 minutes.
                 </p>
               </div>
-              <div className="mt-6 pt-4 border-t border-[#25D366]/20 flex items-center justify-between font-mono text-sm font-semibold text-[#25D366]">
-                <span>+91 {WHATSAPP_NUMBER}</span>
+              <div className="mt-6 pt-4 border-t border-gray-100 flex items-center justify-between font-mono text-sm font-semibold text-gray-900">
+                <span>Instant Chat</span>
                 <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
               </div>
             </a>
@@ -111,13 +111,13 @@ function ConnectPage() {
             {/* Direct Phone Call Card */}
             <a
               href={CALL_TEL}
-              className="p-6 rounded-2xl bg-gradient-to-br from-primary/10 via-primary/5 to-white border-2 border-primary/30 hover:border-primary shadow-sm hover:shadow-lg transition-all duration-300 group flex flex-col justify-between"
+              className="p-6 rounded-2xl bg-gradient-to-br from-slate-50 via-white to-white border border-gray-200 hover:border-gray-900 shadow-sm hover:shadow-lg transition-all duration-300 group flex flex-col justify-between"
             >
               <div>
-                <div className="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center mb-4 shadow-sm group-hover:scale-110 transition-transform">
+                <div className="w-10 h-10 rounded-full bg-gray-900 text-white flex items-center justify-center mb-4 shadow-sm group-hover:scale-110 transition-transform">
                   <Phone className="w-5 h-5" />
                 </div>
-                <span className="text-xs font-mono font-semibold text-primary uppercase tracking-wider">
+                <span className="text-xs font-mono font-semibold text-gray-500 uppercase tracking-wider">
                   Direct Line
                 </span>
                 <h3 className="text-lg font-semibold text-foreground mt-1">Direct Phone Call</h3>
@@ -125,8 +125,8 @@ function ConnectPage() {
                   Schedule or place a direct telephone discovery call with our tech leadership.
                 </p>
               </div>
-              <div className="mt-6 pt-4 border-t border-primary/20 flex items-center justify-between font-mono text-sm font-semibold text-primary">
-                <span>{WHATSAPP_NUMBER}</span>
+              <div className="mt-6 pt-4 border-t border-gray-100 flex items-center justify-between font-mono text-sm font-semibold text-gray-900">
+                <span>Direct Call</span>
                 <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
               </div>
             </a>
@@ -240,10 +240,10 @@ function ConnectPage() {
                     href={WHATSAPP_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 rounded-full bg-[#25D366] text-white px-6 py-3 text-sm font-semibold shadow-md"
+                    className="inline-flex items-center gap-2 rounded-full bg-[#F26522] hover:bg-[#e05a1a] text-white px-6 py-3 text-sm font-semibold shadow-md transition-all hover:-translate-y-0.5"
                   >
                     <MessageSquare className="w-4 h-4" />
-                    <span>Open WhatsApp Chat (+91 {WHATSAPP_NUMBER})</span>
+                    <span>Open WhatsApp Chat</span>
                   </a>
                 </div>
               ) : (
@@ -325,7 +325,7 @@ function ConnectPage() {
                   <div className="pt-2 flex flex-col sm:flex-row items-center gap-4">
                     <button
                       type="submit"
-                      className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full bg-[#25D366] hover:bg-[#20ba59] text-white px-7 py-3 text-sm font-semibold shadow-md transition-all hover:-translate-y-0.5 cursor-pointer"
+                      className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full bg-[#F26522] hover:bg-[#e05a1a] text-white px-7 py-3 text-sm font-semibold shadow-md transition-all hover:-translate-y-0.5 cursor-pointer"
                     >
                       <MessageSquare className="w-4 h-4" />
                       <span>Start a Project via WhatsApp</span>
@@ -333,10 +333,10 @@ function ConnectPage() {
 
                     <a
                       href={CALL_TEL}
-                      className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full border border-border bg-white hover:bg-slate-50 text-foreground px-6 py-3 text-sm font-semibold transition-all"
+                      className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full bg-[#F26522] hover:bg-[#e05a1a] text-white px-6 py-3 text-sm font-semibold shadow-md transition-all hover:-translate-y-0.5"
                     >
-                      <Phone className="w-4 h-4 text-primary" />
-                      <span>Or Call Directly: {WHATSAPP_NUMBER}</span>
+                      <Phone className="w-4 h-4 text-white" />
+                      <span>Or Call Directly</span>
                     </a>
                   </div>
                 </form>

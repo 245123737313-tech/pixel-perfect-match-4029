@@ -46,7 +46,7 @@ export function SiteShell({ children }: { children: ReactNode }) {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#EFEFEF] text-gray-900 selection:bg-[#F26522]/20 selection:text-[#F26522] font-sans antialiased">
+    <div className="min-h-screen bg-[#EFEFEF] text-gray-900 selection:bg-gray-900/10 selection:text-gray-900 font-sans antialiased">
       {/* Floating Pill Navbar (Axion Studio Design) */}
       <header className="sticky top-0 z-50 w-full pt-2 sm:pt-3 px-2 sm:px-3 pointer-events-auto">
         <div className="max-w-[1440px] mx-auto">
@@ -72,7 +72,7 @@ export function SiteShell({ children }: { children: ReactNode }) {
                   className="h-8 w-8 sm:h-9 sm:w-9 object-contain transition-transform duration-300 group-hover:scale-110"
                 />
                 <span className="text-[15px] font-semibold tracking-tight text-gray-900">
-                  Matrix <span className="font-bold text-[#F26522]">Root</span>
+                  Matrix <span className="font-bold text-gray-900">Root</span>
                 </span>
               </Link>
 
@@ -82,7 +82,7 @@ export function SiteShell({ children }: { children: ReactNode }) {
                     key={page.to}
                     to={page.to}
                     className="text-[14px] text-gray-900 hover:text-gray-500 transition-colors duration-300 font-normal"
-                    activeProps={{ className: "text-[#F26522] font-semibold" }}
+                    activeProps={{ className: "text-gray-900 font-semibold" }}
                   >
                     {page.label}
                   </Link>
@@ -99,14 +99,14 @@ export function SiteShell({ children }: { children: ReactNode }) {
                 <Clock className="w-3.5 h-3.5 text-gray-600" aria-hidden="true" />
                 <span>{londonTime || "12:00"} in London</span>
               </div>
-              <TextRollButton text="Book a strategy call" href={CALL_TEL} variant="dark" />
+              <TextRollButton text="Book a strategy call" href={CALL_TEL} variant="orange" />
               <TextRollButton text="Start a project" href={WHATSAPP_URL} variant="orange" target="_blank" rel="noopener noreferrer" />
             </div>
 
             {/* Mobile Toggle Button */}
             <button
               type="button"
-              className="md:hidden w-9 h-9 sm:w-10 sm:h-10 bg-gray-900 text-white rounded-full flex items-center justify-center transition-colors cursor-pointer"
+              className="md:hidden w-9 h-9 sm:w-10 sm:h-10 bg-[#F26522] hover:bg-[#e05a1a] text-white rounded-full flex items-center justify-center transition-colors cursor-pointer"
               aria-label={menuOpen ? "Close navigation" : "Open navigation"}
               aria-expanded={menuOpen}
               onClick={() => setMenuOpen((open) => !open)}
@@ -135,7 +135,7 @@ export function SiteShell({ children }: { children: ReactNode }) {
                   alt="Matrix Root"
                   className="h-6 w-6 object-contain"
                 />
-                <span className="font-semibold text-sm">Matrix <span className="text-[#F26522]">Root</span></span>
+                <span className="font-semibold text-sm text-gray-900">Matrix Root</span>
               </div>
               <button
                 type="button"
@@ -152,7 +152,7 @@ export function SiteShell({ children }: { children: ReactNode }) {
                 <Link
                   key={page.to}
                   to={page.to}
-                  className="text-[24px] font-medium text-gray-900 hover:text-[#F26522] transition-colors"
+                  className="text-[24px] font-medium text-gray-900 hover:text-gray-600 transition-colors"
                   onClick={() => setMenuOpen(false)}
                 >
                   {page.label}
@@ -165,22 +165,22 @@ export function SiteShell({ children }: { children: ReactNode }) {
                 href={WHATSAPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full bg-[#25D366] hover:bg-[#20ba59] text-white text-sm font-semibold rounded-full py-3 px-5 flex items-center justify-between transition-colors shadow-sm"
+                className="w-full bg-[#F26522] hover:bg-[#e05a1a] text-white text-sm font-semibold rounded-full py-3 px-5 flex items-center justify-between transition-colors shadow-sm"
               >
                 <span className="flex items-center gap-2">
-                  <MessageSquare className="w-4 h-4" /> Start a project (WhatsApp)
+                  <MessageSquare className="w-4 h-4 text-white" /> Start a project (WhatsApp)
                 </span>
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight className="w-4 h-4 text-white" />
               </a>
 
               <a
                 href={CALL_TEL}
-                className="w-full bg-gray-900 hover:bg-black text-white text-sm font-medium rounded-full py-3 px-5 flex items-center justify-between transition-colors"
+                className="w-full bg-[#F26522] hover:bg-[#e05a1a] text-white text-sm font-semibold rounded-full py-3 px-5 flex items-center justify-between transition-colors shadow-sm"
               >
                 <span className="flex items-center gap-2">
-                  <Phone className="w-4 h-4 text-[#F26522]" /> Call: 8121358586
+                  <Phone className="w-4 h-4 text-white" /> Call Us
                 </span>
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight className="w-4 h-4 text-white" />
               </a>
             </div>
           </div>
@@ -205,7 +205,7 @@ export function SiteShell({ children }: { children: ReactNode }) {
                 className="h-7 w-7 object-contain"
               />
               <span className="text-sm font-semibold tracking-tight text-gray-900">
-                Matrix <span className="text-[#F26522]">Root</span>
+                Matrix Root
               </span>
             </Link>
             <span className="text-xs text-gray-400">·</span>
@@ -228,12 +228,12 @@ export function SiteShell({ children }: { children: ReactNode }) {
               href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="font-medium text-[#25D366] hover:underline"
+              className="font-medium text-gray-700 hover:text-gray-900 hover:underline"
             >
-              WhatsApp (+91 8121358586)
+              WhatsApp
             </a>
-            <a href={CALL_TEL} className="font-medium text-[#F26522] hover:underline">
-              Call 8121358586
+            <a href={CALL_TEL} className="font-medium text-gray-700 hover:text-gray-900 hover:underline">
+              Call Us
             </a>
           </div>
         </div>

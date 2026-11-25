@@ -95,14 +95,6 @@ export function HeroShaderOverlay() {
 /*                             ICONS & MICRO SVGS                             */
 /* -------------------------------------------------------------------------- */
 
-export function StarburstBadgeIcon({ className = "w-5 h-5 sm:w-6 sm:h-6 fill-current text-[#E8704E]" }: { className?: string }) {
-  return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" className={className} aria-hidden="true">
-      <path d="m19.6 66.5 19.7-11 .3-1-.3-.5h-1l-3.3-.2-11.2-.3L14 53l-9.5-.5-2.4-.5L0 49l.2-1.5 2-1.3 2.9.2 6.3.5 9.5.6 6.9.4L38 49.1h1.6l.2-.7-.5-.4-.4-.4L29 41l-10.6-7-5.6-4.1-3-2-1.5-2-.6-4.2 2.7-3 3.7.3.9.2 3.7 2.9 8 6.1L37 36l1.5 1.2.6-.4.1-.3-.7-1.1L33 25l-6-10.4-2.7-4.3-.7-2.6c-.3-1-.4-2-.4-3l3-4.2L28 0l4.2.6L33.8 2l2.6 6 4.1 9.3L47 29.9l2 3.8 1 3.4.3 1h.7v-.5l.5-7.2 1-8.7 1-11.2.3-3.2 1.6-3.8 3-2L61 2.6l2 2.9-.3 1.8-1.1 7.7L59 27.1l-1.5 8.2h.9l1-1.1 4.1-5.4 6.9-8.6 3-3.5L77 13l2.3-1.8h4.3l3.1 4.7-1.4 4.9-4.4 5.6-3.7 4.7-5.3 7.1-3.2 5.7.3.4h.7l12-2.6 6.4-1.1 7.6-1.3 3.5 1.6.4 1.6-1.4 3.4-8.2 2-9.6 2-14.3 3.3-.2.1.2.3 6.4.6 2.8.2h6.8l12.6 1 3.3 2 1.9 2.7-.3 2-5.1 2.6-6.8-1.6-16-3.8-5.4-1.3h-.8v.4l4.6 4.5 8.3 7.5L89 80.1l.5 2.4-1.3 2-1.4-.2-9.2-7-3.6-3-8-6.8h-.5v.7l1.8 2.7 9.8 14.7.5 4.5-.7 1.4-2.6 1-2.7-.6-5.8-8-6-9-4.7-8.2-.5.4-2.9 30.2-1.3 1.5-3 1.2-2.5-2-1.4-3 1.4-6.2 1.6-8 1.3-6.4 1.2-7.9.7-2.6v-.2H49L43 72l-9 12.3-7.2 7.6-1.7.7-3-1.5.3-2.8L24 86l10-12.8 6-7.9 4-4.6-.1-.5h-.3L17.2 77.4l-4.7.6-2-2 .2-3 1-1 8-5.5Z" />
-    </svg>
-  );
-}
-
 export function LucideLinkArcIcon({ className = "w-3.5 h-3.5" }: { className?: string }) {
   return (
     <svg
@@ -143,7 +135,6 @@ export function TextRollButton({
   target?: string;
   rel?: string;
 }) {
-  const isOrange = variant === "orange";
   const isExternal = href?.startsWith("http") || href?.startsWith("https") || href?.startsWith("wa.me");
 
   const content = (
@@ -156,21 +147,14 @@ export function TextRollButton({
           {text}
         </span>
       </span>
-      {isOrange ? (
-        <span className="flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-full bg-white shrink-0 transition-transform duration-500 ease-[cubic-bezier(0.25,0.1,0.25,1)] group-hover:-rotate-45">
-          <ArrowRight className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-[#F26522]" />
-        </span>
-      ) : (
-        <span className="flex h-6 w-6 items-center justify-center rounded-full bg-white text-gray-900 shrink-0 transition-transform duration-500 ease-[cubic-bezier(0.25,0.1,0.25,1)] group-hover:-rotate-45">
-          <ArrowRight className="h-3.5 w-3.5" />
-        </span>
-      )}
+      <span className="flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-full bg-white shrink-0 transition-transform duration-500 ease-[cubic-bezier(0.25,0.1,0.25,1)] group-hover:-rotate-45">
+        <ArrowRight className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-[#F26522]" />
+      </span>
     </>
   );
 
-  const className = isOrange
-    ? "group inline-flex items-center gap-3 rounded-full bg-[#F26522] hover:bg-[#e05a1a] text-white text-[13px] sm:text-[14px] font-medium pl-5 sm:pl-6 pr-2 py-2 transition-colors duration-300 shadow-sm cursor-pointer"
-    : "group inline-flex items-center gap-2.5 rounded-full bg-gray-900 text-white text-[13px] font-medium pl-5 pr-2 py-2 transition-colors duration-300 hover:bg-black cursor-pointer";
+  const className =
+    "group inline-flex items-center gap-3 rounded-full bg-[#F26522] hover:bg-[#e05a1a] text-white text-[13px] sm:text-[14px] font-medium pl-5 sm:pl-6 pr-2 py-2 transition-colors duration-300 shadow-sm cursor-pointer";
 
   if (href) {
     return (
@@ -248,7 +232,7 @@ export function StudioLanding({
   ];
 
   return (
-    <div className="min-h-screen bg-[#EFEFEF] text-gray-900 selection:bg-[#F26522]/20 selection:text-[#F26522]">
+    <div className="min-h-screen bg-[#EFEFEF] text-gray-900 selection:bg-gray-900/10 selection:text-gray-900">
       {/* ==================================================================== */}
       {/* SECTION 1: HERO (Full viewport height)                                */}
       {/* ==================================================================== */}
@@ -288,7 +272,7 @@ export function StudioLanding({
                       className="h-8 w-8 sm:h-9 sm:w-9 object-contain transition-transform duration-300 group-hover:scale-110"
                     />
                     <span className="text-[15px] font-semibold tracking-tight text-gray-900">
-                      Matrix <span className="font-bold text-[#F26522]">Root</span>
+                      Matrix <span className="font-bold text-gray-900">Root</span>
                     </span>
                   </a>
                 )}
@@ -324,16 +308,16 @@ export function StudioLanding({
                 </div>
                 {/* CTA Button with Hover Text Roll */}
                 <TextRollButton
-                  text={ctaButtonText || (logoText === "AX" ? "Book a strategy call" : "Book a call: 8121358586")}
+                  text={ctaButtonText || "Book a strategy call"}
                   href={CALL_TEL}
-                  variant="dark"
+                  variant="orange"
                 />
               </div>
 
               {/* MOBILE TOGGLE (md:hidden) */}
               <button
                 type="button"
-                className="md:hidden w-9 h-9 sm:w-10 sm:h-10 bg-gray-900 text-white rounded-full flex items-center justify-center transition-colors cursor-pointer"
+                className="md:hidden w-9 h-9 sm:w-10 sm:h-10 bg-[#F26522] hover:bg-[#e05a1a] text-white rounded-full flex items-center justify-center transition-colors cursor-pointer"
                 onClick={() => setMobileMenuOpen(true)}
                 aria-label="Open mobile menu"
                 aria-expanded={mobileMenuOpen}
@@ -365,7 +349,7 @@ export function StudioLanding({
                     alt="Matrix Root"
                     className="h-6 w-6 object-contain"
                   />
-                  <span className="font-semibold text-sm">Matrix <span className="text-[#F26522]">Root</span></span>
+                  <span className="font-semibold text-sm text-gray-900">Matrix Root</span>
                 </div>
                 <button
                   type="button"
@@ -383,7 +367,7 @@ export function StudioLanding({
                     key={item.label}
                     href={item.href}
                     onClick={() => setMobileMenuOpen(false)}
-                    className="text-[24px] font-medium text-gray-900 hover:text-[#F26522] transition-colors"
+                    className="text-[24px] font-medium text-gray-900 hover:text-gray-600 transition-colors"
                   >
                     {item.label}
                   </a>
@@ -392,28 +376,28 @@ export function StudioLanding({
 
               {/* Action Buttons in Mobile Sheet */}
               <div className="pt-2 flex flex-col gap-2.5">
-                {/* Start a project redirects to WhatsApp 8121358586 */}
+                {/* Start a project redirects to WhatsApp */}
                 <a
                   href={WHATSAPP_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full bg-[#25D366] hover:bg-[#20ba59] text-white text-sm font-semibold rounded-full py-3 px-5 flex items-center justify-between transition-colors shadow-sm"
+                  className="w-full bg-[#F26522] hover:bg-[#e05a1a] text-white text-sm font-semibold rounded-full py-3 px-5 flex items-center justify-between transition-colors shadow-sm"
                 >
                   <span className="flex items-center gap-2">
-                    <MessageSquare className="w-4 h-4" /> Start a project (WhatsApp)
+                    <MessageSquare className="w-4 h-4 text-white" /> Start a project (WhatsApp)
                   </span>
-                  <ArrowRight className="w-4 h-4" />
+                  <ArrowRight className="w-4 h-4 text-white" />
                 </a>
 
-                {/* Booking calls redirects to mobile call 8121358586 */}
+                {/* Booking calls redirects to mobile call */}
                 <a
                   href={CALL_TEL}
-                  className="w-full bg-gray-900 hover:bg-black text-white text-sm font-medium rounded-full py-3 px-5 flex items-center justify-between transition-colors"
+                  className="w-full bg-[#F26522] hover:bg-[#e05a1a] text-white text-sm font-semibold rounded-full py-3 px-5 flex items-center justify-between transition-colors shadow-sm"
                 >
                   <span className="flex items-center gap-2">
-                    <Phone className="w-4 h-4 text-[#F26522]" /> Call: 8121358586
+                    <Phone className="w-4 h-4 text-white" /> Call Us
                   </span>
-                  <ArrowRight className="w-4 h-4" />
+                  <ArrowRight className="w-4 h-4 text-white" />
                 </a>
               </div>
             </div>
@@ -440,7 +424,7 @@ export function StudioLanding({
           </h1>
 
           <div className="mt-8 sm:mt-12 flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-5">
-            {/* Start a project redirects to WhatsApp 8121358586 */}
+            {/* Start a project redirects to WhatsApp */}
             <TextRollButton
               text="Start a project"
               href={WHATSAPP_URL}
@@ -450,28 +434,11 @@ export function StudioLanding({
             />
 
             {/* Direct Call Button */}
-            <a
+            <TextRollButton
+              text="Book a call"
               href={CALL_TEL}
-              className="bg-white rounded-[4px] px-3 sm:px-4 py-2 sm:py-2.5 flex items-center gap-2.5 shadow-[0_2px_8px_rgba(0,0,0,0.08)] hover:shadow-[0_4px_16px_rgba(0,0,0,0.12)] transition-all text-gray-900 hover:text-[#F26522]"
-            >
-              <Phone className="w-4 h-4 text-[#F26522]" />
-              <span className="text-[13px] sm:text-[14px] font-medium whitespace-nowrap">
-                Call: 8121358586
-              </span>
-            </a>
-
-            {/* Partner Badge */}
-            {showPartnerBadge && (
-              <div className="bg-white rounded-[4px] px-3 sm:px-4 py-2 sm:py-2.5 flex items-center gap-2.5 shadow-[0_2px_8px_rgba(0,0,0,0.08)] hover:shadow-[0_4px_16px_rgba(0,0,0,0.12)] transition-shadow duration-300">
-                <StarburstBadgeIcon className="w-5 h-5 sm:w-6 sm:h-6 fill-current text-[#E8704E]" />
-                <span className="text-[13px] sm:text-[14px] font-medium text-gray-900 whitespace-nowrap">
-                  Certified Partner
-                </span>
-                <span className="text-[10px] sm:text-[11px] bg-gray-900 text-white px-1.5 sm:px-2 py-0.5 rounded font-medium">
-                  Featured
-                </span>
-              </div>
-            )}
+              variant="orange"
+            />
           </div>
         </div>
       </section>
@@ -584,7 +551,7 @@ export function StudioLanding({
             </div>
             <a
               href="/projects"
-              className="text-xs font-semibold text-[#F26522] hover:underline flex items-center gap-1"
+              className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-[#F26522] hover:bg-[#e05a1a] text-white text-xs font-medium transition-colors shadow-2xs"
             >
               View all projects <ArrowRight className="w-3.5 h-3.5" />
             </a>
@@ -692,12 +659,12 @@ export function StudioLanding({
               href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="font-medium text-[#25D366] hover:underline"
+              className="font-medium text-gray-700 hover:text-gray-900 hover:underline"
             >
-              WhatsApp (+91 8121358586)
+              WhatsApp
             </a>
-            <a href={CALL_TEL} className="font-medium text-[#F26522] hover:underline">
-              Call 8121358586
+            <a href={CALL_TEL} className="font-medium text-gray-700 hover:text-gray-900 hover:underline">
+              Call Us
             </a>
           </div>
         </div>
