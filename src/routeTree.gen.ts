@@ -12,10 +12,14 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as AxionRouteImport } from './routes/axion'
+import { Route as ConnectRouteImport } from './routes/connect'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as IncubatorRouteImport } from './routes/incubator'
+import { Route as JournalRouteImport } from './routes/journal'
 import { Route as MotionRouteImport } from './routes/motion'
+import { Route as ProjectsRouteImport } from './routes/projects'
 import { Route as ServicesRouteImport } from './routes/services'
+import { Route as StudioRouteImport } from './routes/studio'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -32,6 +36,11 @@ const AxionRoute = AxionRouteImport.update({
   path: '/axion',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ConnectRoute = ConnectRouteImport.update({
+  id: '/connect',
+  path: '/connect',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
@@ -42,9 +51,19 @@ const IncubatorRoute = IncubatorRouteImport.update({
   path: '/incubator',
   getParentRoute: () => rootRouteImport,
 } as any)
+const JournalRoute = JournalRouteImport.update({
+  id: '/journal',
+  path: '/journal',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const MotionRoute = MotionRouteImport.update({
   id: '/motion',
   path: '/motion',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProjectsRoute = ProjectsRouteImport.update({
+  id: '/projects',
+  path: '/projects',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ServicesRoute = ServicesRouteImport.update({
@@ -52,34 +71,51 @@ const ServicesRoute = ServicesRouteImport.update({
   path: '/services',
   getParentRoute: () => rootRouteImport,
 } as any)
+const StudioRoute = StudioRouteImport.update({
+  id: '/studio',
+  path: '/studio',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/axion': typeof AxionRoute
+  '/connect': typeof ConnectRoute
   '/contact': typeof ContactRoute
   '/incubator': typeof IncubatorRoute
+  '/journal': typeof JournalRoute
   '/motion': typeof MotionRoute
+  '/projects': typeof ProjectsRoute
   '/services': typeof ServicesRoute
+  '/studio': typeof StudioRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/axion': typeof AxionRoute
+  '/connect': typeof ConnectRoute
   '/contact': typeof ContactRoute
   '/incubator': typeof IncubatorRoute
+  '/journal': typeof JournalRoute
   '/motion': typeof MotionRoute
+  '/projects': typeof ProjectsRoute
   '/services': typeof ServicesRoute
+  '/studio': typeof StudioRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/axion': typeof AxionRoute
+  '/connect': typeof ConnectRoute
   '/contact': typeof ContactRoute
   '/incubator': typeof IncubatorRoute
+  '/journal': typeof JournalRoute
   '/motion': typeof MotionRoute
+  '/projects': typeof ProjectsRoute
   '/services': typeof ServicesRoute
+  '/studio': typeof StudioRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -87,38 +123,54 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/axion'
+    | '/connect'
     | '/contact'
     | '/incubator'
+    | '/journal'
     | '/motion'
+    | '/projects'
     | '/services'
+    | '/studio'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/about'
     | '/axion'
+    | '/connect'
     | '/contact'
     | '/incubator'
+    | '/journal'
     | '/motion'
+    | '/projects'
     | '/services'
+    | '/studio'
   id:
     | '__root__'
     | '/'
     | '/about'
     | '/axion'
+    | '/connect'
     | '/contact'
     | '/incubator'
+    | '/journal'
     | '/motion'
+    | '/projects'
     | '/services'
+    | '/studio'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   AxionRoute: typeof AxionRoute
+  ConnectRoute: typeof ConnectRoute
   ContactRoute: typeof ContactRoute
   IncubatorRoute: typeof IncubatorRoute
+  JournalRoute: typeof JournalRoute
   MotionRoute: typeof MotionRoute
+  ProjectsRoute: typeof ProjectsRoute
   ServicesRoute: typeof ServicesRoute
+  StudioRoute: typeof StudioRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -144,6 +196,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AxionRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/connect': {
+      id: '/connect'
+      path: '/connect'
+      fullPath: '/connect'
+      preLoaderRoute: typeof ConnectRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/contact': {
       id: '/contact'
       path: '/contact'
@@ -158,11 +217,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IncubatorRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/journal': {
+      id: '/journal'
+      path: '/journal'
+      fullPath: '/journal'
+      preLoaderRoute: typeof JournalRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/motion': {
       id: '/motion'
       path: '/motion'
       fullPath: '/motion'
       preLoaderRoute: typeof MotionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/projects': {
+      id: '/projects'
+      path: '/projects'
+      fullPath: '/projects'
+      preLoaderRoute: typeof ProjectsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/services': {
@@ -172,6 +245,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServicesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/studio': {
+      id: '/studio'
+      path: '/studio'
+      fullPath: '/studio'
+      preLoaderRoute: typeof StudioRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -179,10 +259,14 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   AxionRoute: AxionRoute,
+  ConnectRoute: ConnectRoute,
   ContactRoute: ContactRoute,
   IncubatorRoute: IncubatorRoute,
+  JournalRoute: JournalRoute,
   MotionRoute: MotionRoute,
+  ProjectsRoute: ProjectsRoute,
   ServicesRoute: ServicesRoute,
+  StudioRoute: StudioRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

@@ -1,14 +1,18 @@
 import { Link } from "@tanstack/react-router";
-import { ArrowRight, Boxes, Code2, Menu, Network, X, Zap } from "lucide-react";
+import { ArrowRight, Boxes, Code2, Menu, MessageSquare, Network, Phone, X, Zap } from "lucide-react";
 import { useState, type ReactNode } from "react";
 import teamImage from "@/assets/matrix-root-engineering.jpg";
 
-const pages = [
-  { to: "/", label: "Home" },
-  { to: "/services", label: "Services" },
-  { to: "/incubator", label: "Talent incubator" },
-  { to: "/about", label: "About" },
-  { to: "/contact", label: "Contact" },
+export const WHATSAPP_NUMBER = "8121358586";
+export const WHATSAPP_URL = "https://wa.me/918121358586?text=Hi%20Matrix%20Root,%20I'd%20like%20to%20start%20a%20project";
+export const CALL_TEL = "tel:+918121358586";
+
+export const pages = [
+  { to: "/studio", label: "Studio" },
+  { to: "/projects", label: "Projects" },
+  { to: "/motion", label: "Motion" },
+  { to: "/journal", label: "Journal" },
+  { to: "/connect", label: "Connect" },
 ] as const;
 
 const linkStyle = "text-sm text-muted-foreground transition-colors hover:text-foreground";
@@ -22,8 +26,9 @@ export function SiteShell({ children }: { children: ReactNode }) {
 
   return (
     <div className="min-h-screen bg-background text-foreground antialiased selection:bg-primary/20 selection:text-primary-deep">
-      <header className="sticky top-0 z-50 border-b border-border/80 bg-white/85 backdrop-blur-md transition-all duration-200">
+      <header className="sticky top-0 z-50 border-b border-border/80 bg-white/90 backdrop-blur-md transition-all duration-200">
         <nav aria-label="Main navigation" className="mx-auto flex min-h-16 max-w-7xl items-center justify-between px-5 lg:px-8">
+          {/* Top Left: Matrix Root Logo */}
           <Link to="/" aria-label="Matrix Root home" className="group flex items-center gap-3 transition-transform duration-300 hover:scale-[1.02]">
             <img
               src="/logo-transparent.png"
@@ -39,8 +44,10 @@ export function SiteShell({ children }: { children: ReactNode }) {
               Matrix <span className="font-bold text-primary">Root</span>
             </span>
           </Link>
-          <div className="hidden items-center gap-8 md:flex">
-            {pages.slice(1, -1).map((page) => (
+
+          {/* Desktop Navigation Links */}
+          <div className="hidden items-center gap-7 md:flex">
+            {pages.map((page) => (
               <Link
                 key={page.to}
                 to={page.to}
@@ -52,13 +59,33 @@ export function SiteShell({ children }: { children: ReactNode }) {
               </Link>
             ))}
           </div>
-          <Link to="/contact" className={`${buttonStyle} group hidden min-h-10 px-4 py-2 md:inline-flex`}>
-            Start a conversation{" "}
-            <ArrowRight aria-hidden="true" className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
-          </Link>
+
+          {/* Desktop CTAs: Book a Call & Start a Project */}
+          <div className="hidden items-center gap-3 md:flex">
+            <a
+              href={CALL_TEL}
+              className="inline-flex min-h-10 items-center justify-center gap-2 rounded-full border border-border bg-white px-4 py-2 text-xs font-semibold text-foreground shadow-2xs transition-all duration-200 hover:border-primary/40 hover:bg-slate-50 hover:text-primary hover:-translate-y-0.5"
+              title={`Call ${WHATSAPP_NUMBER}`}
+            >
+              <Phone className="h-3.5 w-3.5 text-primary" />
+              <span>Book a call: {WHATSAPP_NUMBER}</span>
+            </a>
+            <a
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex min-h-10 items-center justify-center gap-2 rounded-full bg-[#25D366] px-4 py-2 text-xs font-semibold text-white shadow-sm transition-all duration-200 hover:bg-[#20ba59] hover:shadow-md hover:-translate-y-0.5"
+            >
+              <MessageSquare className="h-3.5 w-3.5" />
+              <span>Start a project</span>
+              <ArrowRight aria-hidden="true" className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-1" />
+            </a>
+          </div>
+
+          {/* Mobile Menu Toggle */}
           <button
             type="button"
-            className="inline-flex h-10 w-10 items-center justify-center rounded-lg text-foreground transition-colors hover:bg-slate-100 active:scale-95 md:hidden"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-lg text-foreground transition-colors hover:bg-slate-100 active:scale-95 md:hidden cursor-pointer"
             aria-label={menuOpen ? "Close navigation" : "Open navigation"}
             aria-expanded={menuOpen}
             onClick={() => setMenuOpen((open) => !open)}
@@ -66,10 +93,12 @@ export function SiteShell({ children }: { children: ReactNode }) {
             {menuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
         </nav>
+
+        {/* Mobile Navigation Dropdown */}
         {menuOpen && (
-          <div className="border-t border-border/80 bg-white/95 px-5 py-4 backdrop-blur-md md:hidden animate-fade-in">
+          <div className="border-t border-border/80 bg-white/95 px-5 py-5 backdrop-blur-md md:hidden animate-fade-in shadow-lg">
             <div className="mx-auto flex max-w-7xl flex-col gap-4">
-              {pages.slice(1).map((page) => (
+              {pages.map((page) => (
                 <Link
                   key={page.to}
                   to={page.to}
@@ -79,6 +108,25 @@ export function SiteShell({ children }: { children: ReactNode }) {
                   {page.label}
                 </Link>
               ))}
+
+              <div className="pt-3 border-t border-border/60 flex flex-col gap-2.5">
+                <a
+                  href={CALL_TEL}
+                  className="inline-flex items-center justify-center gap-2 rounded-lg border border-border bg-white px-4 py-2.5 text-sm font-semibold text-foreground shadow-2xs"
+                >
+                  <Phone className="h-4 w-4 text-primary" />
+                  <span>Book a call: {WHATSAPP_NUMBER}</span>
+                </a>
+                <a
+                  href={WHATSAPP_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#25D366] px-4 py-2.5 text-sm font-semibold text-white shadow-sm"
+                >
+                  <MessageSquare className="h-4 w-4" />
+                  <span>Start a project on WhatsApp</span>
+                </a>
+              </div>
             </div>
           </div>
         )}
@@ -88,12 +136,41 @@ export function SiteShell({ children }: { children: ReactNode }) {
         <div className="mx-auto grid max-w-7xl gap-10 px-5 py-14 md:grid-cols-[1fr_auto_auto] md:items-start lg:px-8">
           <div className="max-w-md">
             <Link to="/" className="group inline-flex items-center gap-2 text-lg font-semibold transition-transform duration-200 hover:scale-[1.01]">
+              <img
+                src="/logo-transparent.png"
+                onError={(e) => {
+                  e.currentTarget.src = "/logo.png";
+                }}
+                alt="Matrix Root"
+                width={28}
+                height={28}
+                className="h-7 w-7 object-contain"
+              />
               <span className="text-foreground">Matrix</span>
               <span className="font-bold text-primary">Root</span>
             </Link>
             <p className="mt-3 text-sm leading-6 text-muted-foreground">
-              Software solutions and a founder-first talent incubator, built from Hyderabad.
+              Software solutions and a founder-first talent incubator, built from Hyderabad. High-performance web apps, distributed systems, and launch-grade motion.
             </p>
+            <div className="mt-4 flex flex-wrap gap-3">
+              <a
+                href={WHATSAPP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#25D366] hover:underline"
+              >
+                <MessageSquare className="w-3.5 h-3.5" />
+                <span>WhatsApp: +91 {WHATSAPP_NUMBER}</span>
+              </a>
+              <span className="text-slate-300">·</span>
+              <a
+                href={CALL_TEL}
+                className="inline-flex items-center gap-1.5 text-xs font-semibold text-primary hover:underline"
+              >
+                <Phone className="w-3.5 h-3.5" />
+                <span>Call: {WHATSAPP_NUMBER}</span>
+              </a>
+            </div>
           </div>
           <nav aria-label="Footer navigation" className="flex flex-col gap-3">
             <p className="text-xs font-mono font-semibold uppercase tracking-wider text-slate-400">Navigation</p>
