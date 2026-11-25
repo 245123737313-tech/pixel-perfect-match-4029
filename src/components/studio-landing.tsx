@@ -202,13 +202,17 @@ export interface StudioLandingProps {
   logoText?: string;
   heroLabel?: string;
   aboutLabel?: string;
+  showPartnerBadge?: boolean;
+  ctaButtonText?: string;
 }
 
 export function StudioLanding({
-  brandName = "Matrix Root",
-  logoText = "MR",
-  heroLabel = "Matrix Root Studio",
-  aboutLabel = "Introducing Matrix Root",
+  brandName = "Axion Studio",
+  logoText = "AX",
+  heroLabel = "Axion Studio",
+  aboutLabel = "Introducing Axion",
+  showPartnerBadge = true,
+  ctaButtonText,
 }: StudioLandingProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [londonTime, setLondonTime] = useState("");
@@ -260,29 +264,45 @@ export function StudioLanding({
               aria-label="Main"
               className="bg-white rounded-full p-[5px] flex items-center justify-between shadow-[0_2px_12px_rgba(0,0,0,0.04)]"
             >
-              {/* LEFT: Matrix Root Logo at Top Left */}
+              {/* LEFT: Logo & Nav Links */}
               <div className="flex items-center gap-4 sm:gap-6 pl-2 sm:pl-3">
-                <a
-                  href="/"
-                  aria-label="Matrix Root home"
-                  className="group flex items-center gap-2.5 transition-transform duration-300 hover:scale-105"
-                >
-                  <img
-                    src="/logo-transparent.png"
-                    onError={(e) => {
-                      e.currentTarget.src = "/logo.png";
-                    }}
-                    alt="Matrix Root Official Logo"
-                    width={36}
-                    height={36}
-                    className="h-8 w-8 sm:h-9 sm:w-9 object-contain transition-transform duration-300 group-hover:scale-110"
-                  />
-                  <span className="text-[15px] font-semibold tracking-tight text-gray-900">
-                    Matrix <span className="font-bold text-[#F26522]">Root</span>
-                  </span>
-                </a>
+                {logoText === "AX" ? (
+                  <a href="/axion" aria-label="Axion Studio home" className="flex items-center gap-2">
+                    <div className="w-9 h-9 sm:w-10 sm:h-10 bg-gray-900 rounded-full flex items-center justify-center shrink-0 shadow-sm transition-transform hover:scale-105">
+                      <span className="text-[10px] sm:text-[11px] font-bold text-white tracking-tight">AX</span>
+                    </div>
+                  </a>
+                ) : (
+                  <a
+                    href="/"
+                    aria-label="Matrix Root home"
+                    className="group flex items-center gap-2.5 transition-transform duration-300 hover:scale-105"
+                  >
+                    <img
+                      src="/logo-transparent.png"
+                      onError={(e) => {
+                        e.currentTarget.src = "/logo.png";
+                      }}
+                      alt="Matrix Root Official Logo"
+                      width={36}
+                      height={36}
+                      className="h-8 w-8 sm:h-9 sm:w-9 object-contain transition-transform duration-300 group-hover:scale-110"
+                    />
+                    <span className="text-[15px] font-semibold tracking-tight text-gray-900">
+                      Matrix <span className="font-bold text-[#F26522]">Root</span>
+                    </span>
+                  </a>
+                )}
                 <div className="hidden md:flex items-center gap-6 pl-2">
-                  {navLinks.map((item) => (
+                  {(logoText === "AX"
+                    ? [
+                        { label: "Projects", href: "/projects" },
+                        { label: "Studio", href: "/studio" },
+                        { label: "Journal", href: "/journal" },
+                        { label: "Connect", href: "/connect" },
+                      ]
+                    : navLinks
+                  ).map((item) => (
                     <a
                       key={item.label}
                       href={item.href}
@@ -303,8 +323,12 @@ export function StudioLanding({
                   <Clock className="w-3.5 h-3.5 text-gray-600" aria-hidden="true" />
                   <span>{londonTime || "12:00"} in London</span>
                 </div>
-                {/* Booking calls button redirects to mobile call 8121358586 */}
-                <TextRollButton text="Book a call: 8121358586" href={CALL_TEL} variant="dark" />
+                {/* CTA Button with Hover Text Roll */}
+                <TextRollButton
+                  text={ctaButtonText || (logoText === "AX" ? "Book a strategy call" : "Book a call: 8121358586")}
+                  href={CALL_TEL}
+                  variant="dark"
+                />
               </div>
 
               {/* MOBILE TOGGLE (md:hidden) */}
@@ -436,6 +460,19 @@ export function StudioLanding({
                 Call: 8121358586
               </span>
             </a>
+
+            {/* Partner Badge */}
+            {showPartnerBadge && (
+              <div className="bg-white rounded-[4px] px-3 sm:px-4 py-2 sm:py-2.5 flex items-center gap-2.5 shadow-[0_2px_8px_rgba(0,0,0,0.08)] hover:shadow-[0_4px_16px_rgba(0,0,0,0.12)] transition-shadow duration-300">
+                <StarburstBadgeIcon className="w-5 h-5 sm:w-6 sm:h-6 fill-current text-[#E8704E]" />
+                <span className="text-[13px] sm:text-[14px] font-medium text-gray-900 whitespace-nowrap">
+                  Certified Partner
+                </span>
+                <span className="text-[10px] sm:text-[11px] bg-gray-900 text-white px-1.5 sm:px-2 py-0.5 rounded font-medium">
+                  Featured
+                </span>
+              </div>
+            )}
           </div>
         </div>
       </section>

@@ -74,19 +74,24 @@ function StudioPage() {
   return (
     <SiteShell>
       {/* Studio Hero */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-slate-50 via-white to-background px-5 pt-16 pb-20 sm:pt-24 sm:pb-28 lg:px-8 border-b border-border/80">
-        <div className="mx-auto max-w-7xl">
-          <div className="inline-flex items-center gap-2 rounded-full border border-primary/25 bg-white/90 px-3.5 py-1 text-xs font-mono font-medium text-primary shadow-xs backdrop-blur-xs mb-6">
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>Matrix Root Engineering Studio · Hyderabad, India</span>
+      <section className="relative overflow-hidden bg-white border-b border-gray-200/80 px-5 pt-14 pb-16 sm:pt-20 sm:pb-24 lg:px-12">
+        <div className="mx-auto max-w-[1440px]">
+          {/* Axion Badge Row */}
+          <div className="flex items-center gap-3 mb-6 sm:mb-8">
+            <span className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-gray-900 text-white text-[11px] sm:text-[12px] font-semibold flex items-center justify-center shrink-0">
+              1
+            </span>
+            <span className="text-[12px] sm:text-[13px] font-medium border border-gray-200 rounded-full px-3 sm:px-4 py-1 sm:py-1.5 text-gray-900 bg-white">
+              Matrix Root Engineering Studio · Hyderabad, India
+            </span>
           </div>
 
-          <h1 className="max-w-4xl text-4xl font-semibold leading-[1.08] tracking-tight text-foreground sm:text-6xl lg:text-7xl">
+          <h1 className="max-w-4xl text-[clamp(1.75rem,6vw,4.2rem)] font-medium leading-[1.08] tracking-[-0.03em] text-gray-900">
             We build software the way it should be built:{" "}
-            <span className="text-primary">lean, documented, and fully yours.</span>
+            <span className="text-[#F26522]">lean, documented, and fully yours.</span>
           </h1>
 
-          <p className="mt-6 max-w-2xl text-lg sm:text-xl leading-relaxed text-muted-foreground">
+          <p className="mt-6 max-w-2xl text-[15px] sm:text-[17px] leading-[1.65] font-medium text-gray-600">
             Matrix Root brings together product design, systems engineering, and a talent incubator. We partner with ambitious founders and established teams to turn complex ideas into software people trust every day.
           </p>
 
@@ -104,25 +109,32 @@ function StudioPage() {
 
             <a
               href={CALL_TEL}
-              className="inline-flex items-center gap-2.5 rounded-full border border-border bg-white hover:border-primary/50 hover:text-primary px-6 py-3.5 text-sm font-medium text-foreground shadow-2xs transition-all hover:-translate-y-0.5"
+              className="inline-flex items-center gap-2.5 rounded-full border border-gray-300 bg-white hover:border-[#F26522] hover:text-[#F26522] px-6 py-3.5 text-sm font-medium text-gray-900 shadow-2xs transition-all hover:-translate-y-0.5"
             >
-              <Phone className="w-4 h-4 text-primary" />
-              <span>Call Us: {WHATSAPP_NUMBER}</span>
+              <Phone className="w-4 h-4 text-[#F26522]" />
+              <span>Call: {WHATSAPP_NUMBER}</span>
             </a>
           </div>
         </div>
       </section>
 
       {/* Capabilities Section */}
-      <section className="px-5 py-20 lg:px-8 max-w-7xl mx-auto">
-        <div className="max-w-2xl mb-12">
-          <p className="font-mono text-xs uppercase tracking-wider text-primary">Core Capabilities</p>
-          <h2 className="mt-2 text-3xl sm:text-4xl font-semibold tracking-tight text-foreground">
+      <section className="bg-[#F5F5F5] px-5 py-20 lg:px-12 border-b border-gray-200/80">
+        <div className="max-w-[1440px] mx-auto">
+          <div className="flex items-center gap-3 mb-6 sm:mb-8">
+            <span className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-gray-900 text-white text-[11px] sm:text-[12px] font-semibold flex items-center justify-center shrink-0">
+              2
+            </span>
+            <span className="text-[12px] sm:text-[13px] font-medium border border-gray-300 rounded-full px-3 sm:px-4 py-1 sm:py-1.5 text-gray-900 bg-white">
+              Core Capabilities
+            </span>
+          </div>
+
+          <h2 className="text-[clamp(1.5rem,4vw,3.2rem)] font-medium leading-[1.12] tracking-[-0.02em] text-gray-900 mb-12 sm:mb-16">
             Engineered for reliability from first commit to production.
           </h2>
-        </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {capabilities.map((cap) => {
             const Icon = cap.icon;
             return (
@@ -148,7 +160,8 @@ function StudioPage() {
             );
           })}
         </div>
-      </section>
+      </div>
+    </section>
 
       {/* The Sprint Playbook */}
       <section className="bg-void px-5 py-20 lg:px-8 border-y border-border/80">

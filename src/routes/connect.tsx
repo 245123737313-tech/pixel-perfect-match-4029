@@ -60,19 +60,23 @@ function ConnectPage() {
   return (
     <SiteShell>
       {/* Hero Header */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-slate-50 via-white to-background px-5 pt-16 pb-16 sm:pt-24 sm:pb-20 lg:px-8 border-b border-border/80">
-        <div className="mx-auto max-w-7xl">
-          <div className="inline-flex items-center gap-2 rounded-full border border-primary/25 bg-white/90 px-3.5 py-1 text-xs font-mono font-medium text-primary shadow-xs backdrop-blur-xs mb-6">
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>Direct Line to Leadership · Response Time &lt; 2 Hours</span>
+      <section className="relative overflow-hidden bg-white px-5 pt-14 pb-16 sm:pt-20 sm:pb-20 lg:px-12 border-b border-gray-200/80">
+        <div className="mx-auto max-w-[1440px]">
+          <div className="flex items-center gap-3 mb-6 sm:mb-8">
+            <span className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-gray-900 text-white text-[11px] sm:text-[12px] font-semibold flex items-center justify-center shrink-0">
+              1
+            </span>
+            <span className="text-[12px] sm:text-[13px] font-medium border border-gray-200 rounded-full px-3 sm:px-4 py-1 sm:py-1.5 text-gray-900 bg-white">
+              Direct Line to Leadership · Response Time &lt; 2 Hours
+            </span>
           </div>
 
           <div className="max-w-3xl">
-            <h1 className="text-4xl font-semibold leading-[1.08] tracking-tight text-foreground sm:text-6xl lg:text-7xl">
+            <h1 className="text-[clamp(1.75rem,7vw,4.2rem)] sm:text-[clamp(2.5rem,5vw,4.2rem)] font-medium leading-[1.08] tracking-[-0.03em] text-gray-900">
               Let&apos;s build something{" "}
-              <span className="text-primary">exceptional together.</span>
+              <span className="text-[#F26522]">exceptional together.</span>
             </h1>
-            <p className="mt-6 text-lg sm:text-xl leading-relaxed text-muted-foreground">
+            <p className="mt-6 text-[15px] sm:text-[17px] leading-[1.65] font-medium text-gray-600">
               Whether you need a dedicated product engineering team, a 3-week production MVP, or launch-grade motion graphics in code, we are ready.
             </p>
           </div>

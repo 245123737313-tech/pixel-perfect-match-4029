@@ -1,11 +1,15 @@
 import { Link } from "@tanstack/react-router";
-import { ArrowRight, Boxes, Code2, Menu, MessageSquare, Network, Phone, X, Zap } from "lucide-react";
-import { useState, type ReactNode } from "react";
+import { ArrowRight, Boxes, Clock, Code2, Menu, MessageSquare, Network, Phone, X, Zap } from "lucide-react";
+import { useEffect, useState, type ReactNode } from "react";
 import teamImage from "@/assets/matrix-root-engineering.jpg";
+import {
+  CALL_TEL,
+  TextRollButton,
+  WHATSAPP_NUMBER,
+  WHATSAPP_URL,
+} from "./studio-landing";
 
-export const WHATSAPP_NUMBER = "8121358586";
-export const WHATSAPP_URL = "https://wa.me/918121358586?text=Hi%20Matrix%20Root,%20I'd%20like%20to%20start%20a%20project";
-export const CALL_TEL = "tel:+918121358586";
+export { CALL_TEL, WHATSAPP_NUMBER, WHATSAPP_URL };
 
 export const pages = [
   { to: "/studio", label: "Studio" },
@@ -15,127 +19,182 @@ export const pages = [
   { to: "/connect", label: "Connect" },
 ] as const;
 
-const linkStyle = "text-sm text-muted-foreground transition-colors hover:text-foreground";
-const buttonStyle =
-  "inline-flex min-h-11 items-center justify-center gap-2 rounded-lg bg-primary px-5 py-3 text-sm font-semibold text-white shadow-sm transition-all duration-300 hover:bg-primary-deep hover:shadow-glow hover:-translate-y-0.5 active:translate-y-0";
-const outlineStyle =
-  "inline-flex min-h-11 items-center justify-center gap-2 rounded-lg border border-border bg-white px-5 py-3 text-sm font-medium text-foreground shadow-2xs transition-all duration-300 hover:border-primary/50 hover:bg-slate-50/80 hover:text-primary hover:-translate-y-0.5 hover:shadow-sm";
-
 export function SiteShell({ children }: { children: ReactNode }) {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [londonTime, setLondonTime] = useState("");
+
+  // Live London clock
+  useEffect(() => {
+    const updateTime = () => {
+      try {
+        const formatter = new Intl.DateTimeFormat("en-GB", {
+          timeZone: "Europe/London",
+          hour: "2-digit",
+          minute: "2-digit",
+          hour12: false,
+        });
+        setLondonTime(formatter.format(new Date()));
+      } catch {
+        const now = new Date();
+        setLondonTime(
+          `${String(now.getUTCHours()).padStart(2, "0")}:${String(now.getUTCMinutes()).padStart(2, "0")}`
+        );
+      }
+    };
+    updateTime();
+    const interval = setInterval(updateTime, 1000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
-    <div className="min-h-screen bg-background text-foreground antialiased selection:bg-primary/20 selection:text-primary-deep">
-      <header className="sticky top-0 z-50 border-b border-border/80 bg-white/90 backdrop-blur-md transition-all duration-200">
-        <nav aria-label="Main navigation" className="mx-auto flex min-h-16 max-w-7xl items-center justify-between px-5 lg:px-8">
-          {/* Top Left: Matrix Root Logo */}
-          <Link to="/" aria-label="Matrix Root home" className="group flex items-center gap-3 transition-transform duration-300 hover:scale-[1.02]">
-            <img
-              src="/logo-transparent.png"
-              onError={(e) => {
-                e.currentTarget.src = "/logo.png";
-              }}
-              alt="Matrix Root"
-              width={36}
-              height={36}
-              className="h-9 w-9 object-contain transition-transform duration-300 group-hover:scale-110 group-hover:rotate-2"
-            />
-            <span className="text-lg font-semibold tracking-tight text-foreground">
-              Matrix <span className="font-bold text-primary">Root</span>
-            </span>
-          </Link>
-
-          {/* Desktop Navigation Links */}
-          <div className="hidden items-center gap-7 md:flex">
-            {pages.map((page) => (
-              <Link
-                key={page.to}
-                to={page.to}
-                className="group relative py-1 text-sm font-medium text-muted-foreground transition-colors duration-200 hover:text-foreground"
-                activeProps={{ className: "text-foreground font-semibold" }}
-              >
-                {page.label}
-                <span className="absolute bottom-0 left-0 h-[2px] w-0 rounded-full bg-primary transition-all duration-300 ease-out group-hover:w-full" />
-              </Link>
-            ))}
-          </div>
-
-          {/* Desktop CTAs: Book a Call & Start a Project */}
-          <div className="hidden items-center gap-3 md:flex">
-            <a
-              href={CALL_TEL}
-              className="inline-flex min-h-10 items-center justify-center gap-2 rounded-full border border-border bg-white px-4 py-2 text-xs font-semibold text-foreground shadow-2xs transition-all duration-200 hover:border-primary/40 hover:bg-slate-50 hover:text-primary hover:-translate-y-0.5"
-              title={`Call ${WHATSAPP_NUMBER}`}
-            >
-              <Phone className="h-3.5 w-3.5 text-primary" />
-              <span>Book a call: {WHATSAPP_NUMBER}</span>
-            </a>
-            <a
-              href={WHATSAPP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex min-h-10 items-center justify-center gap-2 rounded-full bg-[#25D366] px-4 py-2 text-xs font-semibold text-white shadow-sm transition-all duration-200 hover:bg-[#20ba59] hover:shadow-md hover:-translate-y-0.5"
-            >
-              <MessageSquare className="h-3.5 w-3.5" />
-              <span>Start a project</span>
-              <ArrowRight aria-hidden="true" className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-1" />
-            </a>
-          </div>
-
-          {/* Mobile Menu Toggle */}
-          <button
-            type="button"
-            className="inline-flex h-10 w-10 items-center justify-center rounded-lg text-foreground transition-colors hover:bg-slate-100 active:scale-95 md:hidden cursor-pointer"
-            aria-label={menuOpen ? "Close navigation" : "Open navigation"}
-            aria-expanded={menuOpen}
-            onClick={() => setMenuOpen((open) => !open)}
+    <div className="min-h-screen bg-[#EFEFEF] text-gray-900 selection:bg-[#F26522]/20 selection:text-[#F26522] font-sans antialiased">
+      {/* Floating Pill Navbar (Axion Studio Design) */}
+      <header className="sticky top-0 z-50 w-full pt-2 sm:pt-3 px-2 sm:px-3 pointer-events-auto">
+        <div className="max-w-[1440px] mx-auto">
+          <nav
+            aria-label="Main"
+            className="bg-white rounded-full p-[5px] flex items-center justify-between shadow-[0_2px_12px_rgba(0,0,0,0.04)] border border-gray-100"
           >
-            {menuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-          </button>
-        </nav>
+            {/* Left: Matrix Root Logo & Nav Links */}
+            <div className="flex items-center gap-4 sm:gap-6 pl-2 sm:pl-3">
+              <Link
+                to="/"
+                aria-label="Matrix Root home"
+                className="group flex items-center gap-2.5 transition-transform duration-300 hover:scale-105"
+              >
+                <img
+                  src="/logo-transparent.png"
+                  onError={(e) => {
+                    e.currentTarget.src = "/logo.png";
+                  }}
+                  alt="Matrix Root"
+                  width={36}
+                  height={36}
+                  className="h-8 w-8 sm:h-9 sm:w-9 object-contain transition-transform duration-300 group-hover:scale-110"
+                />
+                <span className="text-[15px] font-semibold tracking-tight text-gray-900">
+                  Matrix <span className="font-bold text-[#F26522]">Root</span>
+                </span>
+              </Link>
 
-        {/* Mobile Navigation Dropdown */}
-        {menuOpen && (
-          <div className="border-t border-border/80 bg-white/95 px-5 py-5 backdrop-blur-md md:hidden animate-fade-in shadow-lg">
-            <div className="mx-auto flex max-w-7xl flex-col gap-4">
+              <div className="hidden md:flex items-center gap-6 pl-2">
+                {pages.map((page) => (
+                  <Link
+                    key={page.to}
+                    to={page.to}
+                    className="text-[14px] text-gray-900 hover:text-gray-500 transition-colors duration-300 font-normal"
+                    activeProps={{ className: "text-[#F26522] font-semibold" }}
+                  >
+                    {page.label}
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            {/* Right: Clock & Axion Hover Text-Roll Buttons */}
+            <div className="hidden md:flex items-center gap-3 lg:gap-4 pr-1">
+              <span className="text-[13px] text-gray-600 hidden lg:inline-block whitespace-nowrap">
+                Taking on projects for Q1 2026
+              </span>
+              <div className="flex items-center gap-1.5 text-[13px] text-gray-600 whitespace-nowrap">
+                <Clock className="w-3.5 h-3.5 text-gray-600" aria-hidden="true" />
+                <span>{londonTime || "12:00"} in London</span>
+              </div>
+              <TextRollButton text="Book a strategy call" href={CALL_TEL} variant="dark" />
+              <TextRollButton text="Start a project" href={WHATSAPP_URL} variant="orange" target="_blank" rel="noopener noreferrer" />
+            </div>
+
+            {/* Mobile Toggle Button */}
+            <button
+              type="button"
+              className="md:hidden w-9 h-9 sm:w-10 sm:h-10 bg-gray-900 text-white rounded-full flex items-center justify-center transition-colors cursor-pointer"
+              aria-label={menuOpen ? "Close navigation" : "Open navigation"}
+              aria-expanded={menuOpen}
+              onClick={() => setMenuOpen((open) => !open)}
+            >
+              {menuOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
+            </button>
+          </nav>
+        </div>
+      </header>
+
+      {/* Mobile Slide-Up Bottom Sheet Overlay (Axion Specification) */}
+      {menuOpen && (
+        <div className="fixed inset-0 z-50 flex flex-col justify-end md:hidden">
+          <div
+            className="fixed inset-0 bg-black/60 backdrop-blur-xs transition-opacity duration-300"
+            onClick={() => setMenuOpen(false)}
+          />
+          <div className="relative bg-white rounded-2xl mx-3 mb-3 p-6 sm:p-8 z-10 shadow-2xl transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] animate-in slide-in-from-bottom-full">
+            <div className="flex items-center justify-between pb-4 border-b border-gray-100">
+              <div className="flex items-center gap-2">
+                <img
+                  src="/logo-transparent.png"
+                  onError={(e) => {
+                    e.currentTarget.src = "/logo.png";
+                  }}
+                  alt="Matrix Root"
+                  className="h-6 w-6 object-contain"
+                />
+                <span className="font-semibold text-sm">Matrix <span className="text-[#F26522]">Root</span></span>
+              </div>
+              <button
+                type="button"
+                className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-700"
+                onClick={() => setMenuOpen(false)}
+                aria-label="Close menu"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            </div>
+
+            <div className="flex flex-col gap-3 py-6">
               {pages.map((page) => (
                 <Link
                   key={page.to}
                   to={page.to}
-                  className={`${linkStyle} py-1 text-base font-medium transition-colors hover:text-primary`}
+                  className="text-[24px] font-medium text-gray-900 hover:text-[#F26522] transition-colors"
                   onClick={() => setMenuOpen(false)}
                 >
                   {page.label}
                 </Link>
               ))}
+            </div>
 
-              <div className="pt-3 border-t border-border/60 flex flex-col gap-2.5">
-                <a
-                  href={CALL_TEL}
-                  className="inline-flex items-center justify-center gap-2 rounded-lg border border-border bg-white px-4 py-2.5 text-sm font-semibold text-foreground shadow-2xs"
-                >
-                  <Phone className="h-4 w-4 text-primary" />
-                  <span>Book a call: {WHATSAPP_NUMBER}</span>
-                </a>
-                <a
-                  href={WHATSAPP_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#25D366] px-4 py-2.5 text-sm font-semibold text-white shadow-sm"
-                >
-                  <MessageSquare className="h-4 w-4" />
-                  <span>Start a project on WhatsApp</span>
-                </a>
-              </div>
+            <div className="pt-2 flex flex-col gap-2.5">
+              <a
+                href={WHATSAPP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full bg-[#25D366] hover:bg-[#20ba59] text-white text-sm font-semibold rounded-full py-3 px-5 flex items-center justify-between transition-colors shadow-sm"
+              >
+                <span className="flex items-center gap-2">
+                  <MessageSquare className="w-4 h-4" /> Start a project (WhatsApp)
+                </span>
+                <ArrowRight className="w-4 h-4" />
+              </a>
+
+              <a
+                href={CALL_TEL}
+                className="w-full bg-gray-900 hover:bg-black text-white text-sm font-medium rounded-full py-3 px-5 flex items-center justify-between transition-colors"
+              >
+                <span className="flex items-center gap-2">
+                  <Phone className="w-4 h-4 text-[#F26522]" /> Call: 8121358586
+                </span>
+                <ArrowRight className="w-4 h-4" />
+              </a>
             </div>
           </div>
-        )}
-      </header>
+        </div>
+      )}
+
       <main>{children}</main>
-      <footer className="border-t border-border/80 bg-slate-50/60">
-        <div className="mx-auto grid max-w-7xl gap-10 px-5 py-14 md:grid-cols-[1fr_auto_auto] md:items-start lg:px-8">
-          <div className="max-w-md">
-            <Link to="/" className="group inline-flex items-center gap-2 text-lg font-semibold transition-transform duration-200 hover:scale-[1.01]">
+
+      {/* Unified Axion Design Footer */}
+      <footer className="bg-white border-t border-gray-200/80 py-12 px-5 sm:px-8 lg:px-12 mt-20">
+        <div className="max-w-[1440px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
+          <div className="flex items-center gap-3">
+            <Link to="/" className="group flex items-center gap-2.5">
               <img
                 src="/logo-transparent.png"
                 onError={(e) => {
@@ -146,57 +205,38 @@ export function SiteShell({ children }: { children: ReactNode }) {
                 height={28}
                 className="h-7 w-7 object-contain"
               />
-              <span className="text-foreground">Matrix</span>
-              <span className="font-bold text-primary">Root</span>
+              <span className="text-sm font-semibold tracking-tight text-gray-900">
+                Matrix <span className="text-[#F26522]">Root</span>
+              </span>
             </Link>
-            <p className="mt-3 text-sm leading-6 text-muted-foreground">
-              Software solutions and a founder-first talent incubator, built from Hyderabad. High-performance web apps, distributed systems, and launch-grade motion.
-            </p>
-            <div className="mt-4 flex flex-wrap gap-3">
-              <a
-                href={WHATSAPP_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#25D366] hover:underline"
-              >
-                <MessageSquare className="w-3.5 h-3.5" />
-                <span>WhatsApp: +91 {WHATSAPP_NUMBER}</span>
-              </a>
-              <span className="text-slate-300">·</span>
-              <a
-                href={CALL_TEL}
-                className="inline-flex items-center gap-1.5 text-xs font-semibold text-primary hover:underline"
-              >
-                <Phone className="w-3.5 h-3.5" />
-                <span>Call: {WHATSAPP_NUMBER}</span>
-              </a>
-            </div>
+            <span className="text-xs text-gray-400">·</span>
+            <span className="text-xs text-gray-500 hidden sm:inline-block">
+              Hyderabad Software Studio & Talent Incubator
+            </span>
           </div>
-          <nav aria-label="Footer navigation" className="flex flex-col gap-3">
-            <p className="text-xs font-mono font-semibold uppercase tracking-wider text-slate-400">Navigation</p>
+
+          <div className="flex flex-wrap items-center gap-5 sm:gap-6 text-sm text-gray-600">
             {pages.map((page) => (
               <Link
                 key={page.to}
                 to={page.to}
-                className="inline-flex items-center text-sm text-muted-foreground transition-all duration-200 hover:translate-x-1 hover:text-primary"
+                className="hover:text-gray-900 transition-colors"
               >
                 {page.label}
               </Link>
             ))}
-          </nav>
-          <div>
-            <p className="text-xs font-mono font-semibold uppercase tracking-wider text-slate-400">Location</p>
-            <p className="mt-3 text-sm font-medium text-foreground">Hyderabad, Telangana, India</p>
             <a
-              className="mt-3 inline-block text-sm text-muted-foreground transition-colors hover:text-primary hover:underline"
-              href="mailto:matrixroottechnologies@gmail.com"
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-medium text-[#25D366] hover:underline"
             >
-              matrixroottechnologies@gmail.com
+              WhatsApp (+91 8121358586)
+            </a>
+            <a href={CALL_TEL} className="font-medium text-[#F26522] hover:underline">
+              Call 8121358586
             </a>
           </div>
-        </div>
-        <div className="border-t border-border/80 px-5 py-4 text-xs text-muted-foreground">
-          <p className="mx-auto max-w-7xl">© {new Date().getFullYear()} Matrix Root. All rights reserved.</p>
         </div>
       </footer>
     </div>
@@ -207,19 +247,29 @@ export function PageIntro({
   eyebrow,
   title,
   description,
+  badgeNumber = "1",
 }: {
   eyebrow: string;
   title: string;
   description: string;
+  badgeNumber?: string;
 }) {
   return (
-    <section className="relative overflow-hidden border-b border-border/80 bg-gradient-to-b from-slate-50/80 via-white to-background px-5 pb-16 pt-16 md:pb-20 md:pt-20 lg:px-8">
-      <div className="mx-auto max-w-7xl">
-        <p className="font-mono text-xs uppercase tracking-wider text-primary animate-fade-in">{eyebrow}</p>
-        <h1 className="mt-4 max-w-4xl text-4xl font-semibold leading-tight tracking-tight text-foreground md:text-6xl animate-slide-up">
+    <section className="relative overflow-hidden bg-white border-b border-gray-200/80 px-5 pt-14 pb-16 sm:pt-20 sm:pb-20 lg:px-12">
+      <div className="mx-auto max-w-[1440px]">
+        {/* Axion Badge Row */}
+        <div className="flex items-center gap-3 mb-6 sm:mb-8">
+          <span className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-gray-900 text-white text-[11px] sm:text-[12px] font-semibold flex items-center justify-center shrink-0">
+            {badgeNumber}
+          </span>
+          <span className="text-[12px] sm:text-[13px] font-medium border border-gray-200 rounded-full px-3 sm:px-4 py-1 sm:py-1.5 text-gray-900 bg-white">
+            {eyebrow}
+          </span>
+        </div>
+        <h1 className="text-[clamp(1.75rem,5vw,3.8rem)] font-medium leading-[1.08] tracking-[-0.03em] text-gray-900 max-w-4xl">
           {title}
         </h1>
-        <p className="mt-5 max-w-2xl text-base leading-7 text-muted-foreground md:text-lg animate-slide-up-delay-1">
+        <p className="mt-6 text-[15px] sm:text-[17px] leading-[1.65] font-medium text-gray-600 max-w-2xl">
           {description}
         </p>
       </div>
@@ -227,12 +277,35 @@ export function PageIntro({
   );
 }
 
-export function SectionTitle({ eyebrow, title, children }: { eyebrow: string; title: string; children?: ReactNode }) {
+export function SectionTitle({
+  eyebrow,
+  title,
+  children,
+  badgeNumber = "2",
+}: {
+  eyebrow: string;
+  title: string;
+  children?: ReactNode;
+  badgeNumber?: string;
+}) {
   return (
-    <div className="max-w-2xl">
-      <p className="font-mono text-xs uppercase tracking-wider text-primary">{eyebrow}</p>
-      <h2 className="mt-3 text-3xl font-semibold leading-tight tracking-tight text-foreground md:text-4xl">{title}</h2>
-      {children && <p className="mt-4 leading-7 text-muted-foreground">{children}</p>}
+    <div className="mb-10 sm:mb-14">
+      <div className="flex items-center gap-3 mb-4 sm:mb-6">
+        <span className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-gray-900 text-white text-[11px] sm:text-[12px] font-semibold flex items-center justify-center shrink-0">
+          {badgeNumber}
+        </span>
+        <span className="text-[12px] sm:text-[13px] font-medium border border-gray-200 rounded-full px-3 sm:px-4 py-1 sm:py-1.5 text-gray-900 bg-white">
+          {eyebrow}
+        </span>
+      </div>
+      <h2 className="text-[clamp(1.5rem,4vw,3.2rem)] font-medium leading-[1.12] tracking-[-0.02em] text-gray-900">
+        {title}
+      </h2>
+      {children && (
+        <p className="mt-4 text-[15px] sm:text-[17px] leading-[1.65] font-medium text-gray-600 max-w-2xl">
+          {children}
+        </p>
+      )}
     </div>
   );
 }
