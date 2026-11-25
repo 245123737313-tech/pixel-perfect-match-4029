@@ -7,9 +7,21 @@ const title = "About Matrix Root | Hyderabad Software Engineering";
 const description =
   "Meet Matrix Root, an engineering-first software solutions company from Hyderabad combining dependable product delivery with a student-founder talent incubator.";
 const principles = [
-  { icon: Compass, title: "Start with the problem", text: "We take time to understand the people, constraints, and goals behind the software before choosing how to build it." },
-  { icon: GitBranch, title: "Build in the open", text: "Clear communication and frequent working software keep decisions visible and progress grounded in feedback." },
-  { icon: ShieldCheck, title: "Leave teams stronger", text: "Maintainable software and practical knowledge sharing help our partners take ownership long after delivery." },
+  {
+    icon: Compass,
+    title: "Start with the problem",
+    text: "We take time to understand the people, constraints, and goals behind the software before choosing how to build it.",
+  },
+  {
+    icon: GitBranch,
+    title: "Build in the open",
+    text: "Clear communication and frequent working software keep decisions visible and progress grounded in feedback.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Leave teams stronger",
+    text: "Maintainable software and practical knowledge sharing help our partners take ownership long after delivery.",
+  },
 ];
 
 export const Route = createFileRoute("/about")({
@@ -39,7 +51,8 @@ function AboutPage() {
       <section className="px-5 py-20 lg:px-8">
         <div className="mx-auto grid max-w-7xl gap-12 md:grid-cols-[0.9fr_1.1fr]">
           <SectionTitle eyebrow="Our approach" title="Good software is a team effort.">
-            We pair modern tools with thoughtful engineering, transparent collaboration, and a focus on what the product needs to do in the real world.
+            We pair modern tools with thoughtful engineering, transparent collaboration, and a focus
+            on what the product needs to do in the real world.
           </SectionTitle>
           <div className="flex flex-col gap-4">
             {principles.map(({ icon: Icon, title: name, text }) => (
@@ -74,7 +87,10 @@ function AboutPage() {
             className="group inline-flex min-h-11 items-center justify-center gap-2 rounded-lg bg-primary px-5 py-3 text-sm font-semibold text-white shadow-sm transition-all duration-300 hover:bg-primary-deep hover:shadow-glow hover:-translate-y-0.5"
           >
             Meet the team{" "}
-            <ArrowRight aria-hidden="true" className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
+            <ArrowRight
+              aria-hidden="true"
+              className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1"
+            />
           </Link>
         </div>
       </section>

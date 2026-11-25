@@ -14,15 +14,13 @@ When someone asks for this, your first message is the Batch 1 questions. No summ
 ## Step 1: The interview, in two batches
 
 **Batch 1.** Ask these four together, then wait:
+
 1. What is the brand called, and what do you do, in one line?
 2. Who is it for? One sentence on the person watching.
 3. What do you sell or promote in your videos? The offer, the product or the newsletter, with its real link.
 4. What should people feel in the first second? Pick up to three: calm, premium, playful, urgent, technical, warm, bold.
 
-**Batch 2.** Then ask these three, and wait:
-5. Your colours as hex codes, your font names, and your logo files (SVG or PNG, attached). No hex codes? Say "sample them from my site" and give the link.
-6. 3 to 5 reference frames: screenshots of motion you already like, from Dribbble, Pinterest or your own work. Put them in a folder called `examples`.
-7. One thing your motion must never do.
+**Batch 2.** Then ask these three, and wait: 5. Your colours as hex codes, your font names, and your logo files (SVG or PNG, attached). No hex codes? Say "sample them from my site" and give the link. 6. 3 to 5 reference frames: screenshots of motion you already like, from Dribbble, Pinterest or your own work. Put them in a folder called `examples`. 7. One thing your motion must never do.
 
 If an answer is blank, ask for it once more, then move on. Never fill a gap with a guess.
 

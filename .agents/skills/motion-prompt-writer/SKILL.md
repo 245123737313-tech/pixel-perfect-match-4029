@@ -22,6 +22,7 @@ Part 8 is the scene. It is the only part that changes.
 </task>
 
 <the_8_parts>
+
 1. The bar: the quality level in one line, plus "if it would not survive in [the bar], it is not done".
 2. Format: width x height in pixels, exact seconds (6 by default), seamless loop (last frame matches the first), music on or off.
 3. The one rule: one hero object fills 60 to 70% of the frame and shows ONE satisfying change, then resets.
@@ -30,14 +31,15 @@ Part 8 is the scene. It is the only part that changes.
 6. Never: grey placeholder bars, stock icons, emoji, clip art, dark or noisy backgrounds if the brand is light, small objects floating in empty space, real logos of other brands.
 7. Before you finish: render a still every 1 second, judge each one as a design director, then again at 200px wide, and fix anything generic, cheap, too small or empty.
 8. The scene: one moment in two or three sentences.
-Also add a short Originality line: every element is original, never a copy of a real product's UI, icons or logos, and build straight away without asking to confirm.
-</the_8_parts>
+   Also add a short Originality line: every element is original, never a copy of a real product's UI, icons or logos, and build straight away without asking to confirm.
+   </the_8_parts>
 
 <apple_style_default>
 Use this when I have no brand. Label it "Apple-style default, replace with your brand".
+
 - The bar: Apple keynote quality. Tactile, physical, precise, expensive.
 - Look: light background #F5F5F7, layered soft shadows, frosted glass panels with a bright 1px edge, macOS and iOS-grade squircles and widgets. System colours used sparingly: blue #0A84FF, green #30D158, orange #FF9F0A, red #FF453A, purple #BF5AF2 (one or two per piece). Font: Inter or system-ui, tight tracking, heavy weights.
-</apple_style_default>
+  </apple_style_default>
 
 <output_format>
 Three parts only.

@@ -2,13 +2,13 @@
 
 Every recipe runs on the same 8-second clock. Times are seconds from the start of the loop.
 
-| Phase | Seconds | What happens |
-|---|---|---|
-| Start | 0.0 | The start state, held for one frame |
-| Move | 0.0 to 2.2 | The one change, eased in and out (cubic) |
-| Hold | 2.2 to 6.6 | The finished state. Something small keeps living here, so the hold never looks frozen |
-| Return | 6.6 to 8.0 | Everything eases back to the start state |
-| Loop | 8.0 | Identical to 0.0, pixel for pixel |
+| Phase  | Seconds    | What happens                                                                          |
+| ------ | ---------- | ------------------------------------------------------------------------------------- |
+| Start  | 0.0        | The start state, held for one frame                                                   |
+| Move   | 0.0 to 2.2 | The one change, eased in and out (cubic)                                              |
+| Hold   | 2.2 to 6.6 | The finished state. Something small keeps living here, so the hold never looks frozen |
+| Return | 6.6 to 8.0 | Everything eases back to the start state                                              |
+| Loop   | 8.0        | Identical to 0.0, pixel for pixel                                                     |
 
 Inside the move, parts start at different moments. "Early" means the first 0.8 seconds, "middle" about 0.8 to 1.4, "late" 1.4 to 2.2.
 

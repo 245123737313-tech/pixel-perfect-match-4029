@@ -150,7 +150,8 @@ function ProjectsPage() {
                 <span className="text-gray-900 font-semibold">Measurable business impact.</span>
               </h1>
               <p className="mt-6 text-[15px] sm:text-[17px] leading-[1.65] font-medium text-gray-600">
-                From high-engagement WebGL experiences to high-throughput backend APIs, here is a curated selection of systems and applications engineered by Matrix Root.
+                From high-engagement WebGL experiences to high-throughput backend APIs, here is a
+                curated selection of systems and applications engineered by Matrix Root.
               </p>
             </div>
 
@@ -222,12 +223,17 @@ function ProjectsPage() {
                       <Terminal className="w-5 h-5 text-white/50" />
                     </div>
                     <div>
-                      <h4 className="text-2xl font-bold tracking-tight text-white">{project.title}</h4>
+                      <h4 className="text-2xl font-bold tracking-tight text-white">
+                        {project.title}
+                      </h4>
                       <p className="text-xs text-white/70 mt-1">{project.metrics}</p>
                     </div>
                     <div className="flex flex-wrap gap-1.5">
                       {project.tech.map((t) => (
-                        <span key={t} className="text-[10px] font-mono bg-white/10 px-2 py-0.5 rounded text-white/80">
+                        <span
+                          key={t}
+                          className="text-[10px] font-mono bg-white/10 px-2 py-0.5 rounded text-white/80"
+                        >
                           {t}
                         </span>
                       ))}
@@ -254,8 +260,12 @@ function ProjectsPage() {
                       {project.metrics}
                     </span>
                   </div>
-                  <p className="text-sm font-medium text-muted-foreground mb-3">{project.subtitle}</p>
-                  <p className="text-sm text-muted-foreground leading-relaxed mb-6">{project.description}</p>
+                  <p className="text-sm font-medium text-muted-foreground mb-3">
+                    {project.subtitle}
+                  </p>
+                  <p className="text-sm text-muted-foreground leading-relaxed mb-6">
+                    {project.description}
+                  </p>
                 </div>
 
                 <div>
@@ -301,7 +311,8 @@ function ProjectsPage() {
             Have a project in mind? Let&apos;s talk engineering.
           </h2>
           <p className="mt-4 text-base sm:text-lg text-slate-300 max-w-2xl mx-auto">
-            Book a strategy call to map your technical requirements, architecture constraints, and rapid sprint timeline.
+            Book a strategy call to map your technical requirements, architecture constraints, and
+            rapid sprint timeline.
           </p>
           <div className="mt-8 flex justify-center">
             <a

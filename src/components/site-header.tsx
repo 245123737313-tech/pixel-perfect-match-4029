@@ -20,7 +20,7 @@ export function SiteHeader() {
       } catch {
         const now = new Date();
         setLondonTime(
-          `${String(now.getUTCHours()).padStart(2, "0")}:${String(now.getUTCMinutes()).padStart(2, "0")}`
+          `${String(now.getUTCHours()).padStart(2, "0")}:${String(now.getUTCMinutes()).padStart(2, "0")}`,
         );
       }
     };

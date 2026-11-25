@@ -34,6 +34,7 @@ Motion at Matrix Root represents software engineering in motion: structural, phy
 ## 3. Timing & Phase Rhythm
 
 All continuous showcase loops follow an **8.0-second clock** (`window.seek(seconds)`):
+
 - **0.0s – 0.2s (Initial State):** Settled start frame; eye registers the starting anchor.
 - **0.2s – 2.2s (Active Move):** The structural transformation. Easing is cubic (`cubic-bezier(0.25, 0.1, 0.25, 1)`) or damped spring.
 - **2.2s – 6.6s (Living Hold):** The complete state. Never static: a progress indicator creeps, a cursor breathes, or data pulses continuously.

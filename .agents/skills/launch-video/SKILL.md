@@ -22,6 +22,7 @@ Never invent a price, a date, a "spots left" count, a testimonial or a result.
 ## What "premium" means here (learned the hard way)
 
 Three first drafts were rejected as "not premium" and "not my brand colours". What fixed it:
+
 - **Your real brand colours,** sampled from your landing page or your best graphic. Never a default palette.
 - **Glass UI.** Product surfaces as frosted, liquid-glass panels with soft depth, like Apple's current UI.
 - **The prompt typed live** into a real-looking input box. That is the one place typing belongs.
@@ -34,15 +35,15 @@ Build the first 10 seconds in two or three styles first. Pick one. Only then bui
 
 Default 7 beats, 45 seconds:
 
-| # | Time | Beat |
-|---|---|---|
-| 1 | 0-4s | First words of the sentence, big, on a clean background. The hook. |
-| 2 | 4-9s | Next words over real proof (posts, results, screens). |
-| 3 | 9-17s | The product working: a screen, a cursor typing a real prompt, the output appearing. |
-| 4 | 17-22s | The quality beat: something checks, passes or ticks. |
-| 5 | 22-32s | How it works: steps, weeks or features as one simple visual. |
-| 6 | 32-38s | The number that matters, counted up, with its source. |
-| 7 | 38-45s | Name, call to action, requirement. Holds long enough to read. |
+| #   | Time   | Beat                                                                                |
+| --- | ------ | ----------------------------------------------------------------------------------- |
+| 1   | 0-4s   | First words of the sentence, big, on a clean background. The hook.                  |
+| 2   | 4-9s   | Next words over real proof (posts, results, screens).                               |
+| 3   | 9-17s  | The product working: a screen, a cursor typing a real prompt, the output appearing. |
+| 4   | 17-22s | The quality beat: something checks, passes or ticks.                                |
+| 5   | 22-32s | How it works: steps, weeks or features as one simple visual.                        |
+| 6   | 32-38s | The number that matters, counted up, with its source.                               |
+| 7   | 38-45s | Name, call to action, requirement. Holds long enough to read.                       |
 
 Show the beat sheet and wait for a yes.
 

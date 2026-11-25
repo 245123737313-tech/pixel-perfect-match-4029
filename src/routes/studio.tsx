@@ -65,9 +65,24 @@ function StudioPage() {
   ];
 
   const sprintSteps = [
-    { step: "Week 01", title: "Technical Discovery & Architecture", detail: "Deep dive into product requirements, API contracts, schema modeling, and sprint roadmap." },
-    { step: "Week 02-03", title: "Production Sprints & Iteration", detail: "Hands-on delivery with continuous git commits, preview environments, and rapid feedback loops." },
-    { step: "Week 04", title: "Testing, Hardening & IP Handoff", detail: "Automated end-to-end tests, performance profiling, and complete transfer of codebase and infrastructure." },
+    {
+      step: "Week 01",
+      title: "Technical Discovery & Architecture",
+      detail:
+        "Deep dive into product requirements, API contracts, schema modeling, and sprint roadmap.",
+    },
+    {
+      step: "Week 02-03",
+      title: "Production Sprints & Iteration",
+      detail:
+        "Hands-on delivery with continuous git commits, preview environments, and rapid feedback loops.",
+    },
+    {
+      step: "Week 04",
+      title: "Testing, Hardening & IP Handoff",
+      detail:
+        "Automated end-to-end tests, performance profiling, and complete transfer of codebase and infrastructure.",
+    },
   ];
 
   return (
@@ -91,7 +106,9 @@ function StudioPage() {
           </h1>
 
           <p className="mt-6 max-w-2xl text-[15px] sm:text-[17px] leading-[1.65] font-medium text-gray-600">
-            Matrix Root brings together product design, systems engineering, and a talent incubator. We partner with ambitious founders and established teams to turn complex ideas into software people trust every day.
+            Matrix Root brings together product design, systems engineering, and a talent incubator.
+            We partner with ambitious founders and established teams to turn complex ideas into
+            software people trust every day.
           </p>
 
           {/* Action CTA */}
@@ -126,33 +143,33 @@ function StudioPage() {
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {capabilities.map((cap) => {
-            const Icon = cap.icon;
-            return (
-              <div
-                key={cap.num}
-                className="group relative rounded-2xl border border-border/80 bg-white p-8 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-xl hover:shadow-primary/5"
-              >
-                <div className="flex items-center justify-between mb-6">
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center transition-transform duration-300 group-hover:scale-110 group-hover:bg-primary group-hover:text-white">
-                    <Icon className="w-6 h-6" />
+            {capabilities.map((cap) => {
+              const Icon = cap.icon;
+              return (
+                <div
+                  key={cap.num}
+                  className="group relative rounded-2xl border border-border/80 bg-white p-8 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-xl hover:shadow-primary/5"
+                >
+                  <div className="flex items-center justify-between mb-6">
+                    <div className="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center transition-transform duration-300 group-hover:scale-110 group-hover:bg-primary group-hover:text-white">
+                      <Icon className="w-6 h-6" />
+                    </div>
+                    <span className="font-mono text-xs font-semibold text-muted-foreground group-hover:text-primary">
+                      {cap.num}
+                    </span>
                   </div>
-                  <span className="font-mono text-xs font-semibold text-muted-foreground group-hover:text-primary">
-                    {cap.num}
-                  </span>
+                  <h3 className="text-xl font-semibold tracking-tight text-foreground group-hover:text-primary transition-colors">
+                    {cap.title}
+                  </h3>
+                  <p className="mt-3 text-sm sm:text-base leading-relaxed text-muted-foreground">
+                    {cap.desc}
+                  </p>
                 </div>
-                <h3 className="text-xl font-semibold tracking-tight text-foreground group-hover:text-primary transition-colors">
-                  {cap.title}
-                </h3>
-                <p className="mt-3 text-sm sm:text-base leading-relaxed text-muted-foreground">
-                  {cap.desc}
-                </p>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
 
       {/* The Sprint Playbook */}
       <section className="bg-void px-5 py-20 lg:px-8 border-y border-border/80">
@@ -163,13 +180,17 @@ function StudioPage() {
               How a Matrix Root production sprint works.
             </h2>
             <p className="mt-3 text-muted-foreground">
-              Predictable delivery cadences with zero bloat and direct communication with the engineers building your platform.
+              Predictable delivery cadences with zero bloat and direct communication with the
+              engineers building your platform.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {sprintSteps.map((s, idx) => (
-              <div key={s.step} className="rounded-2xl border border-border/80 bg-white p-7 shadow-xs">
+              <div
+                key={s.step}
+                className="rounded-2xl border border-border/80 bg-white p-7 shadow-xs"
+              >
                 <span className="text-xs font-mono font-bold text-primary bg-primary/10 px-2.5 py-1 rounded">
                   {s.step}
                 </span>
@@ -191,7 +212,8 @@ function StudioPage() {
             <div>
               <h4 className="font-semibold text-foreground">100% IP Transferred</h4>
               <p className="mt-1 text-sm text-muted-foreground">
-                You own every repository, design file, and database schema from day one. NDA on request.
+                You own every repository, design file, and database schema from day one. NDA on
+                request.
               </p>
             </div>
           </div>
@@ -203,7 +225,8 @@ function StudioPage() {
             <div>
               <h4 className="font-semibold text-foreground">&lt; 24-Hour Response SLA</h4>
               <p className="mt-1 text-sm text-muted-foreground">
-                Direct Slack or WhatsApp line to active engineers—no middlemen, account managers, or bureaucracy.
+                Direct Slack or WhatsApp line to active engineers—no middlemen, account managers, or
+                bureaucracy.
               </p>
             </div>
           </div>
@@ -215,7 +238,8 @@ function StudioPage() {
             <div>
               <h4 className="font-semibold text-foreground">Founder-First Community</h4>
               <p className="mt-1 text-sm text-muted-foreground">
-                We reinvest in Hyderabad's brightest student builders through guided production internships.
+                We reinvest in Hyderabad's brightest student builders through guided production
+                internships.
               </p>
             </div>
           </div>
@@ -226,12 +250,15 @@ function StudioPage() {
       <section className="px-5 pb-20 lg:px-8 max-w-7xl mx-auto">
         <div className="rounded-3xl border border-border/80 bg-gradient-to-r from-white via-slate-50 to-orange-50/20 p-8 sm:p-12 flex flex-col md:flex-row items-center justify-between gap-8 shadow-xs">
           <div>
-            <p className="font-mono text-xs uppercase tracking-wider text-primary">Ready to ship?</p>
+            <p className="font-mono text-xs uppercase tracking-wider text-primary">
+              Ready to ship?
+            </p>
             <h2 className="mt-2 text-3xl font-semibold text-foreground">
               Let's talk about what you are building.
             </h2>
             <p className="mt-2 text-sm text-muted-foreground">
-              Chat directly with our lead engineer on WhatsApp or schedule a quick 15-minute discovery call.
+              Chat directly with our lead engineer on WhatsApp or schedule a quick 15-minute
+              discovery call.
             </p>
           </div>
           <div className="shrink-0">

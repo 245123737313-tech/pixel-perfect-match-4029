@@ -16,24 +16,24 @@ Sixteen effects that make a product, a number or a word move like it was made by
 3. **The size.** 1080 x 1080 (square), 1080 x 1350 (LinkedIn portrait), 1080 x 1920 (Reel) or 1920 x 1080 (YouTube).
 4. **Loop or hold.** Loop repeats forever (a post or a GIF). Hold plays once and stays on the finished frame (under a voiceover, so it never resets mid-sentence).
 
-| # | Effect | Use it when you |
-|---|---|---|
-| 01 | Button → player | add a "watch the demo" moment to a landing page or launch email |
-| 02 | Search → results | show what people find in your help centre or content library |
-| 03 | Card → workspace | announce a feature, and one small card becomes the whole editor |
-| 04 | Tabs → panels | compare plans, packages or channels without a wall of text |
-| 05 | Chart morph | drop a weekly result into a client report or results post |
-| 06 | Dashboard zoom | pull the one KPI that matters out of a dashboard |
-| 07 | Spring stack | show three offers, case studies or testimonials in turn |
-| 08 | Magnetic dock | show the tools you use, or a product's integrations |
-| 09 | Masked type | reveal a campaign name, issue number or launch headline |
-| 10 | Elastic type | open an event, webinar or podcast with a title card |
-| 11 | Text → layout | turn a headline into a carousel cover or article teaser |
-| 12 | Image reveal | tease a product drop, then swap in your own photo |
-| 13 | Perspective shift | explain the layers of a service, brand system or stack |
-| 14 | Glass focus | make people read the one line of a report that matters |
-| 15 | Flowing paths | show one piece of content feeding several channels |
-| 16 | Particle logo | close a video, reel or post on your mark |
+| #   | Effect            | Use it when you                                                 |
+| --- | ----------------- | --------------------------------------------------------------- |
+| 01  | Button → player   | add a "watch the demo" moment to a landing page or launch email |
+| 02  | Search → results  | show what people find in your help centre or content library    |
+| 03  | Card → workspace  | announce a feature, and one small card becomes the whole editor |
+| 04  | Tabs → panels     | compare plans, packages or channels without a wall of text      |
+| 05  | Chart morph       | drop a weekly result into a client report or results post       |
+| 06  | Dashboard zoom    | pull the one KPI that matters out of a dashboard                |
+| 07  | Spring stack      | show three offers, case studies or testimonials in turn         |
+| 08  | Magnetic dock     | show the tools you use, or a product's integrations             |
+| 09  | Masked type       | reveal a campaign name, issue number or launch headline         |
+| 10  | Elastic type      | open an event, webinar or podcast with a title card             |
+| 11  | Text → layout     | turn a headline into a carousel cover or article teaser         |
+| 12  | Image reveal      | tease a product drop, then swap in your own photo               |
+| 13  | Perspective shift | explain the layers of a service, brand system or stack          |
+| 14  | Glass focus       | make people read the one line of a report that matters          |
+| 15  | Flowing paths     | show one piece of content feeding several channels              |
+| 16  | Particle logo     | close a video, reel or post on your mark                        |
 
 ## Step 2: Read the recipe
 

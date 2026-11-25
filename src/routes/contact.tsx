@@ -78,10 +78,7 @@ function ContactPage() {
             </label>
             <label className="text-sm font-medium text-foreground sm:col-span-2">
               I’m reaching out about
-              <select
-                name="topic"
-                className={`${inputClass} cursor-pointer`}
-              >
+              <select name="topic" className={`${inputClass} cursor-pointer`}>
                 <option>Software project</option>
                 <option>Product partnership</option>
                 <option>Talent incubator</option>
@@ -103,12 +100,21 @@ function ContactPage() {
               className="group inline-flex min-h-11 items-center justify-center gap-2 rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-white shadow-sm transition-all duration-300 hover:bg-primary-deep hover:shadow-glow hover:-translate-y-0.5 active:translate-y-0 sm:col-span-2 sm:justify-self-start"
             >
               Prepare email{" "}
-              <ArrowRight aria-hidden="true" className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
+              <ArrowRight
+                aria-hidden="true"
+                className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1"
+              />
             </button>
             {sent && (
-              <p role="status" className="text-sm text-muted-foreground sm:col-span-2 animate-fade-in">
+              <p
+                role="status"
+                className="text-sm text-muted-foreground sm:col-span-2 animate-fade-in"
+              >
                 Your email app should open with your message ready. If it doesn’t, write directly to{" "}
-                <a className="font-medium text-primary underline hover:text-primary-deep" href={`mailto:${email}`}>
+                <a
+                  className="font-medium text-primary underline hover:text-primary-deep"
+                  href={`mailto:${email}`}
+                >
                   {email}
                 </a>
                 .

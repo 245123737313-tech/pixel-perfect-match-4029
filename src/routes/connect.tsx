@@ -51,7 +51,7 @@ function ConnectPage() {
     e.preventDefault();
     // Redirect directly to WhatsApp with pre-filled message
     const text = encodeURIComponent(
-      `Hi Matrix Root! My name is ${formData.name} (${formData.phone || formData.email}). I am looking for: ${formData.projectType}. Details: ${formData.message}`
+      `Hi Matrix Root! My name is ${formData.name} (${formData.phone || formData.email}). I am looking for: ${formData.projectType}. Details: ${formData.message}`,
     );
     window.open(`https://wa.me/91${WHATSAPP_NUMBER}?text=${text}`, "_blank", "noopener,noreferrer");
     setSubmitted(true);
@@ -77,7 +77,8 @@ function ConnectPage() {
               <span className="text-gray-900 font-semibold">exceptional together.</span>
             </h1>
             <p className="mt-6 text-[15px] sm:text-[17px] leading-[1.65] font-medium text-gray-600">
-              Whether you need a dedicated product engineering team, a 3-week production MVP, or launch-grade motion graphics in code, we are ready.
+              Whether you need a dedicated product engineering team, a 3-week production MVP, or
+              launch-grade motion graphics in code, we are ready.
             </p>
           </div>
 
@@ -161,7 +162,8 @@ function ConnectPage() {
                 </span>
                 <h3 className="text-lg font-semibold text-foreground mt-1">Rapid Handoff</h3>
                 <p className="text-xs text-muted-foreground mt-1 leading-relaxed">
-                  Every sprint features 100% intellectual property transfer, daily preview URLs, and documented APIs.
+                  Every sprint features 100% intellectual property transfer, daily preview URLs, and
+                  documented APIs.
                 </p>
               </div>
               <div className="mt-6 pt-4 border-t border-border/60 text-xs font-mono text-emerald-600 font-medium">
@@ -184,29 +186,42 @@ function ConnectPage() {
               Tell us about your product roadmap.
             </h2>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              We review every inquiry within 2 hours. Fill out the quick brief below or tap the WhatsApp/Call buttons above to reach us immediately.
+              We review every inquiry within 2 hours. Fill out the quick brief below or tap the
+              WhatsApp/Call buttons above to reach us immediately.
             </p>
 
             <div className="space-y-4 pt-4 border-t border-border/60">
               <div className="flex items-start gap-3">
                 <CheckCircle2 className="w-5 h-5 text-[#25D366] shrink-0 mt-0.5" />
                 <div>
-                  <h4 className="text-sm font-semibold text-foreground">Zero Obligation Discovery</h4>
-                  <p className="text-xs text-muted-foreground">Free 30-minute architecture review and feasibility audit.</p>
+                  <h4 className="text-sm font-semibold text-foreground">
+                    Zero Obligation Discovery
+                  </h4>
+                  <p className="text-xs text-muted-foreground">
+                    Free 30-minute architecture review and feasibility audit.
+                  </p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
                 <CheckCircle2 className="w-5 h-5 text-[#25D366] shrink-0 mt-0.5" />
                 <div>
-                  <h4 className="text-sm font-semibold text-foreground">Transparent Sprint Pricing</h4>
-                  <p className="text-xs text-muted-foreground">Fixed-scope deliverables with clearly staged milestones.</p>
+                  <h4 className="text-sm font-semibold text-foreground">
+                    Transparent Sprint Pricing
+                  </h4>
+                  <p className="text-xs text-muted-foreground">
+                    Fixed-scope deliverables with clearly staged milestones.
+                  </p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
                 <CheckCircle2 className="w-5 h-5 text-[#25D366] shrink-0 mt-0.5" />
                 <div>
-                  <h4 className="text-sm font-semibold text-foreground">Direct Access to Engineers</h4>
-                  <p className="text-xs text-muted-foreground">No account managers or middlemen. You speak directly to the builders.</p>
+                  <h4 className="text-sm font-semibold text-foreground">
+                    Direct Access to Engineers
+                  </h4>
+                  <p className="text-xs text-muted-foreground">
+                    No account managers or middlemen. You speak directly to the builders.
+                  </p>
                 </div>
               </div>
             </div>
@@ -234,7 +249,8 @@ function ConnectPage() {
                   </div>
                   <h3 className="text-2xl font-semibold text-foreground">Opening WhatsApp...</h3>
                   <p className="text-sm text-muted-foreground max-w-md mx-auto">
-                    Your project details were prepared. If WhatsApp didn&apos;t open automatically, click the button below:
+                    Your project details were prepared. If WhatsApp didn&apos;t open automatically,
+                    click the button below:
                   </p>
                   <a
                     href={WHATSAPP_URL}

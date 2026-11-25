@@ -18,11 +18,11 @@ A promo does one job: make someone want the full edition. Show the best bits, ne
 
 ## Step 2: Structure (15 seconds)
 
-| Time | Frame |
-|---|---|
-| 0-3s | The hook, big. A question works better than a statement. |
-| 3-11s | Three proof frames, about 2.5s each, each with a 3-5 word label. |
-| 11-15s | Newsletter name, "Read it free at [URL]", held still. |
+| Time   | Frame                                                            |
+| ------ | ---------------------------------------------------------------- |
+| 0-3s   | The hook, big. A question works better than a statement.         |
+| 3-11s  | Three proof frames, about 2.5s each, each with a 3-5 word label. |
+| 11-15s | Newsletter name, "Read it free at [URL]", held still.            |
 
 ## Step 3: Build brief (paste into Claude Code)
 

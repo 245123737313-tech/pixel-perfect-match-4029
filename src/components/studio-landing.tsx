@@ -1,4 +1,4 @@
-import React, { Component, type ReactNode } from "react";
+import React, { Component, useEffect, useState, type ReactNode } from "react";
 import { ArrowRight } from "lucide-react";
 import { Shader, ChromaFlow, FilmGrain, FlutedGlass, Swirl } from "shaders/react";
 import { SiteHeader } from "./site-header";
@@ -9,7 +9,8 @@ import { SiteFooter } from "./matrix-site";
 /* -------------------------------------------------------------------------- */
 
 export const WHATSAPP_NUMBER = "8121358586";
-export const WHATSAPP_URL = "https://wa.me/918121358586?text=Hi%20Matrix%20Root,%20I'd%20like%20to%20start%20a%20project";
+export const WHATSAPP_URL =
+  "https://wa.me/918121358586?text=Hi%20Matrix%20Root,%20I'd%20like%20to%20start%20a%20project";
 export const CALL_TEL = "tel:+918121358586";
 
 /* -------------------------------------------------------------------------- */
@@ -29,11 +30,11 @@ class ShaderErrorBoundary extends Component<
     return { hasError: true };
   }
 
-  componentDidCatch(error: unknown) {
+  override componentDidCatch(error: unknown) {
     console.warn("Shader render fallback:", error);
   }
 
-  render() {
+  override render() {
     if (this.state.hasError) {
       return (
         this.props.fallback || (
@@ -137,7 +138,8 @@ export function TextRollButton({
   target?: string;
   rel?: string;
 }) {
-  const isExternal = href?.startsWith("http") || href?.startsWith("https") || href?.startsWith("wa.me");
+  const isExternal =
+    href?.startsWith("http") || href?.startsWith("https") || href?.startsWith("wa.me");
 
   const content = (
     <>
@@ -188,7 +190,6 @@ export interface StudioLandingProps {
   logoText?: string;
   heroLabel?: string;
   aboutLabel?: string;
-  showPartnerBadge?: boolean;
   ctaButtonText?: string;
 }
 
@@ -243,7 +244,10 @@ export function StudioLanding({
       {/* ==================================================================== */}
       {/* SECTION 2: ABOUT (White background)                                  */}
       {/* ==================================================================== */}
-      <section id="about" className="bg-white pt-16 sm:pt-20 lg:pt-32 pb-12 sm:pb-16 lg:pb-24 overflow-hidden">
+      <section
+        id="about"
+        className="bg-white pt-16 sm:pt-20 lg:pt-32 pb-12 sm:pb-16 lg:pb-24 overflow-hidden"
+      >
         <div className="max-w-[1440px] mx-auto">
           {/* Badge row */}
           <div className="px-5 sm:px-8 lg:px-12 flex items-center gap-3 mb-6 sm:mb-8">
@@ -267,7 +271,8 @@ export function StudioLanding({
           {/* MOBILE/TABLET (lg:hidden) */}
           <div className="block lg:hidden px-5 sm:px-8">
             <p className="text-[15px] sm:text-[17px] leading-[1.6] font-medium text-gray-900 max-w-xl mb-6">
-              Through research, creative thinking and iteration we help growing brands realize their digital full potential.
+              Through research, creative thinking and iteration we help growing brands realize their
+              digital full potential.
             </p>
             <div className="mb-10">
               <TextRollButton text="About our studio" href="/studio" variant="orange" />
@@ -334,7 +339,10 @@ export function StudioLanding({
       {/* ==================================================================== */}
       {/* SECTION 3: CASE STUDIES (Light gray background)                      */}
       {/* ==================================================================== */}
-      <section id="projects" className="bg-[#F5F5F5] pt-16 sm:pt-20 lg:pt-28 pb-16 sm:pb-20 lg:pb-28">
+      <section
+        id="projects"
+        className="bg-[#F5F5F5] pt-16 sm:pt-20 lg:pt-28 pb-16 sm:pb-20 lg:pb-28"
+      >
         <div className="max-w-[1440px] mx-auto">
           {/* Badge row */}
           <div className="px-5 sm:px-8 lg:px-12 flex items-center justify-between mb-6 sm:mb-8">
@@ -363,7 +371,10 @@ export function StudioLanding({
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6 lg:gap-7 px-5 sm:px-8 lg:px-12">
             {/* CARD 1: Narrativ */}
             <div>
-              <a href="/projects" className="block group relative aspect-[329/246] rounded-2xl overflow-hidden bg-[#1a1d2e] cursor-pointer shadow-sm">
+              <a
+                href="/projects"
+                className="block group relative aspect-[329/246] rounded-2xl overflow-hidden bg-[#1a1d2e] cursor-pointer shadow-sm"
+              >
                 <video
                   src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260516_122702_390f5305-8719-41d5-ae80-d23ab3796c28.mp4"
                   autoPlay
@@ -385,7 +396,8 @@ export function StudioLanding({
               </a>
 
               <p className="text-[13px] sm:text-[14px] text-gray-600 mt-4 leading-relaxed">
-                Winner of Site of the Month 2025 - an interactive 3D showcase driving record engagement
+                Winner of Site of the Month 2025 - an interactive 3D showcase driving record
+                engagement
               </p>
               <h3 className="text-[14px] sm:text-[15px] font-semibold text-gray-900 mt-1">
                 Narrativ
@@ -394,7 +406,10 @@ export function StudioLanding({
 
             {/* CARD 2: Luminar */}
             <div>
-              <a href="/projects" className="block group relative aspect-square rounded-2xl overflow-hidden bg-[#6b6b6b] cursor-pointer shadow-sm">
+              <a
+                href="/projects"
+                className="block group relative aspect-square rounded-2xl overflow-hidden bg-[#6b6b6b] cursor-pointer shadow-sm"
+              >
                 <video
                   src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260516_123323_f909c2b8-ff6c-4edf-882b-8ebcdbe389b5.mp4"
                   autoPlay

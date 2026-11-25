@@ -19,6 +19,7 @@ Most motion is built wide. This turns it into a vertical file with a hook on top
 ## Step 2: The safe zone
 
 The app draws its own buttons, caption and profile over the edges of a Reel. Keep every word and logo:
+
 - between y 360 and y 1420 (nothing in the bottom 500px)
 - out of the right 120px
 

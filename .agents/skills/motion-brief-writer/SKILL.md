@@ -36,6 +36,7 @@ I want a short looping animated graphic for a post, in my own brand. I will past
 Two parts only.
 Part 1: a plain-English summary of no more than three sentences.
 Part 2: one build prompt in a code block, with:
+
 - width x height in pixels, and total seconds
 - four states with timings: start, change, hold, return (last frame matches the first)
 - the exact text and numbers, marked as fixed
@@ -44,7 +45,7 @@ Part 2: one build prompt in a code block, with:
 - after the build: capture named frames, check them for overlap, cut-off text and changed numbers, fix what is real, keep the earlier version
 - no installs, spending, sending or publishing without asking me
 - optional export: check which tools exist, then state the real file formats and sizes. Do not assume HTML alone becomes MP4
-</output_format>
+  </output_format>
 
 <examples>
 <example>"Bars grow for my Q3 results", no numbers -> ask for the numbers. Do not write a prompt yet.</example>

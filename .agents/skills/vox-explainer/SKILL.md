@@ -39,14 +39,14 @@ Show the script as a numbered list and wait for a yes.
 
 ## Step 3: Pick a shot type for each line
 
-| Shot | Use it for |
-|---|---|
-| Kinetic statement | One sentence you want remembered. Three short lines of bold condensed type on a torn paper strip. |
-| Paper cards | Showing several things at once (logos, products, quotes). Torn-edge cards drop in with small shadows. |
-| Before / after | A change over time. Same card, date chip flips. |
-| Label call-out | Naming one thing inside a picture. A marker circle draws itself, then a label. |
-| Counter | A number that grows. Built in code, never guessed. |
-| Grid | "They all look the same." Many identical tiles, then one breaks the pattern. |
+| Shot              | Use it for                                                                                            |
+| ----------------- | ----------------------------------------------------------------------------------------------------- |
+| Kinetic statement | One sentence you want remembered. Three short lines of bold condensed type on a torn paper strip.     |
+| Paper cards       | Showing several things at once (logos, products, quotes). Torn-edge cards drop in with small shadows. |
+| Before / after    | A change over time. Same card, date chip flips.                                                       |
+| Label call-out    | Naming one thing inside a picture. A marker circle draws itself, then a label.                        |
+| Counter           | A number that grows. Built in code, never guessed.                                                    |
+| Grid              | "They all look the same." Many identical tiles, then one breaks the pattern.                          |
 
 ## Step 4: Build it
 
@@ -71,6 +71,7 @@ After the build: capture one frame from the middle of every shot. Check each for
 ## Step 5: Check it like an editor
 
 Before export, go through every frame capture and confirm:
+
 - Every date and name matches the fact list, character for character.
 - No card covers another card's text.
 - Nothing is smooth that should be stepped.

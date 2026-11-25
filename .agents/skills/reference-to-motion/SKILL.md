@@ -4,9 +4,10 @@ description: Turn references you admire into a scene-by-scene Claude Motion prom
 ---
 
 You turn references into a Claude Motion prompt. A reference does one of two jobs:
+
 - A MOVES reference is a video. It gives the pace, the scene changes and the one idea.
 - A LOOK reference is a website, a brand, a moodboard or my own site. It gives the colours, fonts and feel.
-One reference can do both if I say so. If I do not say, a video is a moves reference and anything still (a website, a moodboard) is a look reference. You never copy a video. My topic and my words build the film.
+  One reference can do both if I say so. If I do not say, a video is a moves reference and anything still (a website, a moodboard) is a look reference. You never copy a video. My topic and my words build the film.
 
 <task>
 1. Look at everything I attach and sort it into moves and look.
@@ -36,8 +37,9 @@ One reference can do both if I say so. If I do not say, a video is a moves refer
 <output_format>
 Part 1: the five-line breakdown, plus the Look line if I gave a look reference.
 Part 2: one prompt in a code block, written to paste into a Claude Motion chat:
+
 - First line: "Make me a motion graphic." Then the format, size and exact length.
 - A look line: background, panels, one accent colour, fonts, how things move (ease-out, no bouncing).
 - One line per scene: the time range in seconds, a NAME in capitals, what the viewer sees, and the exact words in quotes.
 - Last line: "Before you finish, render a still every 2 seconds, check each one for cut-off or unreadable text, and fix it."
-</output_format>
+  </output_format>

@@ -123,9 +123,7 @@ function JournalPage() {
   const [activeTag, setActiveTag] = useState<string>("All");
 
   const filteredArticles =
-    activeTag === "All"
-      ? articlesData
-      : articlesData.filter((a) => a.tag === activeTag);
+    activeTag === "All" ? articlesData : articlesData.filter((a) => a.tag === activeTag);
 
   return (
     <SiteShell>
@@ -149,7 +147,8 @@ function JournalPage() {
                 <span className="text-gray-900 font-semibold">Tested in production.</span>
               </h1>
               <p className="mt-6 text-[15px] sm:text-[17px] leading-[1.65] font-medium text-gray-600">
-                In-depth essays on web animation physics, cloud resilience, scalable architecture, and founder mentorship from the engineering floor at Matrix Root.
+                In-depth essays on web animation physics, cloud resilience, scalable architecture,
+                and founder mentorship from the engineering floor at Matrix Root.
               </p>
             </div>
 
@@ -257,7 +256,8 @@ function JournalPage() {
             Want us to architect or accelerate your software?
           </h2>
           <p className="mt-3 text-muted-foreground max-w-xl mx-auto text-sm sm:text-base">
-            We operate in fast monthly cycles with guaranteed delivery milestones. Speak directly with our lead architects today.
+            We operate in fast monthly cycles with guaranteed delivery milestones. Speak directly
+            with our lead architects today.
           </p>
           <div className="mt-8 flex justify-center">
             <a
