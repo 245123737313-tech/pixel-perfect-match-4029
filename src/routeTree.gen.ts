@@ -16,7 +16,6 @@ import { Route as ConnectRouteImport } from './routes/connect'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as IncubatorRouteImport } from './routes/incubator'
 import { Route as JournalRouteImport } from './routes/journal'
-import { Route as MotionRouteImport } from './routes/motion'
 import { Route as ProjectsRouteImport } from './routes/projects'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as StudioRouteImport } from './routes/studio'
@@ -56,11 +55,6 @@ const JournalRoute = JournalRouteImport.update({
   path: '/journal',
   getParentRoute: () => rootRouteImport,
 } as any)
-const MotionRoute = MotionRouteImport.update({
-  id: '/motion',
-  path: '/motion',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const ProjectsRoute = ProjectsRouteImport.update({
   id: '/projects',
   path: '/projects',
@@ -85,7 +79,6 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/incubator': typeof IncubatorRoute
   '/journal': typeof JournalRoute
-  '/motion': typeof MotionRoute
   '/projects': typeof ProjectsRoute
   '/services': typeof ServicesRoute
   '/studio': typeof StudioRoute
@@ -98,7 +91,6 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/incubator': typeof IncubatorRoute
   '/journal': typeof JournalRoute
-  '/motion': typeof MotionRoute
   '/projects': typeof ProjectsRoute
   '/services': typeof ServicesRoute
   '/studio': typeof StudioRoute
@@ -112,7 +104,6 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/incubator': typeof IncubatorRoute
   '/journal': typeof JournalRoute
-  '/motion': typeof MotionRoute
   '/projects': typeof ProjectsRoute
   '/services': typeof ServicesRoute
   '/studio': typeof StudioRoute
@@ -127,7 +118,6 @@ export interface FileRouteTypes {
     | '/contact'
     | '/incubator'
     | '/journal'
-    | '/motion'
     | '/projects'
     | '/services'
     | '/studio'
@@ -140,7 +130,6 @@ export interface FileRouteTypes {
     | '/contact'
     | '/incubator'
     | '/journal'
-    | '/motion'
     | '/projects'
     | '/services'
     | '/studio'
@@ -153,7 +142,6 @@ export interface FileRouteTypes {
     | '/contact'
     | '/incubator'
     | '/journal'
-    | '/motion'
     | '/projects'
     | '/services'
     | '/studio'
@@ -167,7 +155,6 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   IncubatorRoute: typeof IncubatorRoute
   JournalRoute: typeof JournalRoute
-  MotionRoute: typeof MotionRoute
   ProjectsRoute: typeof ProjectsRoute
   ServicesRoute: typeof ServicesRoute
   StudioRoute: typeof StudioRoute
@@ -224,13 +211,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof JournalRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/motion': {
-      id: '/motion'
-      path: '/motion'
-      fullPath: '/motion'
-      preLoaderRoute: typeof MotionRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/projects': {
       id: '/projects'
       path: '/projects'
@@ -263,7 +243,6 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   IncubatorRoute: IncubatorRoute,
   JournalRoute: JournalRoute,
-  MotionRoute: MotionRoute,
   ProjectsRoute: ProjectsRoute,
   ServicesRoute: ServicesRoute,
   StudioRoute: StudioRoute,

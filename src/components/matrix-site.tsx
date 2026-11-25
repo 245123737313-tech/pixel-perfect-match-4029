@@ -14,7 +14,6 @@ export { CALL_TEL, WHATSAPP_NUMBER, WHATSAPP_URL };
 export const pages = [
   { to: "/studio", label: "Studio" },
   { to: "/projects", label: "Projects" },
-  { to: "/motion", label: "Motion" },
   { to: "/journal", label: "Journal" },
   { to: "/connect", label: "Connect" },
 ] as const;

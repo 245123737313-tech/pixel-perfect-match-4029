@@ -241,9 +241,8 @@ export function StudioLanding({
   }, []);
 
   const navLinks = [
-    { label: "Studio", href: "/studio" },
     { label: "Projects", href: "/projects" },
-    { label: "Motion", href: "/motion" },
+    { label: "Studio", href: "/studio" },
     { label: "Journal", href: "/journal" },
     { label: "Connect", href: "/connect" },
   ];
@@ -685,9 +684,8 @@ export function StudioLanding({
           </div>
 
           <div className="flex flex-wrap items-center gap-6 text-sm text-gray-600">
-            <a href="/studio" className="hover:text-gray-900 transition-colors">Studio</a>
             <a href="/projects" className="hover:text-gray-900 transition-colors">Projects</a>
-            <a href="/motion" className="hover:text-gray-900 transition-colors">Motion</a>
+            <a href="/studio" className="hover:text-gray-900 transition-colors">Studio</a>
             <a href="/journal" className="hover:text-gray-900 transition-colors">Journal</a>
             <a href="/connect" className="hover:text-gray-900 transition-colors">Connect</a>
             <a
