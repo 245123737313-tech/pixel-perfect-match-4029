@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "@tanstack/react-router";
-import { Clock, Menu, X, ArrowRight, MessageSquare } from "lucide-react";
-import { WHATSAPP_URL, TextRollButton } from "./studio-landing";
+import { Clock, Menu, X, ArrowRight, Phone } from "lucide-react";
+import { CALL_TEL, TextRollButton } from "./studio-landing";
 
 export function SiteHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -90,13 +90,7 @@ export function SiteHeader() {
                 <Clock className="w-3.5 h-3.5 text-gray-600" aria-hidden="true" />
                 <span>{londonTime || "12:00"} in London</span>
               </div>
-              <TextRollButton
-                text="Start a project"
-                href={WHATSAPP_URL}
-                variant="orange"
-                target="_blank"
-                rel="noopener noreferrer"
-              />
+              <TextRollButton text="Book a call" href={CALL_TEL} variant="orange" />
             </div>
 
             {/* Mobile Toggle Button */}
@@ -159,13 +153,11 @@ export function SiteHeader() {
             {/* Single clean mobile action button */}
             <div className="pt-2">
               <a
-                href={WHATSAPP_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full bg-[#F26522] hover:bg-[#e05a1a] text-white text-sm font-semibold rounded-full py-3 px-5 flex items-center justify-between transition-colors shadow-sm"
+                href={CALL_TEL}
+                className="w-full bg-[#F26522] hover:bg-[#e05a1a] text-white text-sm font-semibold rounded-full py-3 px-5 flex items-center justify-between transition-colors shadow-sm cursor-pointer"
               >
                 <span className="flex items-center gap-2">
-                  <MessageSquare className="w-4 h-4 text-white" /> Start a project
+                  <Phone className="w-4 h-4 text-white" /> Book a call
                 </span>
                 <ArrowRight className="w-4 h-4 text-white" />
               </a>
