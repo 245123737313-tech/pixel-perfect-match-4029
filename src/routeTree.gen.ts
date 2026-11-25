@@ -14,6 +14,7 @@ import { Route as AboutRouteImport } from './routes/about'
 import { Route as AxionRouteImport } from './routes/axion'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as IncubatorRouteImport } from './routes/incubator'
+import { Route as MotionRouteImport } from './routes/motion'
 import { Route as ServicesRouteImport } from './routes/services'
 
 const IndexRoute = IndexRouteImport.update({
@@ -41,6 +42,11 @@ const IncubatorRoute = IncubatorRouteImport.update({
   path: '/incubator',
   getParentRoute: () => rootRouteImport,
 } as any)
+const MotionRoute = MotionRouteImport.update({
+  id: '/motion',
+  path: '/motion',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ServicesRoute = ServicesRouteImport.update({
   id: '/services',
   path: '/services',
@@ -53,6 +59,7 @@ export interface FileRoutesByFullPath {
   '/axion': typeof AxionRoute
   '/contact': typeof ContactRoute
   '/incubator': typeof IncubatorRoute
+  '/motion': typeof MotionRoute
   '/services': typeof ServicesRoute
 }
 export interface FileRoutesByTo {
@@ -61,6 +68,7 @@ export interface FileRoutesByTo {
   '/axion': typeof AxionRoute
   '/contact': typeof ContactRoute
   '/incubator': typeof IncubatorRoute
+  '/motion': typeof MotionRoute
   '/services': typeof ServicesRoute
 }
 export interface FileRoutesById {
@@ -70,13 +78,28 @@ export interface FileRoutesById {
   '/axion': typeof AxionRoute
   '/contact': typeof ContactRoute
   '/incubator': typeof IncubatorRoute
+  '/motion': typeof MotionRoute
   '/services': typeof ServicesRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/axion' | '/contact' | '/incubator' | '/services'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/axion'
+    | '/contact'
+    | '/incubator'
+    | '/motion'
+    | '/services'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/axion' | '/contact' | '/incubator' | '/services'
+  to:
+    | '/'
+    | '/about'
+    | '/axion'
+    | '/contact'
+    | '/incubator'
+    | '/motion'
+    | '/services'
   id:
     | '__root__'
     | '/'
@@ -84,6 +107,7 @@ export interface FileRouteTypes {
     | '/axion'
     | '/contact'
     | '/incubator'
+    | '/motion'
     | '/services'
   fileRoutesById: FileRoutesById
 }
@@ -93,6 +117,7 @@ export interface RootRouteChildren {
   AxionRoute: typeof AxionRoute
   ContactRoute: typeof ContactRoute
   IncubatorRoute: typeof IncubatorRoute
+  MotionRoute: typeof MotionRoute
   ServicesRoute: typeof ServicesRoute
 }
 
@@ -133,6 +158,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IncubatorRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/motion': {
+      id: '/motion'
+      path: '/motion'
+      fullPath: '/motion'
+      preLoaderRoute: typeof MotionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/services': {
       id: '/services'
       path: '/services'
@@ -149,6 +181,7 @@ const rootRouteChildren: RootRouteChildren = {
   AxionRoute: AxionRoute,
   ContactRoute: ContactRoute,
   IncubatorRoute: IncubatorRoute,
+  MotionRoute: MotionRoute,
   ServicesRoute: ServicesRoute,
 }
 export const routeTree = rootRouteImport

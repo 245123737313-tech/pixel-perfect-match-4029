@@ -220,6 +220,7 @@ export function StudioLanding({
   const navLinks = [
     { label: "Projects", href: "#projects" },
     { label: "Studio", href: "#about" },
+    { label: "Motion", href: "/motion" },
     { label: "Journal", href: "#journal" },
     { label: "Connect", href: "#connect" },
   ];
