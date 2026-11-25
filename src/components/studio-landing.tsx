@@ -436,17 +436,6 @@ export function StudioLanding({
                 Call: 8121358586
               </span>
             </a>
-
-            {/* Partner Badge */}
-            <div className="bg-white rounded-[4px] px-3 sm:px-4 py-2 sm:py-2.5 flex items-center gap-2.5 shadow-[0_2px_8px_rgba(0,0,0,0.08)] hover:shadow-[0_4px_16px_rgba(0,0,0,0.12)] transition-shadow duration-300">
-              <StarburstBadgeIcon className="w-5 h-5 sm:w-6 sm:h-6 fill-current text-[#E8704E]" />
-              <span className="text-[13px] sm:text-[14px] font-medium text-gray-900 whitespace-nowrap">
-                Certified Partner
-              </span>
-              <span className="text-[10px] sm:text-[11px] bg-gray-900 text-white px-1.5 sm:px-2 py-0.5 rounded font-medium">
-                Featured
-              </span>
-            </div>
           </div>
         </div>
       </section>
