@@ -1,9 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { HomePage, SiteShell } from "@/components/matrix-site";
+import { StudioLanding } from "@/components/studio-landing";
 
-const title = "Matrix Root | Software Solutions & Product Engineering";
+const title = "Matrix Root | Software Solutions & Digital Product Studio";
 const description =
-  "Matrix Root is a Hyderabad software solutions company building digital products, platforms, and reliable systems while helping student founders grow.";
+  "Matrix Root crafts high-performance digital products, systems, and brand experiences from Hyderabad for brands ready to dominate online.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -23,8 +23,11 @@ export const Route = createFileRoute("/")({
 
 function IndexPage() {
   return (
-    <SiteShell>
-      <HomePage />
-    </SiteShell>
+    <StudioLanding
+      brandName="Matrix Root"
+      logoText="MR"
+      heroLabel="Matrix Root Studio"
+      aboutLabel="Introducing Matrix Root"
+    />
   );
 }

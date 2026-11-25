@@ -15,7 +15,7 @@ describe("App routing", () => {
     expect(matches.at(-1)?.routeId).not.toBe(rootRouteId);
   });
 
-  it.each(["/services", "/incubator", "/about", "/contact"]) (
+  it.each(["/services", "/incubator", "/about", "/contact", "/axion"]) (
     "matches the %s page instead of falling back to not found",
     (path) => {
       const router = createRouter({ routeTree, context: { queryClient: new QueryClient() } });
